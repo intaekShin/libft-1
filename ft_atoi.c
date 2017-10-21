@@ -1,4 +1,5 @@
 #include "libft.h"
+#include <stdlib.h>
 
 int		ft_atoi(char *str)
 {
@@ -6,8 +7,8 @@ int		ft_atoi(char *str)
 	int min;
 	int result;
 	i = 0;
-	min = 0;
-	result = 1;
+	min = 1;
+	result = 0;
 
 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r' || str[i] == '\v'
 			|| str[i] == '\f' || str[i] == ' ')
@@ -24,12 +25,4 @@ int		ft_atoi(char *str)
 	}
 
 	return(result *= min);
-}
-
-
-int		main(int argc, char **argv)
-{
-	if (argc == 2)
-		ft_putnbr(ft_atoi(argv[1]));
-	return (0);
 }
