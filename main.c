@@ -88,7 +88,7 @@ void	test_strcpy(void)
 		printf("\t//SUCCESS\n\n");
 }
 
-int		main(int argc, char **argv)
+int		main(void)
 {
 	test_putchar();
 	test_putstr();
