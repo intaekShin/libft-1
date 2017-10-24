@@ -258,6 +258,97 @@ void	test_strncmp(void)
 		printf("\t//FAIL\n\n");
 }
 
+void	test_strupcase(void)
+{
+	int fail;
+
+	fail = 0;
+	
+	//Program Name
+	printf("ft_strupcase\n");
+
+	//Declarations
+	char a1[] = "Born in the UsSr";
+	char a2[] = "BORN IN THE USSR";
+	char b1[] = "\"24\" is \"42\" in reverse...";
+	char b2[] = "\"24\" IS \"42\" IN REVERSE...";
+	char c1[] = "eXclamation points go here! - not here !";
+	char c2[] = "EXCLAMATION POINTS GO HERE! - NOT HERE !";
+	
+	//Tests 1
+	printf("\t[%s] - before\n", a1);
+	ft_strupcase(a1);
+	printf("\t[%s] - after\n\t----------\n", a1);
+	
+	//Test 2
+	printf("\t[%s] - before\n", b1);
+	ft_strupcase(b1);
+	printf("\t[%s] - after\n\t----------\n", b1);
+	
+	//Test 3
+	printf("\t[%s] - before\n", c1);
+	ft_strupcase(c1);
+	printf("\t[%s] - after\n\t----------\n", c1);
+
+	if (strcmp(a1, a2) != 0)
+		fail = 1;
+	if (strcmp(b1, b2) != 0)
+		fail = 1;
+	if (strcmp(c1, c2) != 0)
+		fail = 1;
+
+	if (fail)
+		printf("\t//FAIL\n\n");
+	else
+		printf("\t//SUCCESS\n\n");
+}
+
+void	test_strlowcase(void)
+{
+	int fail;
+
+	fail = 0;
+	
+	//Program Name
+	printf("ft_strlowcase\n");
+
+	//Declarations
+	char a1[] = "Pink FloYD";
+	char a2[] = "pink floyd";
+	char b1[] = "\"24\" Is \"42\" in ReveRse...";
+	char b2[] = "\"24\" is \"42\" in reverse...";
+	char c1[] = "BrExit is sTUPid!";
+	char c2[] = "brexit is stupid!";
+	
+	//Tests 1
+	printf("\t[%s] - before\n", a1);
+	ft_strlowcase(a1);
+	printf("\t[%s] - after\n\t----------\n", a1);
+	
+	//Test 2
+	printf("\t[%s] - before\n", b1);
+	ft_strlowcase(b1);
+	printf("\t[%s] - after\n\t----------\n", b1);
+	
+	//Test 3
+	printf("\t[%s] - before\n", c1);
+	ft_strlowcase(c1);
+	printf("\t[%s] - after\n\t----------\n", c1);
+
+	if (strcmp(a1, a2) != 0)
+		fail = 1;
+	if (strcmp(b1, b2) != 0)
+		fail = 1;
+	if (strcmp(c1, c2) != 0)
+		fail = 1;
+
+	if (fail)
+		printf("\t//FAIL\n\n");
+	else
+		printf("\t//SUCCESS\n\n");
+}
+
+
 int		main(void)
 {
 	test_putchar();
@@ -269,5 +360,7 @@ int		main(void)
 	test_strstr();
 	test_strcmp();
 	test_strncmp();
+	test_strupcase();
+	test_strlowcase();
 	return (0);
 }

@@ -10,7 +10,9 @@ CFILE = test.c \
 	ft_strncpy.c \
 	ft_strstr.c \
 	ft_strcmp.c \
-	ft_strncmp.c
+	ft_strncmp.c \
+	ft_strupcase.c \
+	ft_strlowcase.c
 
 all:
 	$(COMP) $(CFILE)
