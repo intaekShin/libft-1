@@ -458,6 +458,118 @@ void	test_str_is_numeric(void)
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
+void	test_str_is_lowercase(void)
+{
+	int fail;
+
+	fail = 0;
+	
+	//Program Name
+	printf("ft_str_is_lowercase\n");
+
+	//Declarations
+	char a1[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	int a2 = 0;
+	char b1[] = "\"24\" IS \"42\" in ReveRse...";
+	int b2 = 0;
+	char c1[] = "lowercase";
+	int c2 = 1;
+	
+	//Tests 1
+	printf("\tString:[%s] Result:[%d]\n\t----------\n", a1, ft_str_is_lowercase(a1));
+	
+	//Test 2	
+	printf("\tString:[%s] Result:[%d]\n\t----------\n", b1, ft_str_is_lowercase(b1));
+	
+	//Test 3
+	printf("\tString:[%s] Result:[%d]\n\t----------\n", c1, ft_str_is_lowercase(c1));
+
+
+	if (ft_str_is_lowercase(a1) != a2)
+		fail = 1;
+	if (ft_str_is_lowercase(b1) != b2)
+		fail = 1;
+	if (ft_str_is_lowercase(c1) != c2)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_str_is_uppercase(void)
+{
+	int fail;
+
+	fail = 0;
+	
+	//Program Name
+	printf("ft_str_is_uppercase\n");
+
+	//Declarations
+	char a1[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	int a2 = 0;
+	char b1[] = "\"24\" IS \"42\" in ReveRse...";
+	int b2 = 0;
+	char c1[] = "UPPER";
+	int c2 = 1;
+	
+	//Tests 1
+	printf("\tString:[%s] Result:[%d]\n\t----------\n", a1, ft_str_is_uppercase(a1));
+	
+	//Test 2	
+	printf("\tString:[%s] Result:[%d]\n\t----------\n", b1, ft_str_is_uppercase(b1));
+	
+	//Test 3
+	printf("\tString:[%s] Result:[%d]\n\t----------\n", c1, ft_str_is_uppercase(c1));
+
+
+	if (ft_str_is_uppercase(a1) != a2)
+		fail = 1;
+	if (ft_str_is_uppercase(b1) != b2)
+		fail = 1;
+	if (ft_str_is_uppercase(c1) != c2)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_str_is_printable(void)
+{
+	int fail;
+
+	fail = 0;
+	
+	//Program Name
+	printf("ft_str_is_printable\n");
+
+	//Declarations
+	char a1[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	int a2 = 1;
+	char b1[] = "\"24\" IS \"42\" in ReveRse...\f";
+	int b2 = 0;
+	char c1[] = "UPPER";
+	int c2 = 1;
+	
+	//Tests 1
+	printf("\tString:[%s] Result:[%d]\n\t----------\n", a1, ft_str_is_printable(a1));
+	
+	//Test 2	
+	printf("\tString:[%s] Result:[%d]\n\t----------\n", b1, ft_str_is_printable(b1));
+	
+	//Test 3
+	printf("\tString:[%s] Result:[%d]\n\t----------\n", c1, ft_str_is_printable(c1));
+
+
+	if (ft_str_is_printable(a1) != a2)
+		fail = 1;
+	if (ft_str_is_printable(b1) != b2)
+		fail = 1;
+	if (ft_str_is_printable(c1) != c2)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+
 int		main(void)
 {
 	test_putchar();
@@ -474,5 +586,8 @@ int		main(void)
 	test_strcapitalize();
 	test_str_is_alpha();
 	test_str_is_numeric();
+	test_str_is_lowercase();
+	test_str_is_uppercase();
+	test_str_is_printable();
 	return (0);
 }

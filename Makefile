@@ -16,7 +16,10 @@ CFILE = test.c \
 	ft_strlowcase.c \
 	ft_strcapitalize.c \
 	ft_str_is_alpha.c \
-	ft_str_is_numeric.c
+	ft_str_is_numeric.c \
+	ft_str_is_lowercase.c \
+	ft_str_is_uppercase.c \
+	ft_str_is_printable.c
 OFILE = $(CFILE:%.c=%.o)
 
 all:
