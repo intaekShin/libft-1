@@ -169,6 +169,95 @@ void	test_strstr(void)
 		printf("\t//SUCCESS\n\n");
 }
 
+void	test_strcmp(void)
+{
+	int fta;
+	int ftb;
+	int ftc;
+
+	int sysa;
+	int sysb;
+	int sysc;
+
+	//Program name
+	printf("ft_strcmp\n");
+
+	//Declarations for both functions
+	char a1[] = "Ecole 42";
+	char a2[] = "Born 2 Code";
+	char b1[] = "Ann";
+	char b2[] = "Dav";
+	char c1[] = "Hello, world!";
+	char c2[] = "Hello, world!";
+
+	//my function call
+	fta = ft_strcmp(a1, a2);
+	ftb = ft_strcmp(b1, b2);
+	ftc = ft_strcmp(c1, c2);
+
+	//sys function call
+	sysa = strcmp(a1, a2);
+	sysb = strcmp(b1, b2);
+	sysc = strcmp(c1, c2);
+
+	//print results
+	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_strcmp\n\t[%d] - strcmp (System)\n\t"
+			"----------\n", a1, a2, fta, sysa);
+	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_strcmp\n\t[%d] - strcmp (System)\n\t"
+			"----------\n", b1, b2, ftb, sysb);
+	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_strcmp\n\t[%d] - strcmp (System)\n\t"
+			"----------\n", c1, c2, ftc, sysc);
+	if (fta == sysa && ftb == sysb && ftc == sysc)
+		printf("\t//SUCCESS\n\n");
+	else
+		printf("\t//FAIL\n\n");
+}
+
+void	test_strncmp(void)
+{
+	int fta;
+	int ftb;
+	int ftc;
+
+	int sysa;
+	int sysb;
+	int sysc;
+
+	//Program name
+	printf("ft_strncmp\n");
+
+	//Declarations for both functions
+	char a1[] = "Ecole 42";
+	char a2[] = "Born 2 Code";
+	char b1[] = "Ann";
+	char b2[] = "Dav";
+	char c1[] = "Hello, world!";
+	char c2[] = "Hello, moto!";
+
+	//my function call
+	fta = ft_strncmp(a1, a2, 3);
+	ftb = ft_strncmp(b1, b2, 3);
+	ftc = ft_strncmp(c1, c2, 3);
+
+	//sys function call
+	sysa = strncmp(a1, a2, 3);
+	sysb = strncmp(b1, b2, 3);
+	sysc = strncmp(c1, c2, 3);
+
+	//print results
+	printf("\t**All passed with 3 for size_t**\n\t----------\n");
+	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_strcmp\n\t[%d] - strncmp (System)\n\t"
+			"----------\n", a1, a2, fta, sysa);
+	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_strcmp\n\t[%d] - strncmp (System)\n\t"
+			"----------\n", b1, b2, ftb, sysb);
+	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_strcmp\n\t[%d] - strncmp (System)\n\t"
+			"----------\n", c1, c2, ftc, sysc);
+	if (fta == sysa && ftb == sysb && ftc == sysc)
+		printf("\t//SUCCESS\n\n");
+	else
+		printf("\t//FAIL\n\n");
+}
+
 int		main(void)
 {
 	test_putchar();
@@ -178,5 +267,7 @@ int		main(void)
 	test_strcpy();
 	test_strncpy();
 	test_strstr();
+	test_strcmp();
+	test_strncmp();
 	return (0);
 }
