@@ -14,7 +14,9 @@ CFILE = test.c \
 	ft_strncmp.c \
 	ft_strupcase.c \
 	ft_strlowcase.c \
-	ft_strcapitalize.c
+	ft_strcapitalize.c \
+	ft_str_is_alpha.c \
+	ft_str_is_numeric.c
 
 all:
 	$(COMP) $(CFILE)

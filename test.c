@@ -297,10 +297,7 @@ void	test_strupcase(void)
 	if (strcmp(c1, c2) != 0)
 		fail = 1;
 
-	if (fail)
-		printf("\t//FAIL\n\n");
-	else
-		printf("\t//SUCCESS\n\n");
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");	
 }
 
 void	test_strlowcase(void)
@@ -342,10 +339,7 @@ void	test_strlowcase(void)
 	if (strcmp(c1, c2) != 0)
 		fail = 1;
 
-	if (fail)
-		printf("\t//FAIL\n\n");
-	else
-		printf("\t//SUCCESS\n\n");
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
 void	test_strcapitalize(void)
@@ -387,12 +381,82 @@ void	test_strcapitalize(void)
 	if (strcmp(c1, c2) != 0)
 		fail = 1;
 
-	if (fail)
-		printf("\t//FAIL\n\n");
-	else
-		printf("\t//SUCCESS\n\n");
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
+void	test_str_is_alpha(void)
+{
+	int fail;
+
+	fail = 0;
+	
+	//Program Name
+	printf("ft_str_is_alpha\n");
+
+	//Declarations
+	char a1[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	int a2 = 0;
+	char b1[] = "\"24\" IS \"42\" in ReveRse...";
+	int b2 = 0;
+	char c1[] = "Word";
+	int c2 = 1;
+	
+	//Tests 1
+	printf("\tString:[%s] Result:[%d]\n\t----------\n", a1, ft_str_is_alpha(a1));
+	
+	//Test 2	
+	printf("\tString:[%s] Result:[%d]\n\t----------\n", b1, ft_str_is_alpha(b1));
+	
+	//Test 3
+	printf("\tString:[%s] Result:[%d]\n\t----------\n", c1, ft_str_is_alpha(c1));
+
+
+	if (ft_str_is_alpha(a1) != a2)
+		fail = 1;
+	if (ft_str_is_alpha(b1) != b2)
+		fail = 1;
+	if (ft_str_is_alpha(c1) != c2)
+		fail = 1;
+	
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_str_is_numeric(void)
+{
+	int fail;
+
+	fail = 0;
+	
+	//Program Name
+	printf("ft_str_is_numeric\n");
+
+	//Declarations
+	char a1[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	int a2 = 0;
+	char b1[] = "\"24\" IS \"42\" in ReveRse...";
+	int b2 = 0;
+	char c1[] = "42";
+	int c2 = 1;
+	
+	//Tests 1
+	printf("\tString:[%s] Result:[%d]\n\t----------\n", a1, ft_str_is_numeric(a1));
+	
+	//Test 2	
+	printf("\tString:[%s] Result:[%d]\n\t----------\n", b1, ft_str_is_numeric(b1));
+	
+	//Test 3
+	printf("\tString:[%s] Result:[%d]\n\t----------\n", c1, ft_str_is_numeric(c1));
+
+
+	if (ft_str_is_numeric(a1) != a2)
+		fail = 1;
+	if (ft_str_is_numeric(b1) != b2)
+		fail = 1;
+	if (ft_str_is_numeric(c1) != c2)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
 
 int		main(void)
 {
@@ -408,5 +472,7 @@ int		main(void)
 	test_strupcase();
 	test_strlowcase();
 	test_strcapitalize();
+	test_str_is_alpha();
+	test_str_is_numeric();
 	return (0);
 }
