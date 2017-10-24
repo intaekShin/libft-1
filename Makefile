@@ -17,6 +17,7 @@ CFILE = test.c \
 	ft_strcapitalize.c \
 	ft_str_is_alpha.c \
 	ft_str_is_numeric.c
+OFILE = $(CFILE:%.c=%.o)
 
 all:
 	$(COMP) $(CFILE)
