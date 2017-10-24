@@ -13,7 +13,8 @@ CFILE = test.c \
 	ft_strcmp.c \
 	ft_strncmp.c \
 	ft_strupcase.c \
-	ft_strlowcase.c
+	ft_strlowcase.c \
+	ft_strcapitalize.c
 
 all:
 	$(COMP) $(CFILE)

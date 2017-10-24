@@ -15,4 +15,5 @@ int		ft_strcmp(char *s1, char *s2);
 int		ft_strncmp(char *s1, char *s2, unsigned int n);
 char	*ft_strupcase(char *str);
 char	*ft_strlowcase(char *str);
+char	*ft_strcapitalize(char *str);
 #endif

@@ -348,6 +348,51 @@ void	test_strlowcase(void)
 		printf("\t//SUCCESS\n\n");
 }
 
+void	test_strcapitalize(void)
+{
+	int fail;
+
+	fail = 0;
+	
+	//Program Name
+	printf("ft_strcapitalize\n");
+
+	//Declarations
+	char a1[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	char a2[] = "Salut, Comment Tu Vas ? 42mots Quarante-Deux; Cinquante+Et+Un";
+	char b1[] = "\"24\" IS \"42\" in ReveRse...";
+	char b2[] = "\"24\" Is \"42\" In Reverse...";
+	char c1[] = "** my PASSPORT is wOrthless! (2019 onwArds)";
+	char c2[] = "** My Passport Is Worthless! (2019 Onwards)";
+	
+	//Tests 1
+	printf("\t[%s] - before\n", a1);
+	ft_strcapitalize(a1);
+	printf("\t[%s] - after\n\t----------\n", a1);
+	
+	//Test 2
+	printf("\t[%s] - before\n", b1);
+	ft_strcapitalize(b1);
+	printf("\t[%s] - after\n\t----------\n", b1);
+	
+	//Test 3
+	printf("\t[%s] - before\n", c1);
+	ft_strcapitalize(c1);
+	printf("\t[%s] - after\n\t----------\n", c1);
+
+	if (strcmp(a1, a2) != 0)
+		fail = 1;
+	if (strcmp(b1, b2) != 0)
+		fail = 1;
+	if (strcmp(c1, c2) != 0)
+		fail = 1;
+
+	if (fail)
+		printf("\t//FAIL\n\n");
+	else
+		printf("\t//SUCCESS\n\n");
+}
+
 
 int		main(void)
 {
@@ -362,5 +407,6 @@ int		main(void)
 	test_strncmp();
 	test_strupcase();
 	test_strlowcase();
+	test_strcapitalize();
 	return (0);
 }
