@@ -1,5 +1,3 @@
-#include "libft.h"
-
 char	*ft_strncat(char *dest, char *src, int nb)
 {
 	char *start;

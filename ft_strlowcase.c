@@ -1,5 +1,3 @@
-#include "libft.h"
-
 char	*ft_strlowcase(char *str)
 {
 	char *i;
