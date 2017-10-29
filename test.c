@@ -134,7 +134,7 @@ void	test_strstr(void)
 
 	fail = 0;
 	i = 0;
-	
+
 	//Program name
 	printf("ft_strstr\n");
 
@@ -263,7 +263,7 @@ void	test_strupcase(void)
 	int fail;
 
 	fail = 0;
-	
+
 	//Program Name
 	printf("ft_strupcase\n");
 
@@ -274,17 +274,17 @@ void	test_strupcase(void)
 	char b2[] = "\"24\" IS \"42\" IN REVERSE...";
 	char c1[] = "eXclamation points go here! - not here !";
 	char c2[] = "EXCLAMATION POINTS GO HERE! - NOT HERE !";
-	
+
 	//Tests 1
 	printf("\t[%s] - before\n", a1);
 	ft_strupcase(a1);
 	printf("\t[%s] - after\n\t----------\n", a1);
-	
+
 	//Test 2
 	printf("\t[%s] - before\n", b1);
 	ft_strupcase(b1);
 	printf("\t[%s] - after\n\t----------\n", b1);
-	
+
 	//Test 3
 	printf("\t[%s] - before\n", c1);
 	ft_strupcase(c1);
@@ -305,7 +305,7 @@ void	test_strlowcase(void)
 	int fail;
 
 	fail = 0;
-	
+
 	//Program Name
 	printf("ft_strlowcase\n");
 
@@ -316,17 +316,17 @@ void	test_strlowcase(void)
 	char b2[] = "\"24\" is \"42\" in reverse...";
 	char c1[] = "BrExit is sTUPid!";
 	char c2[] = "brexit is stupid!";
-	
+
 	//Tests 1
 	printf("\t[%s] - before\n", a1);
 	ft_strlowcase(a1);
 	printf("\t[%s] - after\n\t----------\n", a1);
-	
+
 	//Test 2
 	printf("\t[%s] - before\n", b1);
 	ft_strlowcase(b1);
 	printf("\t[%s] - after\n\t----------\n", b1);
-	
+
 	//Test 3
 	printf("\t[%s] - before\n", c1);
 	ft_strlowcase(c1);
@@ -347,7 +347,7 @@ void	test_strcapitalize(void)
 	int fail;
 
 	fail = 0;
-	
+
 	//Program Name
 	printf("ft_strcapitalize\n");
 
@@ -358,17 +358,17 @@ void	test_strcapitalize(void)
 	char b2[] = "\"24\" Is \"42\" In Reverse...";
 	char c1[] = "** my PASSPORT is wOrthless! (2019 onwArds)";
 	char c2[] = "** My Passport Is Worthless! (2019 Onwards)";
-	
+
 	//Tests 1
 	printf("\t[%s] - before\n", a1);
 	ft_strcapitalize(a1);
 	printf("\t[%s] - after\n\t----------\n", a1);
-	
+
 	//Test 2
 	printf("\t[%s] - before\n", b1);
 	ft_strcapitalize(b1);
 	printf("\t[%s] - after\n\t----------\n", b1);
-	
+
 	//Test 3
 	printf("\t[%s] - before\n", c1);
 	ft_strcapitalize(c1);
@@ -389,7 +389,7 @@ void	test_str_is_alpha(void)
 	int fail;
 
 	fail = 0;
-	
+
 	//Program Name
 	printf("ft_str_is_alpha\n");
 
@@ -400,13 +400,13 @@ void	test_str_is_alpha(void)
 	int b2 = 0;
 	char c1[] = "Word";
 	int c2 = 1;
-	
+
 	//Tests 1
 	printf("\tString:[%s] Result:[%d]\n\t----------\n", a1, ft_str_is_alpha(a1));
-	
+
 	//Test 2	
 	printf("\tString:[%s] Result:[%d]\n\t----------\n", b1, ft_str_is_alpha(b1));
-	
+
 	//Test 3
 	printf("\tString:[%s] Result:[%d]\n\t----------\n", c1, ft_str_is_alpha(c1));
 
@@ -417,7 +417,7 @@ void	test_str_is_alpha(void)
 		fail = 1;
 	if (ft_str_is_alpha(c1) != c2)
 		fail = 1;
-	
+
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
@@ -426,7 +426,7 @@ void	test_str_is_numeric(void)
 	int fail;
 
 	fail = 0;
-	
+
 	//Program Name
 	printf("ft_str_is_numeric\n");
 
@@ -437,13 +437,13 @@ void	test_str_is_numeric(void)
 	int b2 = 0;
 	char c1[] = "42";
 	int c2 = 1;
-	
+
 	//Tests 1
 	printf("\tString:[%s] Result:[%d]\n\t----------\n", a1, ft_str_is_numeric(a1));
-	
+
 	//Test 2	
 	printf("\tString:[%s] Result:[%d]\n\t----------\n", b1, ft_str_is_numeric(b1));
-	
+
 	//Test 3
 	printf("\tString:[%s] Result:[%d]\n\t----------\n", c1, ft_str_is_numeric(c1));
 
@@ -463,7 +463,7 @@ void	test_str_is_lowercase(void)
 	int fail;
 
 	fail = 0;
-	
+
 	//Program Name
 	printf("ft_str_is_lowercase\n");
 
@@ -474,13 +474,13 @@ void	test_str_is_lowercase(void)
 	int b2 = 0;
 	char c1[] = "lowercase";
 	int c2 = 1;
-	
+
 	//Tests 1
 	printf("\tString:[%s] Result:[%d]\n\t----------\n", a1, ft_str_is_lowercase(a1));
-	
+
 	//Test 2	
 	printf("\tString:[%s] Result:[%d]\n\t----------\n", b1, ft_str_is_lowercase(b1));
-	
+
 	//Test 3
 	printf("\tString:[%s] Result:[%d]\n\t----------\n", c1, ft_str_is_lowercase(c1));
 
@@ -500,7 +500,7 @@ void	test_str_is_uppercase(void)
 	int fail;
 
 	fail = 0;
-	
+
 	//Program Name
 	printf("ft_str_is_uppercase\n");
 
@@ -511,13 +511,13 @@ void	test_str_is_uppercase(void)
 	int b2 = 0;
 	char c1[] = "UPPER";
 	int c2 = 1;
-	
+
 	//Tests 1
 	printf("\tString:[%s] Result:[%d]\n\t----------\n", a1, ft_str_is_uppercase(a1));
-	
+
 	//Test 2	
 	printf("\tString:[%s] Result:[%d]\n\t----------\n", b1, ft_str_is_uppercase(b1));
-	
+
 	//Test 3
 	printf("\tString:[%s] Result:[%d]\n\t----------\n", c1, ft_str_is_uppercase(c1));
 
@@ -537,7 +537,7 @@ void	test_str_is_printable(void)
 	int fail;
 
 	fail = 0;
-	
+
 	//Program Name
 	printf("ft_str_is_printable\n");
 
@@ -548,13 +548,13 @@ void	test_str_is_printable(void)
 	int b2 = 0;
 	char c1[] = "UPPER";
 	int c2 = 1;
-	
+
 	//Tests 1
 	printf("\tString:[%s] Result:[%d]\n\t----------\n", a1, ft_str_is_printable(a1));
-	
+
 	//Test 2	
 	printf("\tString:[%s] Result:[%d]\n\t----------\n", b1, ft_str_is_printable(b1));
-	
+
 	//Test 3
 	printf("\tString:[%s] Result:[%d]\n\t----------\n", c1, ft_str_is_printable(c1));
 
@@ -569,6 +569,73 @@ void	test_str_is_printable(void)
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
+void	test_strcat(void)
+{
+	int fail;
+
+	fail = 0;
+
+	//Program Name
+	printf("ft_strcat\n");
+
+	//Declarations
+	char a1[50];
+	char a2[50];
+	char b1[50];
+	char b2[50];
+
+	ft_strcpy(a1, "Je suis un etudiant d");
+	ft_strcpy(a2, "e quarante deux");
+	ft_strcpy(b1, "Je suis un etudiant d");
+	ft_strcpy(b2, "e quarante deux");
+
+	//Test
+	printf("\tString 1:[%s]\n\tString 2:[%s]\n\t----------\n", a1, a2);
+	ft_strcat(a1, a2);
+	strcat(b1, b2);
+	printf("\t[%s] - ft_strcat\n\t[%s] - strcat\n", a1, b1);
+
+
+	//Result
+	if (strcmp(a1, b1) != 0)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_strncat(void)
+{
+	int fail;
+
+	fail = 0;
+
+	//Program Name
+	printf("ft_strncat\n");
+
+	//Declarations
+	char a1[50];
+	char a2[50];
+	char b1[50];
+	char b2[50];
+
+	ft_strcpy(a1, "Je suis un etudiant d");
+	ft_strcpy(a2, "e quarante deux");
+	ft_strcpy(b1, "Je suis un etudiant d");
+	ft_strcpy(b2, "e quarante deux");
+
+	//Test
+	printf("\tString 1:[%s]\n\tString 2:[%s]\n\t----------\n", a1, a2);
+	ft_strncat(a1, a2, 9);
+	strncat(b1, b2, 9);
+	printf("\t[%s] - ft_strncat\n\t[%s] - strncat\n", a1, b1);
+
+
+	//Result
+	if (strcmp(a1, b1) != 0)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
 
 int		main(void)
 {
@@ -589,5 +656,7 @@ int		main(void)
 	test_str_is_lowercase();
 	test_str_is_uppercase();
 	test_str_is_printable();
+	test_strcat();
+	test_strncat();
 	return (0);
 }

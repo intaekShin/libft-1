@@ -21,4 +21,6 @@ int		ft_str_is_numeric(char *str);
 int		ft_str_is_lowercase(char *str);
 int		ft_str_is_uppercase(char *str);
 int		ft_str_is_printable(char *str);
+char	*ft_strcat(char *dest, char *src);
+char	*ft_strncat(char *dest, char *src, int nb);
 #endif

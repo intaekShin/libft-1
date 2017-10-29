@@ -21,7 +21,10 @@ CFILE = test.c \
 	ft_str_is_numeric.c \
 	ft_str_is_lowercase.c \
 	ft_str_is_uppercase.c \
-	ft_str_is_printable.c
+	ft_str_is_printable.c \
+	ft_strcat.c \
+	ft_strncat.c
+
 OFILE = $(CFILE:%.c=%.o)
 
 all: $(NAME)
@@ -29,6 +32,7 @@ all: $(NAME)
 $(NAME): $(OFILE)
 	ar rc $(NAME) $(OFILE)
 	ranlib $(NAME)
+	gcc $(NAME)
 
 $(OFILE): $(CFILE)
 	$(COMP) $(CFILE)
