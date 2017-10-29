@@ -637,6 +637,79 @@ void	test_strncat(void)
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
+void	test_strlcat(void)
+{
+	int fail;
+
+	fail = 0;
+
+	//Program Name
+	printf("ft_strlcat\n");
+
+	//Declarations
+	char a1[50];
+	char a2[50];
+	char b1[50];
+	char b2[50];
+
+	ft_strcpy(a1, "Je suis un etudiant d");
+	ft_strcpy(a2, "e quarante deux");
+	ft_strcpy(b1, "Je suis un etudiant d");
+	ft_strcpy(b2, "e quarante deux");
+
+	//Test
+	printf("\tString 1:[%s]\n\tString 2:[%s]\n\t----------\n", a1, a2);
+	ft_strlcat(a1, a2, 26);
+	strlcat(b1, b2, 26);
+	printf("\t[%s] - ft_strlcat\n\t[%s] - strlcat\n", a1, b1);
+
+
+	//Result
+	if (strcmp(a1, b1) != 0)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_strlcpy(void)
+{
+	int fail;
+	int i;
+
+	fail = 0;
+	i = 0;
+
+	//Declarations for my function
+	char fttest[50] = "Lead Balloon";
+	char ftnew[50] = "Frogs";
+	//Declarations for system function
+	char systest[50] = "Lead Balloon";
+	char sysnew[50] = "Frogs";
+
+	//Print test input
+	printf("ft_strlcpy\n");
+	printf("\tDest:[%s] Src:[%s]\n\t----------\n", fttest, ftnew);
+
+	//Both my test & system test (n = 3)
+	ft_strlcpy(fttest, ftnew, 3);
+	strlcpy(systest, sysnew, 3);
+
+	//Result & return Success.
+	printf("\tDest:[%s] - ft_strncpy\n", fttest);
+	printf("\tDest:[%s] - strncpy (System)\n", systest);
+
+	while (systest[i] != '\0' || fttest[i] != '\0')
+	{
+		if (systest[i] != fttest[i])
+			fail = 1;
+		i++;
+	}
+	if (fail)
+		printf("\t//FAIL\n\n");
+	else
+		printf("\t//SUCCESS\n\n");
+}
+
 int		main(void)
 {
 	test_putchar();
@@ -658,5 +731,7 @@ int		main(void)
 	test_str_is_printable();
 	test_strcat();
 	test_strncat();
+	test_strlcat();
+	test_strlcpy();
 	return (0);
 }

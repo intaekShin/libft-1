@@ -23,7 +23,9 @@ CFILE = test.c \
 	ft_str_is_uppercase.c \
 	ft_str_is_printable.c \
 	ft_strcat.c \
-	ft_strncat.c
+	ft_strncat.c \
+	ft_strlcat.c \
+	ft_strlcpy.c
 
 OFILE = $(CFILE:%.c=%.o)
 
