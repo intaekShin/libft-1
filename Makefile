@@ -1,5 +1,7 @@
+# _*_ Makefile _*_
+
 NAME = libft.a
-COMP = gcc -Wall -Werror -Wextra
+COMP = gcc -Wall -Werror -Wextra -c
 CFILE = test.c \
 	ft_isalphanum.c \
 	ft_strlen.c \
@@ -22,5 +24,29 @@ CFILE = test.c \
 	ft_str_is_printable.c
 OFILE = $(CFILE:%.c=%.o)
 
-all:
+all: $(NAME)
+
+$(NAME): $(OFILE)
+	ar rc $(NAME) $(OFILE)
+	ranlib $(NAME)
+
+$(OFILE): $(CFILE)
 	$(COMP) $(CFILE)
+
+clean:
+	/bin/rm -f *.o
+
+fclean: clean
+	/bin/rm -f $(NAME)
+
+re: fclean all
+
+doprint: all
+	gcc -o print_temp $(NAME)
+	./print_temp > result.txt
+	./print_temp > ~/Desktop/result.txt
+	/bin/rm -f print_temp
+
+result: all doprint fclean
+
+.PHONY: clean flcean re result
