@@ -25,7 +25,8 @@ CFILE = test.c \
 	ft_strcat.c \
 	ft_strncat.c \
 	ft_strlcat.c \
-	ft_strlcpy.c
+	ft_strlcpy.c \
+	ft_bzero.c
 
 OFILE = $(CFILE:%.c=%.o)
 
@@ -55,4 +56,4 @@ doprint: all
 
 result: all doprint fclean
 
-.PHONY: clean flcean re result
+.PHONY: clean flcean re result doprint result
