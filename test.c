@@ -787,6 +787,52 @@ void	test_strdup(void)
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
+void	test_strnstr(void)
+{
+	int fail;
+	int i;
+
+	fail = 0;
+	i = 0;
+
+	//Program name
+	printf("ft_strnstr\n");
+
+	//Declarations for my function
+	char fttest[] = "Ecole 42 - Born 2 Code";
+	char ftfind[] = "Born";
+	//Declarations for system function
+	char systest[] = "Ecole 42 - Born 2 Code";
+	char sysfind[] = "Born";
+
+
+	//Print test input
+	printf("\tstr:[%s] to_find:[%s]\n\t----------\n", fttest, ftfind);
+
+	//Both my test & system test
+	char *ft = ft_strnstr(fttest, ftfind, 15);
+	char *sys = strnstr(systest, sysfind, 15);
+
+	//Result & return Success.
+	printf("\tstr:[%s] - ft_strnstr\n", ft_strnstr(fttest, ftfind, 15));
+	printf("\tstr:[%s] - strnstr (System)\n", strnstr(systest, sysfind, 15));
+
+	printf("%p\n", ft);
+	printf("%p\n", sys);
+
+	if (ft != sys)
+	{
+		fail = 1;
+		if (strcmp(ft, sys) == 0)
+			fail = 0;
+	}
+	if (fail)
+		printf("\t//FAIL\n\n");
+	else
+		printf("\t//SUCCESS\n\n");
+}
+
+
 
 int		main(void)
 {
@@ -813,5 +859,6 @@ int		main(void)
 	test_strlcpy();
 	test_bzero();
 	test_strdup();
+	test_strnstr();
 	return (0);
 }
