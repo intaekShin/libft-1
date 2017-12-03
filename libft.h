@@ -27,4 +27,5 @@ char			*ft_strncat(char *dest, char *src, int nb);
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 void			ft_bzero(char *src, unsigned int n);
+char			*ft_strdup(char *s1);
 #endif

@@ -26,7 +26,8 @@ CFILE = test.c \
 	ft_strncat.c \
 	ft_strlcat.c \
 	ft_strlcpy.c \
-	ft_bzero.c
+	ft_bzero.c \
+	ft_strdup.c
 
 OFILE = $(CFILE:%.c=%.o)
 

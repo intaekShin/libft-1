@@ -749,6 +749,45 @@ void	test_bzero(void)
 		printf("\t//SUCCESS\n\n");
 }
 
+void	test_strdup(void)
+{
+	int fail;
+
+	fail = 0;
+
+	//Program Name
+	printf("ft_strdup\n");
+
+	//Declarations
+	char a1[50];
+	char *a2;
+	char b1[50];
+	char *b2;
+
+	ft_strcpy(a1, "Ann is a cat");
+	ft_strcpy(b1, "Ann is a cat");
+
+	//strdup happens here.
+	a2 = ft_strdup(a1);
+	b2 = strdup(b1);
+
+	//Modify original to ensure that the new stings are duplicates.
+	ft_strcpy(a1, "red");
+	ft_strcpy(b1, "blue");
+
+	//Test
+	printf("\tOriginal String:[%s]\n\t----------\n", a1);
+	printf("\t[%s] - ft_strlcat\n\t[%s] - strlcat\n", a2, b2);
+
+
+	//Result
+	if (strcmp(a2, b2) != 0)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+
 int		main(void)
 {
 	test_putchar();
@@ -773,5 +812,6 @@ int		main(void)
 	test_strlcat();
 	test_strlcpy();
 	test_bzero();
+	test_strdup();
 	return (0);
 }
