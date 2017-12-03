@@ -817,9 +817,6 @@ void	test_strnstr(void)
 	printf("\tstr:[%s] - ft_strnstr\n", ft_strnstr(fttest, ftfind, 15));
 	printf("\tstr:[%s] - strnstr (System)\n", strnstr(systest, sysfind, 15));
 
-	printf("%p\n", ft);
-	printf("%p\n", sys);
-
 	if (ft != sys)
 	{
 		fail = 1;

@@ -3,7 +3,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-int				ft_isalphanum(char c);
+int				ft_isalnum(char c);
 void			ft_putchar(char c);
 void			ft_putstr(char *str);
 int				ft_strlen(char *str);

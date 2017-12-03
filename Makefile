@@ -3,7 +3,7 @@
 NAME = libft.a
 COMP = gcc -Wall -Werror -Wextra -c
 CFILE = test.c \
-	ft_isalphanum.c \
+	ft_isalnum.c \
 	ft_strlen.c \
 	ft_putchar.c \
 	ft_putstr.c \

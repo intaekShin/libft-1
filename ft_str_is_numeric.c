@@ -8,7 +8,7 @@ int ft_str_is_numeric(char *str)
 	
 	while (*str)
 	{
-		if (ft_isalphanum(*str) != 1)
+		if (ft_isalnum(*str) != 1)
 			fail = 1;
 		str++;
 	}

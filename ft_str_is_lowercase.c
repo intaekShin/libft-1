@@ -8,7 +8,7 @@ int ft_str_is_lowercase(char *str)
 	
 	while (*str)
 	{
-		if (ft_isalphanum(*str) != 3)
+		if (ft_isalnum(*str) != 3)
 			fail = 1;
 		str++;
 	}

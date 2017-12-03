@@ -14,9 +14,9 @@ char	*ft_strcapitalize(char *str)
 
 	while (s[i] != '\0')
 	{
-		if (j == -1 || ft_isalphanum(s[j]) == 0)
+		if (j == -1 || ft_isalnum(s[j]) == 0)
 		{
-			if (ft_isalphanum(s[i]) == 3)
+			if (ft_isalnum(s[i]) == 3)
 				s[i] -= 32;
 		}
 		i++;
