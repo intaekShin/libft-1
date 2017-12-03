@@ -1,6 +1,7 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <unistd.h>
+# include <stdlib.h>
 
 int				ft_isalphanum(char c);
 void			ft_putchar(char c);
