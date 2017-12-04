@@ -28,7 +28,13 @@ CFILE = test.c \
 	ft_strlcpy.c \
 	ft_bzero.c \
 	ft_strdup.c \
-	ft_strnstr.c
+	ft_strnstr.c \
+	ft_isalpha.c \
+	ft_isdigit.c \
+	ft_isascii.c \
+	ft_isprint.c \
+	ft_toupper.c \
+	ft_tolower.c
 
 OFILE = $(CFILE:%.c=%.o)
 

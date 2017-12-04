@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 void	test_putchar(void)
 {	
@@ -829,7 +830,268 @@ void	test_strnstr(void)
 		printf("\t//SUCCESS\n\n");
 }
 
+void	test_isalpha(void)
+{
+	//Declarations
+	char	ftis;
+	char	ftnot;
+	char	sysis;
+	char	sysnot;
 
+	int		ftisresult;
+	int		ftnotresult;
+	int		sysisresult;
+	int		sysnotresult;
+
+	int		fail;
+
+	fail = 0;
+
+	//Function Name
+	printf("ft_isalpha\n");
+	
+	//Assign values
+	ftis = 'a';
+	ftnot = '1';
+	sysis = 'a';
+	sysnot = '1';
+
+	//ft_isalpha v isalpha
+	ftisresult = ft_isalpha(ftis);
+	ftnotresult = ft_isalpha(ftnot);
+	sysisresult = isalpha(sysis);
+	sysnotresult = isalpha(sysnot);
+
+	if (ftisresult != sysisresult)
+		fail = 1;
+	if (ftnotresult != sysnotresult)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_isdigit(void)
+{
+	//Declarations
+	char	ftis;
+	char	ftnot;
+	char	sysis;
+	char	sysnot;
+
+	int		ftisresult;
+	int		ftnotresult;
+	int		sysisresult;
+	int		sysnotresult;
+
+	int		fail;
+
+	fail = 0;
+
+	//Function Name
+	printf("ft_isdigit\n");
+	
+	//Assign values
+	ftis = '1';
+	ftnot = 'a';
+	sysis = '1';
+	sysnot = 'a';
+
+	//ft_isalpha v isalpha
+	ftisresult = ft_isdigit(ftis);
+	ftnotresult = ft_isdigit(ftnot);
+	sysisresult = isdigit(sysis);
+	sysnotresult = isdigit(sysnot);
+
+	if (ftisresult != sysisresult)
+		fail = 1;
+	if (ftnotresult != sysnotresult)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_isalnum(void)
+{
+	//Declarations
+	char	ftis;
+	char	ftnot;
+	char	sysis;
+	char	sysnot;
+
+	int		ftisresult;
+	int		ftnotresult;
+	int		sysisresult;
+	int		sysnotresult;
+
+	int		fail;
+
+	fail = 0;
+
+	//Function Name
+	printf("ft_isalnum\n");
+	
+	//Assign values
+	ftis = 'a';
+	ftnot = '~';
+	sysis = 'a';
+	sysnot = '~';
+
+	//ft_isalpha v isalpha
+	ftisresult = ft_isalnum(ftis);
+	ftnotresult = ft_isalnum(ftnot);
+	sysisresult = isalnum(sysis);
+	sysnotresult = isalnum(sysnot);
+
+	if (ftisresult == 0 || sysisresult == 0)
+		fail = 1;
+	if (ftnotresult != sysnotresult)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_isascii(void)
+{
+	//Declarations
+	char	ftis;
+	char	sysis;
+
+	int		ftisresult;
+	int		sysisresult;
+
+	int		fail;
+
+	fail = 0;
+
+	//Function Name
+	printf("ft_isascii\n");
+	
+	//Assign values
+	ftis = 'a';
+	sysis = 'a';
+
+	//ft_isalpha v isalpha
+	ftisresult = ft_isalnum(ftis);
+	sysisresult = isalnum(sysis);
+
+	if (ftisresult == 0  ||  sysisresult == 0)
+		fail = 1;
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_isprint(void)
+{
+	//Declarations
+	char	ftis;
+	char	ftnot;
+	char	sysis;
+	char	sysnot;
+
+	int		ftisresult;
+	int		ftnotresult;
+	int		sysisresult;
+	int		sysnotresult;
+
+	int		fail;
+
+	fail = 0;
+
+	//Function Name
+	printf("ft_isprint\n");
+	
+	//Assign values
+	ftis = 'a';
+	ftnot = '\n';
+	sysis = 'a';
+	sysnot = '\n';
+
+	//ft_isalpha v isalpha
+	ftisresult = ft_isalnum(ftis);
+	ftnotresult = ft_isalnum(ftnot);
+	sysisresult = isalnum(sysis);
+	sysnotresult = isalnum(sysnot);
+
+	if (ftisresult == 0 || sysisresult == 0)
+		fail = 1;
+	if (ftnotresult != sysnotresult)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_toupper(void)
+{
+	//Declaratios
+	char	a1;
+	char	a2;
+	char	b1;
+	char	b2;
+	int		fail;
+
+	//Assign
+	a1 = 'a';
+	a2 = 'G';
+	b1 = 'a';
+	b2 = 'G';
+	fail = 0;
+
+	//toupper
+	a1 = ft_toupper(a1);
+	a2 = ft_toupper(a2);
+	b1 = toupper(b1);
+	b2 = toupper(b2);
+
+	//Program name
+	printf("ft_toupper\n");
+
+	//Output
+	printf("\ta -> %c - ft_toupper\n", a1);
+	printf("\tG -> %c - ft_toupper\n", a2);
+	printf("\ta -> %c - toupper\n", b1);
+	printf("\tG -> %c - toupper\n", b2);
+
+	//Test
+	((a1 != b1) || (a2 != b2)) ? (fail = 1) : (fail = 0);
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+
+}
+
+void	test_tolower(void)
+{
+	//Declaratios
+	char	a1;
+	char	a2;
+	char	b1;
+	char	b2;
+	int		fail;
+
+	//Assign
+	a1 = 'a';
+	a2 = 'G';
+	b1 = 'a';
+	b2 = 'G';
+	fail = 0;
+
+	//toupper
+	a1 = ft_tolower(a1);
+	a2 = ft_tolower(a2);
+	b1 = tolower(b1);
+	b2 = tolower(b2);
+
+	//Program name
+	printf("ft_tolower\n");
+
+	//Output
+	printf("\tH -> %c - ft_tolower\n", a1);
+	printf("\ti -> %c - ft_tolower\n", a2);
+	printf("\tH -> %c - tolower\n", b1);
+	printf("\ti -> %c - tolower\n", b2);
+
+	//Test
+	((a1 != b1) || (a2 != b2)) ? (fail = 1) : (fail = 0);
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+
+}
 
 int		main(void)
 {
@@ -857,5 +1119,12 @@ int		main(void)
 	test_bzero();
 	test_strdup();
 	test_strnstr();
+	test_isalpha();
+	test_isdigit();
+	test_isalnum();
+	test_isascii();
+	test_isprint();
+	test_toupper();
+	test_tolower();
 	return (0);
 }

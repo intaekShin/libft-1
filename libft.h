@@ -29,4 +29,10 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 void			ft_bzero(char *src, unsigned int n);
 char			*ft_strdup(char *s1);
 char			*ft_strnstr(char *str, char *to_find, int len);
+int				ft_isalpha(char c);
+int				ft_isdigit(char c);
+int				ft_isascii(char c);
+int				ft_isprint(char c);
+char			ft_toupper(char c);
+char			ft_tolower(char c);
 #endif
