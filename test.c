@@ -1131,6 +1131,106 @@ void	test_memset(void)
 	else
 		printf("\t//SUCCESS\n\n");
 }
+void	test_memcpy(void)
+{
+	int fail;
+	int i;
+
+	fail = 0;
+	i = 0;
+
+	//Program name
+	printf("ft_memcpy\n");
+
+	//Declarations for my function
+	char fttest[] = "Dogs are the best";
+	char ftfind[] = "Cats are awful";
+	//Declarations for system function
+	char systest[] = "Dogs are the best";
+	char sysfind[] = "Cats are awful";
+
+
+	//Print test input
+	printf("\tdst:[%s] src:[%s]\n\t----------\n", fttest, ftfind);
+
+	//Both my test & system test
+	ft_memcpy(fttest, ftfind, 4);
+	memcpy(systest, sysfind, 4);
+
+	//Result & return Success.
+	printf("\tstr:[%s] - ft_memcpy\n", fttest);
+	printf("\tstr:[%s] - memcpy (System)\n", systest);
+
+	if (ft_strcmp(fttest, systest) != 0)
+		fail = 1;
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+void	test_memccpy(void)
+{
+	int fail;
+	int i;
+
+	fail = 0;
+	i = 0;
+
+	//Program name
+	printf("ft_memccpy\n");
+
+	//Declarations for my function
+	char fttest[] = "Dogs are the best";
+	char ftfind[] = "Cats are awful";
+	//Declarations for system function
+	char systest[] = "Dogs are the best";
+	char sysfind[] = "Cats are awful";
+
+
+	//Print test input
+	printf("\tdst:[%s] src:[%s]\n\t----------\n", fttest, ftfind);
+
+	//Both my test & system test
+	ft_memccpy(fttest, ftfind, 'a', 4);
+	memccpy(systest, sysfind, 'a' , 4);
+
+	//Result & return Success.
+	printf("\tstr:[%s] - ft_memccpy\n", fttest);
+	printf("\tstr:[%s] - memccpy (System)\n", systest);
+
+	if (ft_strcmp(fttest, systest) != 0)
+		fail = 1;
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_memmove(void)
+{
+	int fail;
+	int i;
+
+	fail = 0;
+	i = 0;
+
+	//Program name
+	printf("ft_memmove\n");
+
+	//Declarations for my function
+	char fttest[] = "Cats hate Christmas";
+	//Declarations for system function
+	char systest[] = "Cats hate Christmas";
+
+	//Print test input
+	printf("\tdst:[%s] dst + 1[%s]\n\t----------\n", fttest, fttest + 1);
+
+	//Both my test & system test
+	ft_memmove(fttest, fttest + 1, 4);
+	memmove(systest, systest + 1, 4);
+
+	//Result & return Success.
+	printf("\tstr:[%s] - ft_memmove\n", fttest);
+	printf("\tstr:[%s] - memmove (System)\n", systest);
+
+	if (ft_strcmp(fttest, systest) != 0)
+		fail = 1;
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
 
 int		main(void)
 {
@@ -1166,5 +1266,8 @@ int		main(void)
 	test_toupper();
 	test_tolower();
 	test_memset();
+	test_memcpy();
+	test_memccpy();
+	test_memmove();
 	return (0);
 }
