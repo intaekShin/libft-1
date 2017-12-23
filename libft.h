@@ -26,7 +26,7 @@ char			*ft_strcat(char *dest, char *src);
 char			*ft_strncat(char *dest, char *src, int nb);
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
-void			ft_bzero(char *src, unsigned int n);
+void			ft_bzero(void *s, size_t n);
 char			*ft_strdup(char *s1);
 char			*ft_strnstr(char *str, char *to_find, int len);
 int				ft_isalpha(char c);
@@ -35,4 +35,5 @@ int				ft_isascii(char c);
 int				ft_isprint(char c);
 char			ft_toupper(char c);
 char			ft_tolower(char c);
+void			*ft_memset(void *b, int c, size_t len);
 #endif

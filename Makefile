@@ -34,7 +34,8 @@ CFILE = test.c \
 	ft_isascii.c \
 	ft_isprint.c \
 	ft_toupper.c \
-	ft_tolower.c
+	ft_tolower.c \
+	ft_memset.c
 
 OFILE = $(CFILE:%.c=%.o)
 

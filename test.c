@@ -1093,6 +1093,45 @@ void	test_tolower(void)
 
 }
 
+void	test_memset(void)
+{
+	int fail;
+	int i;
+
+	fail = 0;
+	i = 0;
+
+	//Function Name
+	printf("ft_memset");
+
+	//Declarations for my function
+	char fttest[50] = "It's Raining, it's pouring";
+	//Declarations for system function
+	char systest[50] = "It's Raining, it's pouring";
+
+	//Print test input
+	printf("\tString:[%s]\n\t----------\n", fttest);
+
+	//Both my test & system test (n = 3)
+	ft_memset(fttest, 'A', 8);
+	memset(systest, 'A', 8);
+
+	//Result & return Success.
+	printf("\tDest:[%s] - ft_memset\n", fttest);
+	printf("\tDest:[%s] - memset (System)\n", systest);
+
+	while (i < 20)
+	{
+		if (systest[i] != fttest[i])
+			fail = 1;
+		i++;
+	}
+	if (fail)
+		printf("\t//FAIL\n\n");
+	else
+		printf("\t//SUCCESS\n\n");
+}
+
 int		main(void)
 {
 	test_putchar();
@@ -1126,5 +1165,6 @@ int		main(void)
 	test_isprint();
 	test_toupper();
 	test_tolower();
+	test_memset();
 	return (0);
 }
