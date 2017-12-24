@@ -17,7 +17,7 @@ char	*ft_strndup(const char *s1, size_t n)
 		trail_zero = 1;
 	}
 
-	s2 = (char *) malloc(sizeof(*s1) * (size +1));
+	s2 = ft_strnew(size);
 	if (!s2)
 		return (NULL);
 

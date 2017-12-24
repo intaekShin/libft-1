@@ -45,4 +45,5 @@ char			*ft_strrchr(const char *s, int c);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);
 char			*ft_itoa(int n);
+char			*ft_strnew(size_t size);
 #endif
