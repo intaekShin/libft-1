@@ -1380,6 +1380,57 @@ void	test_memcmp(void)
 		printf("\t//FAIL\n\n");
 }
 
+void	test_itoa(void)
+{
+	int		fail;
+	fail = 0;
+
+	//Name
+	printf("ft_itoa\n");
+
+	//Decerations:
+	int		a;
+	int		b;
+	int		c;
+
+	char	aa[20];
+	char	bb[20];
+	char	cc[20];
+
+	char	aaa[20];
+	char	bbb[20];
+	char	ccc[20];
+
+	//Assign
+	a = 42;
+	b = 0;
+	c = -12675822;
+
+	ft_strcpy(aa, "42");
+	ft_strcpy(bb, "0");
+	ft_strcpy(cc, "-12675822");
+
+	
+	ft_strcpy(aaa, ft_itoa(a));
+	ft_strcpy(bbb, ft_itoa(b));
+	ft_strcpy(ccc, ft_itoa(c));
+
+	printf("\tExpected [%s] \t\tOutput[%s]\n", aa, aaa);
+	printf("\tExpected [%s] \t\tOutput[%s]\n", bb, bbb);
+	printf("\tExpected [%s] \tOutput[%s]\n", cc, ccc);
+
+	//Comparison
+	if (strcmp(aa, aaa) != 0)
+		fail = 1;
+	if (strcmp(bb, bbb) != 0)
+		fail = 1;
+	if (strcmp(cc, ccc) != 0)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+
 int		main(void)
 {
 	test_putchar();
@@ -1421,5 +1472,6 @@ int		main(void)
 	test_strrchr();
 	test_memchr();
 	test_memcmp();
+	test_itoa();
 	return (0);
 }
