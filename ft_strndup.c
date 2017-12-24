@@ -1,12 +1,10 @@
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
 char	*ft_strndup(const char *s1, size_t n)
 {
 	char	*s2;
-	int		len;
-	int		size;
+	size_t	len;
+	size_t	size;
 	int		trail_zero;
 
 	len = ft_strlen(s1);

@@ -735,8 +735,8 @@ void	test_bzero(void)
 	bzero(systest, 4);
 
 	//Result & return Success.
-	printf("\tDest:[%s] - ft_strncpy\n", fttest);
-	printf("\tDest:[%s] - strncpy (System)\n", systest);
+	printf("\tDest:[%s] - ft_bzero\n", fttest);
+	printf("\tDest:[%s] - bzero (System)\n", systest);
 
 	while (i < 20)
 	{

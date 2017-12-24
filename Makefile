@@ -28,6 +28,7 @@ CFILE = test.c \
 	ft_strlcpy.c \
 	ft_bzero.c \
 	ft_strdup.c \
+	ft_strndup.c \
 	ft_strnstr.c \
 	ft_isalpha.c \
 	ft_isdigit.c \
