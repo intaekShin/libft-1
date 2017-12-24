@@ -1232,6 +1232,154 @@ void	test_memmove(void)
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
+void	test_strchr(void)
+{
+	int fail;
+	int i;
+	char *ftnum;
+	char * sysnum;
+
+	fail = 0;
+	i = 0;
+
+	//Program name
+	printf("ft_strchr\n");
+
+	//Declarations for my function
+	char fttest[] = "This is a string";
+	//Declarations for system function
+	char systest[] = "This is a string";
+
+	//Print test input
+	printf("\tstring:[%s]\n\t----------\n", fttest);
+
+	//Both my test & system test
+	ftnum = ft_strchr(fttest, 'i');
+	sysnum = strchr(systest, 'i');
+
+	//Result & return Success.
+	printf("\tstr:[%s] [%s] - ft_strchr\n", fttest, ftnum);
+	printf("\tstr:[%s] [%s]- strchr (System)\n", systest, sysnum);
+
+	if (ft_strcmp(ftnum, sysnum) != 0)
+		fail = 1;
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_strrchr(void)
+{
+	int fail;
+	int i;
+	char *ftnum;
+	char * sysnum;
+
+	fail = 0;
+	i = 0;
+
+	//Program name
+	printf("ft_strrchr\n");
+
+	//Declarations for my function
+	char fttest[] = "This is a string";
+	//Declarations for system function
+	char systest[] = "This is a string";
+
+	//Print test input
+	printf("\tstring:[%s]\n\t----------\n", fttest);
+
+	//Both my test & system test
+	ftnum = ft_strrchr(fttest, 'i');
+	sysnum = strrchr(systest, 'i');
+
+	//Result & return Success.
+	printf("\tstr:[%s] [%s] - ft_strrchr\n", fttest, ftnum);
+	printf("\tstr:[%s] [%s]- strrchr (System)\n", systest, sysnum);
+
+	if (ft_strcmp(ftnum, sysnum) != 0)
+		fail = 1;
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_memchr(void)
+{
+	int fail;
+	int i;
+
+	fail = 0;
+	i = 0;
+
+	//Program name
+	printf("ft_memchr\n");
+
+	//Declarations for my function
+	char fttest[] = "Ecole 42 - Born 2 Code";
+	char ftfind = 'B';
+	//Declarations for system function
+	char systest[] = "Ecole 42 - Born 2 Code";
+	char sysfind = 'B';
+
+
+	//Print test input
+	printf("\tstr:[%s] to_find:[%c]\n\t----------\n", fttest, ftfind);
+
+	//Both my test & system test
+	char *ft = ft_memchr(fttest, ftfind, 22);
+	char *sys = memchr(systest, sysfind, 22);
+
+	//Result & return Success.
+	printf("\tstr:[%s] - ft_memchr\n", ft_memchr(fttest, ftfind, 22));
+	printf("\tstr:[%s] - memchr (System)\n", memchr(systest, sysfind, 22));
+
+	if (strcmp(ft, sys) != 0)
+		fail = 1;
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_memcmp(void)
+{
+	int fta;
+	int ftb;
+	int ftc;
+
+	int sysa;
+	int sysb;
+	int sysc;
+
+	//Program name
+	printf("ft_memcmp\n");
+
+	//Declarations for both functions
+	char a1[] = "Fridge";
+	char a2[] = "Frog";
+	char b1[] = "Boss";
+	char b2[] = "Bottle";
+	char c1[] = "Hello, world!";
+	char c2[] = "Hello, moto!";
+
+	//my function call
+	fta = ft_memcmp(a1, a2, 3);
+	ftb = ft_memcmp(b1, b2, 3);
+	ftc = ft_memcmp(c1, c2, 3);
+
+	//sys function call
+	sysa = memcmp(a1, a2, 3);
+	sysb = memcmp(b1, b2, 3);
+	sysc = memcmp(c1, c2, 3);
+
+	//print results
+	printf("\t**All passed with 3 for size_t**\n\t----------\n");
+	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_memcmp\n\t[%d] - memcmp (System)\n\t"
+			"----------\n", a1, a2, fta, sysa);
+	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_memcmp\n\t[%d] - memcmp (System)\n\t"
+			"----------\n", b1, b2, ftb, sysb);
+	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_memcmp\n\t[%d] - memcmp (System)\n\t"
+			"----------\n", c1, c2, ftc, sysc);
+	if (fta == sysa && ftb == sysb && ftc == sysc)
+		printf("\t//SUCCESS\n\n");
+	else
+		printf("\t//FAIL\n\n");
+}
+
 int		main(void)
 {
 	test_putchar();
@@ -1269,5 +1417,9 @@ int		main(void)
 	test_memcpy();
 	test_memccpy();
 	test_memmove();
+	test_strchr();
+	test_strrchr();
+	test_memchr();
+	test_memcmp();
 	return (0);
 }
