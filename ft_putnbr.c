@@ -1,27 +1,27 @@
 #include "libft.h"
 
-void	ft_putnbr(int nb)
+void	ft_putnbr(int n)
 {
 	int	temp;
 	int	tens;
 
 	tens = 1;
 
-	if (nb < 0)
+	if (n < 0)
 	{
 		ft_putchar('-');
-		if (nb == -2147483648)
+		if (n == -2147483648)
 		{
 			ft_putchar('2');
-			nb = -147483648;
+			n = -147483648;
 		};
-		nb = -nb;
+		n = -n;
 	}
 
-	temp = nb;
+	temp = n;
 	while ((temp /= 10) > 0)
 		tens *= 10;
-	temp = nb;
+	temp = n;
 
 	while(tens)
 	{

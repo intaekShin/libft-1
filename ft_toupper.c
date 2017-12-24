@@ -1,6 +1,6 @@
 #include "libft.h"
 
-char	ft_toupper(char c)
+char	ft_toupper(int c)
 {
 	if (ft_isalnum(c) == 3)
 		return (c -= 32);

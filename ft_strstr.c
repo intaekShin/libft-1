@@ -1,6 +1,6 @@
 #include "libft.h"
 
-char *ft_strstr(char *str, char *to_find)
+char *ft_strstr(const char *haystack, const char *needle)
 {
 	int i;
 	int j;
@@ -8,15 +8,15 @@ char *ft_strstr(char *str, char *to_find)
 	i = 0;
 	j = 0;
 
-	while (*str)
+	while (*haystack)
 	{
-		if (to_find[j] == '\0')
-			return (&str[i - ft_strlen(to_find)]);
-		if (str[i] == to_find[j])
+		if (needle[j] == '\0')
+			return ((char *)&haystack[i - ft_strlen(needle)]);
+		if (haystack[i] == needle[j])
 			j++;
 		else
 			j = 0;
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

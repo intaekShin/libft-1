@@ -1,16 +1,18 @@
-char	*ft_strncat(char *dest, char *src, int nb)
+#include "libft.h"
+
+char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
 {
 	char *start;
 
-	start = dest;
-	while (*dest)
-		dest++;
-	while (*src && nb)
+	start = s1;
+	while (*s1)
+		s1++;
+	while (*s2 && n)
 	{
-		*dest++ = *src++;
-		nb--;
+		*s1++ = *s2++;
+		n--;
 	}
-	*dest = '\0';
+	*s1 = '\0';
 
 	return (start);
 }
