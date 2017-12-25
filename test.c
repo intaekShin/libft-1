@@ -1430,7 +1430,6 @@ void	test_itoa(void)
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
-
 void	test_strnew(void)
 {
 	printf("ft_strnew\n\tReview the code below...\n\t----------\n");
@@ -1449,9 +1448,70 @@ void	test_strnew(void)
 		}
 		fclose(file);
 	}
-	printf("\n\t----------\n\t//REVIEW CODE");
+	printf("\n\t----------\n\t//REVIEW CODE\n\n");
 
 }
+
+void	test_memalloc(void)
+{
+	printf("ft_memalloc\n\tReview the code below...\n\t----------\n");
+	
+	int c;
+	FILE *file;
+	file = fopen("ft_memalloc.c", "r");
+	ft_putchar('\t');
+	if (file)
+	{
+		while ((c = getc(file)) != EOF)
+		{
+			ft_putchar(c);
+			if (c == '\n')
+				ft_putchar('\t');
+		}
+		fclose(file);
+	}
+	printf("\n\t----------\n\t//REVIEW CODE\n\n");
+
+}
+
+void	test_strclr(void)
+{
+	int fail;
+	int i;
+
+	fail = 0;
+	i = 0;
+
+	//Function Name
+	printf("ft_strclr\n");
+
+	//Declarations for my function
+	char fttest[50] = "My name is Earl";
+	//Declarations for system function
+	char systest[50] = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+
+	//Print test input
+	printf("\tString:[%s]\n\t----------\n", fttest);
+
+	//MY TEST ONLY.
+	ft_strclr(fttest);
+
+	//Result & return Success.
+	printf("\tDest:[%s] - ft_strclr\n", fttest);
+	printf("\tDest:[%s] - strclr (System)\n", systest);
+
+	while (i < 15)
+	{
+		if (systest[i] != fttest[i])
+			fail = 1;
+		i++;
+	}
+	if (fail)
+		printf("\t//FAIL\n\n");
+	else
+		printf("\t//SUCCESS\n\n");
+}
+
 int		main(void)
 {
 	test_putchar();
@@ -1495,5 +1555,7 @@ int		main(void)
 	test_memcmp();
 	test_itoa();
 	test_strnew();
+	test_memalloc();
+	test_strclr();
 	return (0);
 }
