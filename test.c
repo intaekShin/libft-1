@@ -1431,6 +1431,27 @@ void	test_itoa(void)
 }
 
 
+void	test_strnew(void)
+{
+	printf("ft_strnew\n\tReview the code below...\n\t----------\n");
+	
+	int c;
+	FILE *file;
+	file = fopen("ft_strnew.c", "r");
+	ft_putchar('\t');
+	if (file)
+	{
+		while ((c = getc(file)) != EOF)
+		{
+			ft_putchar(c);
+			if (c == '\n')
+				ft_putchar('\t');
+		}
+		fclose(file);
+	}
+	printf("\n\t----------\n\t//REVIEW CODE");
+
+}
 int		main(void)
 {
 	test_putchar();
@@ -1473,5 +1494,6 @@ int		main(void)
 	test_memchr();
 	test_memcmp();
 	test_itoa();
+	test_strnew();
 	return (0);
 }
