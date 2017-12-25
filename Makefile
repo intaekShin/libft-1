@@ -47,7 +47,9 @@ CFILE = test.c \
 	ft_itoa.c \
 	ft_strnew.c \
 	ft_memalloc.c \
-	ft_strclr.c
+	ft_strclr.c \
+	ft_strequ.c \
+	ft_strnequ.c
 
 OFILE = $(CFILE:%.c=%.o)
 

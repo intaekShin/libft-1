@@ -1512,6 +1512,98 @@ void	test_strclr(void)
 		printf("\t//SUCCESS\n\n");
 }
 
+void	test_strequ(void)
+{
+	int fta;
+	int ftb;
+	int ftc;
+
+	int sysa;
+	int sysb;
+	int sysc;
+
+	//Program name
+	printf("ft_strequ\n");
+
+	//Declarations for both functions
+	char a1[] = "Ecole 42";
+	char a2[] = "Born 2 Code";
+	char b1[] = "Ann";
+	char b2[] = "Dav";
+	char c1[] = "Hello, world!";
+	char c2[] = "Hello, world!";
+
+	//my function call
+	fta = ft_strequ(a1, a2);
+	ftb = ft_strequ(b1, b2);
+	ftc = ft_strequ(c1, c2);
+
+	//sys function call
+	sysa = 0;
+	sysb = 0;
+	sysc = 1;
+
+	//print results
+	printf("\ts1:[%s] s2:[%s]\n\tResult:[%d] \n\tExpected:[%d]\n\t"
+			"----------\n", a1, a2, fta, sysa);
+	printf("\ts1:[%s] s2:[%s]\n\tResult:[%d] \n\tExpected:[%d]\n\t"
+			"----------\n", b1, b2, ftb, sysb);
+	printf("\ts1:[%s] s2:[%s]\n\tResult:[%d] \n\tExpected:[%d]\n\t"
+			"----------\n", c1, c2, ftc, sysc);
+
+	if (fta == sysa && ftb == sysb && ftc == sysc)
+		printf("\t//SUCCESS\n\n");
+	else
+		printf("\t//FAIL\n\n");
+}
+
+void	test_strnequ(void)
+{
+	int fta;
+	int ftb;
+	int ftc;
+
+	int sysa;
+	int sysb;
+	int sysc;
+
+	//Program name
+	printf("ft_strequ\n");
+
+	//Declarations for both functions
+	char a1[] = "Ecole 42";
+	char a2[] = "Born 2 Code";
+	char b1[] = "Ann is a cat";
+	char b2[] = "Ann Smells";
+	char c1[] = "Hello, world!";
+	char c2[] = "Hello, world!";
+
+	//my function call
+	fta = ft_strnequ(a1, a2, 3);
+	ftb = ft_strnequ(b1, b2, 3);
+	ftc = ft_strnequ(c1, c2, 3);
+
+	//sys function call
+	sysa = 0;
+	sysb = 1;
+	sysc = 1;
+
+	//print results
+	printf("\tTested with 3 passed to size_t\n\t----------\n");
+	printf("\ts1:[%s] s2:[%s]\n\tResult:[%d] \n\tExpected:[%d]\n\t"
+			"----------\n", a1, a2, fta, sysa);
+	printf("\ts1:[%s] s2:[%s]\n\tResult:[%d] \n\tExpected:[%d]\n\t"
+			"----------\n", b1, b2, ftb, sysb);
+	printf("\ts1:[%s] s2:[%s]\n\tResult:[%d] \n\tExpected:[%d]\n\t"
+			"----------\n", c1, c2, ftc, sysc);
+
+	if (fta == sysa && ftb == sysb && ftc == sysc)
+		printf("\t//SUCCESS\n\n");
+	else
+		printf("\t//FAIL\n\n");
+}
+
+
 int		main(void)
 {
 	test_putchar();
@@ -1557,5 +1649,7 @@ int		main(void)
 	test_strnew();
 	test_memalloc();
 	test_strclr();
+	test_strequ();
+	test_strnequ();
 	return (0);
 }

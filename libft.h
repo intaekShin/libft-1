@@ -48,4 +48,6 @@ char			*ft_itoa(int n);
 char			*ft_strnew(size_t size);
 char			*ft_memalloc(size_t size);
 void			ft_strclr(char *s);
+int				ft_strequ(char const *s1,char const *s2);
+int				ft_strnequ(char const *s1,char const *s2, size_t n);
 #endif
