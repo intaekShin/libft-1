@@ -57,7 +57,11 @@ CFILE = test.c \
 	ft_memdel.c \
 	ft_strdel.c \
 	ft_putchar_fd.c \
-	ft_putstr_fd.c
+	ft_putstr_fd.c \
+	ft_putendl_fd.c \
+	ft_putnbr_fd.c \
+	ft_strsub.c \
+	ft_strjoin.c
 
 OFILE = $(CFILE:%.c=%.o)
 

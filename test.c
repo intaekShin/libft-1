@@ -1839,7 +1839,7 @@ void	test_memdel(void)
 		while ((c = getc(file)) != EOF)
 		{
 			ft_putchar(c);
-			if (c == '\n')
+	if (c == '\n')
 				ft_putchar('\t');
 		}
 		fclose(file);
@@ -1872,12 +1872,96 @@ void	test_strdel(void)
 
 void	test_putchar_fd(void)
 {	
-	ft_putstr("ft_putchar_fd\n\t//SUCCESS\n\n");
+	ft_putstr_fd("ft_putchar_fd\n\t//SUCCESS\n\n", 1);
 }
 
 void	test_putstr_fd(void)
 {
 	ft_putstr_fd("ft_putstr_fd\n\t//SUCCESS\n\n", 1);
+}
+
+void	test_putendl_fd(void)
+{
+	ft_putendl_fd("ft_putstr_fd\n\tTest statement", 1);
+	ft_putstr("\t//SUCCESS(If this is on a new line)\n\n");
+}
+
+void	test_putnbr_fd(void)
+{
+	ft_putstr("ft_putnbr_fd\n\t[-2147483648] - Expected\n\t[");
+	ft_putnbr_fd(-2147483648, 1);
+	ft_putstr("] - Result\n\t[2147483647] - Expected\n\t[");
+	ft_putnbr_fd(2147483647, 1);
+	ft_putstr("] - Result\n\t[0] - Expected\n\t[");
+	ft_putnbr_fd(0, 1);
+	ft_putstr("] - Result\n\t[42] - Expected\n\t[");
+	ft_putnbr_fd(42, 1);
+	ft_putstr("] - Result\n\t//Check results match expected\n\n");
+}
+
+void	test_strsub(void)
+{
+	int fail;
+
+	fail = 0;
+
+	//Program Name
+	printf("ft_strsub\n");
+
+	//Declarations
+	char a1[50];
+	char *a;
+	char b1[50];
+
+	ft_strcpy(a1, "Fast cars are cool cars");
+	ft_strcpy(b1, "cars are cool");
+
+	//Test
+	printf("\tString 1:[%s]\n\t----------\n", a1);
+	a = ft_strsub(a1, 5, 13);
+	printf("\t[%s] - Result\n\t[%s] - Expected\n", a, b1);
+
+
+	//Result
+	if (strcmp(a, b1) != 0)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_strjoin(void)
+{
+	int fail;
+
+	fail = 0;
+
+	//Program Name
+	printf("ft_strjoin\n");
+
+	//Declarations
+	char a1[50];
+	char a2[50];
+	char *a;
+	char b1[50];
+	char b2[50];
+
+	ft_strcpy(a1, "Je suis un etudiant d");
+	ft_strcpy(a2, "e quarante deux");
+	ft_strcpy(b1, "Je suis un etudiant d");
+	ft_strcpy(b2, "e quarante deux");
+
+	//Test
+	printf("\tString 1:[%s]\n\tString 2:[%s]\n\t----------\n", a1, a2);
+	a = ft_strjoin(a1, a2);
+	strcat(b1, b2);
+	printf("\t[%s] - Result\n\t[%s] - Expected\n", a, b1);
+
+
+	//Result
+	if (strcmp(a, b1) != 0)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
 int		main(void)
@@ -1935,5 +2019,9 @@ int		main(void)
 	test_strdel();
 	test_putchar_fd();
 	test_putstr_fd();
+	test_putendl_fd();
+	test_putnbr_fd();
+	test_strsub();
+	test_strjoin();
 	return (0);
 }
