@@ -1603,6 +1603,273 @@ void	test_strnequ(void)
 		printf("\t//FAIL\n\n");
 }
 
+void	slave_striter(char *c) //SLAVE
+{
+	//TO UPPER
+	if (ft_isalnum(c[0]) == 2)
+		c[0] += 32;
+}
+
+void	test_striter(void)
+{
+	int fail;
+
+	fail = 0;
+
+	//Program Name
+	printf("ft_striter\n");
+
+	void (*fptr)(char *);
+	fptr = slave_striter;
+
+	//Declarations
+	char a1[] = "Pink FloYD";
+	char a2[] = "pink floyd";
+	char b1[] = "\"24\" Is \"42\" in ReveRse...";
+	char b2[] = "\"24\" is \"42\" in reverse...";
+	char c1[] = "BrExit is sTUPid!";
+	char c2[] = "brexit is stupid!";
+
+	//Tests 1
+	printf("\t[%s] - before\n", a1);
+	ft_striter(a1, fptr);
+	printf("\t[%s] - after\n\t----------\n", a1);
+
+	//Test 2
+	printf("\t[%s] - before\n", b1);
+	ft_striter(b1, fptr);
+	printf("\t[%s] - after\n\t----------\n", b1);
+
+	//Test 3
+	printf("\t[%s] - before\n", c1);
+	ft_striter(c1, fptr);
+	printf("\t[%s] - after\n\t----------\n", c1);
+
+	if (strcmp(a1, a2) != 0)
+		fail = 1;
+	if (strcmp(b1, b2) != 0)
+		fail = 1;
+	if (strcmp(c1, c2) != 0)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	slave_striteri(unsigned int n, char *c) //SLAVE
+{
+	//TO LOWER
+	if (n != 0 && ft_isalnum(c[0]) == 2)
+		c[0] += 32;
+	//TO UPPER
+	if (n == 0 && ft_isalnum(c[0]) == 3)
+		c[0] -= 32;
+
+}
+
+void	test_striteri(void)
+{
+	int fail;
+
+	fail = 0;
+
+	//Program Name
+	printf("ft_striteri\n");
+
+	void (*fptr)(unsigned int, char *);
+	fptr = slave_striteri;
+
+	//Declarations
+	char a1[] = "Pink FloYD";
+	char a2[] = "Pink floyd";
+	char b1[] = "\"24\" Is \"42\" in ReveRse...";
+	char b2[] = "\"24\" is \"42\" in reverse...";
+	char c1[] = "BrExit is sTUPid!";
+	char c2[] = "Brexit is stupid!";
+
+	//Tests 1
+	printf("\t[%s] - before\n", a1);
+	ft_striteri(a1, fptr);
+	printf("\t[%s] - after\n\t----------\n", a1);
+
+	//Test 2
+	printf("\t[%s] - before\n", b1);
+	ft_striteri(b1, fptr);
+	printf("\t[%s] - after\n\t----------\n", b1);
+
+	//Test 3
+	printf("\t[%s] - before\n", c1);
+	ft_striteri(c1, fptr);
+	printf("\t[%s] - after\n\t----------\n", c1);
+
+	if (strcmp(a1, a2) != 0)
+		fail = 1;
+	if (strcmp(b1, b2) != 0)
+		fail = 1;
+	if (strcmp(c1, c2) != 0)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+char	slave_strmap(char c) //SLAVE
+{
+	//TO UPPER
+	if (ft_isalnum(c) == 2)
+		c += 32;
+	return(c);
+}
+
+void	test_strmap(void)
+{
+	int fail;
+
+	fail = 0;
+
+	//Program Name
+	printf("ft_strmap\n");
+
+	char (*fptr)(char);
+	fptr = slave_strmap;
+
+	//Declarations
+	char a1[] = "Pink FloYD";
+	char a2[] = "pink floyd";
+	char *a3;
+	char b1[] = "\"24\" Is \"42\" in ReveRse...";
+	char b2[] = "\"24\" is \"42\" in reverse...";
+	char *b3;
+	char c1[] = "BrExit is sTUPid!";
+	char c2[] = "brexit is stupid!";
+	char *c3;
+
+	//Tests 1
+	printf("\t[%s] - before\n", a1);
+	a3 = ft_strmap(a1, fptr);
+	printf("\t[%s] - after\n\t----------\n", a3);
+
+	//Test 2
+	printf("\t[%s] - before\n", b1);
+	b3 = ft_strmap(b1, fptr);
+	printf("\t[%s] - after\n\t----------\n", b3);
+
+	//Test 3
+	printf("\t[%s] - before\n", c1);
+	c3 = ft_strmap(c1, fptr);
+	printf("\t[%s] - after\n\t----------\n", c3);
+
+	if (strcmp(a3, a2) != 0)
+		fail = 1;
+	if (strcmp(b3, b2) != 0)
+		fail = 1;
+	if (strcmp(c3, c2) != 0)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+char	slave_strmapi(unsigned int n, char c) //SLAVE
+{
+	//TO LOWER
+	if (n != 0 && ft_isalnum(c) == 2)
+		c += 32;
+	//TO UPPER
+	if (n == 0 && ft_isalnum(c) == 3)
+		c -= 32;
+	return (c);
+}
+
+void	test_strmapi(void)
+{
+	int fail;
+
+	fail = 0;
+
+	//Program Name
+	printf("ft_strmapi\n");
+
+	char (*fptr)(unsigned int, char);
+	fptr = slave_strmapi;
+
+	//Declarations
+	char a1[] = "Pink FloYD";
+	char a2[] = "Pink floyd";
+	char *a3;
+	char b1[] = "\"24\" Is \"42\" in ReveRse...";
+	char b2[] = "\"24\" is \"42\" in reverse...";
+	char *b3;
+	char c1[] = "BrExit is sTUPid!";
+	char c2[] = "Brexit is stupid!";
+	char *c3;
+
+	//Tests 1
+	printf("\t[%s] - before\n", a1);
+	a3 = ft_strmapi(a1, fptr);
+	printf("\t[%s] - after\n\t----------\n", a3);
+
+	//Test 2
+	printf("\t[%s] - before\n", b1);
+	b3 = ft_strmapi(b1, fptr);
+	printf("\t[%s] - after\n\t----------\n", b3);
+
+	//Test 3
+	printf("\t[%s] - before\n", c1);
+	c3 = ft_strmapi(c1, fptr);
+	printf("\t[%s] - after\n\t----------\n", c3);
+
+	if (strcmp(a3, a2) != 0)
+		fail = 1;
+	if (strcmp(b3, b2) != 0)
+		fail = 1;
+	if (strcmp(c3, c2) != 0)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_memdel(void)
+{
+	printf("ft_memdel\n\tReview the code below...\n\t----------\n");
+	
+	int c;
+	FILE *file;
+	file = fopen("ft_memdel.c", "r");
+	ft_putchar('\t');
+	if (file)
+	{
+		while ((c = getc(file)) != EOF)
+		{
+			ft_putchar(c);
+			if (c == '\n')
+				ft_putchar('\t');
+		}
+		fclose(file);
+	}
+	printf("\n\t----------\n\t//REVIEW CODE\n\n");
+
+}
+
+void	test_strdel(void)
+{
+	printf("ft_strdel\n\tReview the code below...\n\t----------\n");
+	
+	int c;
+	FILE *file;
+	file = fopen("ft_strdel.c", "r");
+	ft_putchar('\t');
+	if (file)
+	{
+		while ((c = getc(file)) != EOF)
+		{
+			ft_putchar(c);
+			if (c == '\n')
+				ft_putchar('\t');
+		}
+		fclose(file);
+	}
+	printf("\n\t----------\n\t//REVIEW CODE\n\n");
+
+}
+
 
 int		main(void)
 {
@@ -1651,5 +1918,11 @@ int		main(void)
 	test_strclr();
 	test_strequ();
 	test_strnequ();
+	test_striter();
+	test_striteri();
+	test_strmap();
+	test_strmapi();
+	test_memdel();
+	test_strdel();
 	return (0);
 }
