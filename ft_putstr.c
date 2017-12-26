@@ -2,6 +2,5 @@
 
 void	ft_putstr(char const *s)
 {
-	while (*s)
-		ft_putchar(*s++);
+	ft_putstr_fd(s, 1);
 }

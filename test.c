@@ -1870,6 +1870,15 @@ void	test_strdel(void)
 
 }
 
+void	test_putchar_fd(void)
+{	
+	ft_putstr("ft_putchar_fd\n\t//SUCCESS\n\n");
+}
+
+void	test_putstr_fd(void)
+{
+	ft_putstr_fd("ft_putstr_fd\n\t//SUCCESS\n\n", 1);
+}
 
 int		main(void)
 {
@@ -1924,5 +1933,7 @@ int		main(void)
 	test_strmapi();
 	test_memdel();
 	test_strdel();
+	test_putchar_fd();
+	test_putstr_fd();
 	return (0);
 }

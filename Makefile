@@ -55,7 +55,9 @@ CFILE = test.c \
 	ft_strmap.c \
 	ft_strmapi.c \
 	ft_memdel.c \
-	ft_strdel.c
+	ft_strdel.c \
+	ft_putchar_fd.c \
+	ft_putstr_fd.c
 
 OFILE = $(CFILE:%.c=%.o)
 
