@@ -61,7 +61,13 @@ CFILE = test.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
 	ft_strsub.c \
-	ft_strjoin.c
+	ft_strjoin.c \
+	ft_strtrim.c \
+	ft_strsplit.c \
+	ft_arraydelim.c \
+	ft_fillarraydelim.c \
+	ft_removeselect.c \
+	ft_strtrimselect.c
 
 OFILE = $(CFILE:%.c=%.o)
 

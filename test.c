@@ -1964,6 +1964,96 @@ void	test_strjoin(void)
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
+void	test_strtrim(void)
+{
+	int fail;
+
+	fail = 0;
+
+	//Program Name
+	printf("ft_strtrim\n");
+
+	//Declarations
+	char a1[] = "    Red 7   \t";
+	char a2[] = "Red 7";
+	char *a3;
+	char b1[] = "\t Hello Moto\n\t\t";
+	char b2[] = "Hello Moto";
+	char *b3;
+	char c1[] = "Normalne";
+	char c2[] = "Normalne";
+	char *c3;
+
+	//Tests 1
+	printf("\t[%s] - before\n", a1);
+	a3 = ft_strtrim(a1);
+	printf("\t[%s] - after\n\t----------\n", a3);
+
+	//Test 2
+	printf("\t[%s] - before\n", b1);
+	b3 = ft_strtrim(b1);
+	printf("\t[%s] - after\n\t----------\n", b3);
+
+	//Test 3
+	printf("\t[%s] - before\n", c1);
+	c3 = ft_strtrim(c1);
+	printf("\t[%s] - after\n\t----------\n", c3);
+
+	if (strcmp(a3, a2) != 0)
+		fail = 1;
+	if (strcmp(b3, b2) != 0)
+		fail = 1;
+	if (strcmp(c3, c2) != 0)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_strsplit(void)
+{
+	int fail;
+
+	fail = 0;
+
+	//Program Name
+	printf("ft_strsplit\n");
+
+	//Declarations
+	char a1[] = "**This***is***a**string***";
+	char a2[] = "string";
+	char *a3;
+	char b1[] = "ppppAnnpppispppappppmonkeypppppp";
+	char b2[] = "Ann";
+	char *b3;
+	char c1[] = "Normalne";
+	char c2[] = "Normalne";
+	char *c3;
+
+	//Tests 1
+	printf("\t[%s] - before\n", a1);
+	a3 = ft_strsplit(a1, '*')[3];
+	printf("\t[%s] - after\n\t----------\n", a3);
+
+	//Test 2
+	printf("\t[%s] - before\n", b1);
+	b3 = ft_strsplit(b1, 'p')[0];
+	printf("\t[%s] - after\n\t----------\n", b3);
+
+	//Test 3
+	printf("\t[%s] - before\n", c1);
+	c3 = ft_strsplit(c1, '1')[0];
+	printf("\t[%s] - after\n\t----------\n", c3);
+
+	if (strcmp(a3, a2) != 0)
+		fail = 1;
+	if (strcmp(b3, b2) != 0)
+		fail = 1;
+	if (strcmp(c3, c2) != 0)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
 int		main(void)
 {
 	test_putchar();
@@ -2023,5 +2113,7 @@ int		main(void)
 	test_putnbr_fd();
 	test_strsub();
 	test_strjoin();
+	test_strtrim();
+	test_strsplit();
 	return (0);
 }
