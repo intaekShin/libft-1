@@ -1880,9 +1880,15 @@ void	test_putstr_fd(void)
 	ft_putstr_fd("ft_putstr_fd\n\t//SUCCESS\n\n", 1);
 }
 
+void	test_putendl(void)
+{
+	ft_putendl("ft_putendl\n\tTest statement");
+	ft_putstr("\t//SUCCESS(If this is on a new line)\n\n");
+}
+
 void	test_putendl_fd(void)
 {
-	ft_putendl_fd("ft_putstr_fd\n\tTest statement", 1);
+	ft_putendl_fd("ft_putendl_fd\n\tTest statement", 1);
 	ft_putstr("\t//SUCCESS(If this is on a new line)\n\n");
 }
 
@@ -2054,32 +2060,118 @@ void	test_strsplit(void)
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
+void	test_strlen(void)
+{
+	size_t a;
+	size_t b;
+	size_t c;
+	int fail;
+
+	fail = 0;
+
+	a = ft_strlen("1");
+	b = ft_strlen("Ann is a frog");
+	c = ft_strlen("     Orange is the new Acers     !   ");
+	
+	printf("ft_strlen\n");
+	printf("\t[%zu]\t\"1\"", a);
+	printf("\t[%zu]\t\"Ann is a frog\"", b);
+	printf("\t[%zu]\t\"     Orange is the new Acers     !   \"", c);
+
+	if (a != 1)
+		fail = 1;
+	if (b != 13)
+		fail = 1;
+	if (a != 37)
+		fail = 1;
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
 int		main(void)
 {
-	test_putchar();
-	test_putstr();
-	test_putnbr();
-	test_atoi();
+	//test_putchar();
+	//test_putstr();
+	//test_putnbr();
+	//test_atoi();
+	//test_strcpy();
+	//test_strncpy();
+	//test_strstr();
+	//test_strcmp();
+	//test_strncmp();
+	//test_strupcase();
+	//test_strlowcase();
+	//test_strcapitalize();
+	//test_str_is_alpha();
+	//test_str_is_numeric();
+	//test_str_is_lowercase();
+	//test_str_is_uppercase();
+	//test_str_is_printable();
+	//test_strcat();
+	//test_strncat();
+	//test_strlcat();
+	//test_strlcpy();
+	//test_bzero();
+	//test_strdup();
+	//test_strnstr();
+	//test_isalpha();
+	//test_isdigit();
+	//test_isalnum();
+	//test_isascii();
+	//test_isprint();
+	//test_toupper();
+	//test_tolower();
+	//test_memset();
+	//test_memcpy();
+	//test_memccpy();
+	//test_memmove();
+	//test_strchr();
+	//test_strrchr();
+	//test_memchr();
+	//test_memcmp();
+	//test_itoa();
+	//test_strnew();
+	//test_memalloc();
+	//test_strclr();
+	//test_strequ();
+	//test_strnequ();
+	//test_striter();
+	//test_striteri();
+	//test_strmap();
+	//test_strmapi();
+	//test_memdel();
+	//test_strdel();
+	//test_putchar_fd();
+	//test_putstr_fd();
+	//test_putendl();
+	//test_putendl_fd();
+	//test_putnbr_fd();
+	//test_strsub();
+	//test_strjoin();
+	//test_strtrim();
+	//test_strsplit();
+	//test_strlen();
+	
+	test_memset();
+	test_bzero();
+	test_memcpy();
+	test_memccpy();
+	test_memmove();
+	test_memchr();
+	test_memcmp();
+	test_strlen();
+	test_strdup();
 	test_strcpy();
 	test_strncpy();
-	test_strstr();
-	test_strcmp();
-	test_strncmp();
-	test_strupcase();
-	test_strlowcase();
-	test_strcapitalize();
-	test_str_is_alpha();
-	test_str_is_numeric();
-	test_str_is_lowercase();
-	test_str_is_uppercase();
-	test_str_is_printable();
 	test_strcat();
 	test_strncat();
 	test_strlcat();
-	test_strlcpy();
-	test_bzero();
-	test_strdup();
+	test_strchr();
+	test_strrchr();
+	test_strstr();
 	test_strnstr();
+	test_strcmp();
+	test_strncmp();
+	test_atoi();
 	test_isalpha();
 	test_isdigit();
 	test_isalnum();
@@ -2087,33 +2179,31 @@ int		main(void)
 	test_isprint();
 	test_toupper();
 	test_tolower();
-	test_memset();
-	test_memcpy();
-	test_memccpy();
-	test_memmove();
-	test_strchr();
-	test_strrchr();
-	test_memchr();
-	test_memcmp();
-	test_itoa();
-	test_strnew();
 	test_memalloc();
+	test_memdel();
+	test_strnew();
+	test_strdel();
 	test_strclr();
-	test_strequ();
-	test_strnequ();
 	test_striter();
 	test_striteri();
 	test_strmap();
 	test_strmapi();
-	test_memdel();
-	test_strdel();
-	test_putchar_fd();
-	test_putstr_fd();
-	test_putendl_fd();
-	test_putnbr_fd();
+	test_strequ();
+	test_strnequ();
 	test_strsub();
 	test_strjoin();
 	test_strtrim();
 	test_strsplit();
+	test_itoa();
+	test_putchar();
+	test_putstr();
+	test_putendl();
+	test_putnbr();
+	test_putchar_fd();
+	test_putstr_fd();
+	test_putendl_fd();
+	test_putnbr_fd();
+
+	
 	return (0);
 }
