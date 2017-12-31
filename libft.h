@@ -2,6 +2,9 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
+//							DELETE THE BELOW!!!
+# include <stdio.h>
+//							DELETE THE ABLOVE!!
 
 int				ft_isalnum(char c);
 void			ft_putchar(char c);
