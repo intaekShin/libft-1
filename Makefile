@@ -67,7 +67,8 @@ CFILE = test.c \
 	ft_arraydelim.c \
 	ft_fillarraydelim.c \
 	ft_removeselect.c \
-	ft_strtrimselect.c
+	ft_strtrimselect.c \
+	ft_newarraydelimstr.c
 
 OFILE = $(CFILE:%.c=%.o)
 
