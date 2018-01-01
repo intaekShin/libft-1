@@ -14,7 +14,8 @@ char	**ft_arraydelim(char const *s, char c)
 			j++;
 		i++;
 	}
-	array = (char **) malloc((j + 1) * sizeof(char *));
+	if(!(array = (char **) malloc((j + 1) * sizeof(char *))))
+		return (NULL);
 	ft_newarraydelimstr(array, s, c);
 	return (array);
 }
