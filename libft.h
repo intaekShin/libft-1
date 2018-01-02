@@ -2,9 +2,7 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
-//							DELETE THE BELOW!!!
-# include <stdio.h>
-//							DELETE THE ABLOVE!!
+# include <stdio.h> //_*_*_*_*_*_*_   DELETE THIS   _*_*_*_*_*_*_
 
 int				ft_isalnum(char c);
 void			ft_putchar(char c);
@@ -73,4 +71,18 @@ char			**ft_arraydelim(char const *s, char c);
 void			ft_fillarraydelim(char **array, const char *s, char c);
 char			**ft_strsplit(char const *s, char c);
 void			ft_newarraydelimstr(char **array, char const *s, char c);
+
+typedef struct	s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}				t_list;
+
+t_list			*ft_lstnew(void const *content, size_t content_size);
+void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void			ft_lstadd(t_list **alst, t_list *new);
+void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 #endif
