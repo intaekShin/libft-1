@@ -69,7 +69,13 @@ CFILE = test.c \
 	ft_fillarraydelim.c \
 	ft_removeselect.c \
 	ft_strtrimselect.c \
-	ft_newarraydelimstr.c
+	ft_newarraydelimstr.c \
+	ft_lstnew.c \
+	ft_lstdelone.c \
+	ft_lstdel.c \
+	ft_lstadd.c \
+	ft_lstiter.c \
+	ft_lstmap.c
 
 OFILE = $(CFILE:%.c=%.o)
 
