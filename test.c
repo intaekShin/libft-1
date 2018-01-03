@@ -2205,6 +2205,116 @@ void	test_lstdelone(void)
 	(fail) ? printf("//FAIL\n\n") : printf("//SUCCESS - if free occurs above\n\n");
 }
 
+void	test_lstdel(void)
+{
+	//Declaraitons
+	char		one_content[50];
+	char		two_content[50];
+	char		three_content[50];
+	char		four_content[50];
+	size_t		one_size;
+	size_t		two_size;
+	size_t		three_size;
+	size_t		four_size;
+	t_list		*one;
+	t_list		*two;
+	t_list		*three;
+	t_list		*four;
+	t_list		*test_next;
+	int			fail;
+	void		(*fptr)(void *, size_t);
+
+	//Assignations
+	ft_strcpy(one_content, "One");
+	ft_strcpy(two_content, "Two");
+	ft_strcpy(three_content, "Three");
+	ft_strcpy(four_content, "Four");
+	one_size = ft_strlen(one_content) + 1;
+	two_size = ft_strlen(two_content) + 1;
+	three_size = ft_strlen(three_content) + 1;
+	four_size = ft_strlen(four_content) + 1;
+	test_next = NULL;
+	fail = 0;
+	one = ft_lstnew(one_content, one_size);
+	one->next = ft_lstnew(two_content, two_size);
+	(one->next)->next = ft_lstnew(three_content, three_size);
+	((one->next)->next)->next = ft_lstnew(four_content, four_size);
+	two = one->next;
+	three = (one->next)->next;
+	four = ((one->next)->next)->next;
+	fptr = ft_bzero;
+
+	//Function name
+	printf("ft_lstdel\n");
+
+	//Allocated?
+	if(!(one)->next)
+	{
+		printf("\tAllocation - failed\n");
+		fail = 1;
+	}
+	else if (!one->next)
+	{
+		printf("\tAllocation - failed\n");
+		fail = 1;
+	}
+	else if(!(one->next)->next)
+	{
+		printf("\tAllocation - failed\n");
+		fail = 1;
+	}
+	else if(!((one->next)->next)->next)
+	{
+		printf("\tAllocation - failed\n");
+		fail = 1;
+	}
+	else
+		printf("\tAllocation - success\n");
+
+	//Function useage
+	ft_lstdel(&(one->next),fptr);
+
+	if (!(fail && one->next && (one->next)->next && ((one->next)->next)->next))
+		printf("\tNULL pointer - success\n");
+	else if (!fail)
+	{
+		printf("\tNULL pointer - failed\n");
+		fail = 1;
+	}
+	else
+		printf("\tNULL pointer - not successful as never alocated to begin with");
+
+	if (ft_strcmp(two->content, two_content) != 0)
+		printf("\tdel function pointer applied - success\n");
+	else if (ft_strcmp(three->content, three_content) != 0)
+		printf("\tdel function pointer applied - success\n");
+	else if (ft_strcmp(four->content, four_content) != 0)
+		printf("\tdel function pointer applied - success\n");
+	else
+	{
+		printf("\tdel function pointer applied - failed\n");
+		fail = 1;
+	}
+
+	printf("\t----------\n\tReview the code below...\n\t----------\n");	
+	int c;
+	FILE *file;
+	file = fopen("ft_lstdel.c", "r");
+	ft_putchar('\t');
+	if (file)
+	{
+		while ((c = getc(file)) != EOF)
+		{
+			ft_putchar(c);
+			if (c == '\n')
+				ft_putchar('\t');
+		}
+		fclose(file);
+	}
+		
+	//Comparison
+	(fail) ? printf("//FAIL\n\n") : printf("//SUCCESS - if free occurs above\n\n");
+}
 
 int		main(void)
 {
@@ -2271,6 +2381,7 @@ int		main(void)
 	//test_strlen();
 	//test_lstmap();
 	//test_lstdelone();
+	//test_lstdel();
 	
 	test_memset();
 	test_bzero();
@@ -2326,5 +2437,6 @@ int		main(void)
 	test_putnbr_fd();
 	test_lstnew();
 	test_lstdelone();
+	test_lstdel();
 	return (0);
 }
