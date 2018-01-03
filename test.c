@@ -2087,6 +2087,125 @@ void	test_strlen(void)
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
+void	test_lstnew(void)
+{
+	//Declaraitons
+	char		one_content[50];
+	char		test_content[50];
+	t_list		*test_next;
+	size_t		one_size;
+	size_t		test_size;
+	t_list		*one;
+	int			fail;
+
+	//Assignations
+	ft_strcpy(one_content, "I wrote this in Vietnam");
+	ft_strcpy(test_content, "I wrote this in Vietnam");
+	one_size = ft_strlen(one_content) + 1;
+	test_size = ft_strlen(test_content) + 1;
+	test_next = NULL;
+	fail = 0;
+
+	//Function name
+	printf("ft_lstnew\n");
+	
+	//Function use
+	one = ft_lstnew(one_content, one_size);
+	
+	//Print results
+	printf("\tcontent:\n\t[%s] - Expected\n\t[%s] - Result\n\t----------\n",
+			test_content, one->content);
+	printf("\tcontent_size\n\t[%zu] - Expected\n\t[%zu] - Result\n\t----------\n",
+			test_size, one->content_size);
+	printf("\tnext\n\t[%p] - Expected\n\t[%p] - Result\n\t----------\n",
+			test_next, one->next);
+
+	//Comparison
+	if (ft_strcmp(test_content, one->content) != 0)
+		fail = 1;
+	if (test_size != one->content_size)
+		fail = 1;
+	if (test_next != one->next)
+		fail = 1;
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_lstdelone(void)
+{
+	//Declaraitons
+	char		one_content[50];
+	char		two_content[50];
+	size_t		one_size;
+	size_t		two_size;
+	t_list		*one;
+	t_list		*two;
+	t_list		*test_next;
+	int			fail;
+	void		(*fptr)(void *, size_t);
+
+	//Assignations
+	ft_strcpy(one_content, "One");
+	ft_strcpy(two_content, "Two");
+	one_size = ft_strlen(one_content) + 1;
+	two_size = ft_strlen(two_content) + 1;
+	test_next = NULL;
+	fail = 0;
+	one = ft_lstnew(one_content, one_size);
+	one->next = ft_lstnew(two_content, two_size);
+	two = one->next;
+	fptr = ft_bzero;
+
+	//Function name
+	printf("ft_lstdelone\n");
+
+	if (one->next)
+		printf("\tAllocation - success.\n");
+	else
+	{
+		printf("\tAllocation - failed\n");
+		fail = 1;
+	}
+
+	//Function useage
+	ft_lstdelone(&(one->next),fptr);
+
+	if (!fail && !one->next)
+		printf("\tNULL pointer - success\n");
+	else if (!fail && one->next)
+	{
+		printf("\tNULL pointer - failed\n");
+		fail = 1;
+	}
+
+	if (ft_strcmp(two->content, two_content) != 0)
+		printf("\tdel function pointer applied - success\n");
+	else
+	{
+		printf("\tdel function pointer applied - failed\n");
+		fail = 1;
+	}
+
+	printf("\t----------\n\tReview the code below...\n\t----------\n");	
+	int c;
+	FILE *file;
+	file = fopen("ft_lstdelone.c", "r");
+	ft_putchar('\t');
+	if (file)
+	{
+		while ((c = getc(file)) != EOF)
+		{
+			ft_putchar(c);
+			if (c == '\n')
+				ft_putchar('\t');
+		}
+		fclose(file);
+	}
+		
+	//Comparison
+	(fail) ? printf("//FAIL\n\n") : printf("//SUCCESS - if free occurs above\n\n");
+}
+
+
 int		main(void)
 {
 	//test_putchar();
@@ -2150,6 +2269,8 @@ int		main(void)
 	//test_strtrim();
 	//test_strsplit();
 	//test_strlen();
+	//test_lstmap();
+	//test_lstdelone();
 	
 	test_memset();
 	test_bzero();
@@ -2203,7 +2324,7 @@ int		main(void)
 	test_putstr_fd();
 	test_putendl_fd();
 	test_putnbr_fd();
-
-	
+	test_lstnew();
+	test_lstdelone();
 	return (0);
 }
