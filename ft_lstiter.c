@@ -7,4 +7,6 @@ void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 		ft_lstiter(lst->next, f);
 		f(lst);
 	}
+	else
+		f(lst);
 }

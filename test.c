@@ -2316,6 +2316,233 @@ void	test_lstdel(void)
 	(fail) ? printf("//FAIL\n\n") : printf("//SUCCESS - if free occurs above\n\n");
 }
 
+void	test_lstadd(void)
+{
+	//Declaraitons
+	char		one_content[50];
+	char		two_content[50];
+	char		test_content[50];
+	char		test2_content[50];
+	t_list		*test_next;
+	size_t		one_size;
+	size_t		two_size;
+	size_t		test_size;
+	size_t		test2_size;
+	t_list		*one;
+	int			fail;
+	t_list		*new;
+	t_list		*start;
+
+	//Assignations
+	ft_strcpy(one_content, "I wrote this in Vietnam");
+	ft_strcpy(two_content, "I wrote this in Bed");
+	ft_strcpy(test_content, "I wrote this in Vietnam");
+	ft_strcpy(test2_content, "I wrote this in Bed");
+	one_size = ft_strlen(one_content) + 1;
+	two_size = ft_strlen(two_content) + 1;
+	test_size = ft_strlen(test_content) + 1;
+	test2_size = ft_strlen(test2_content) + 1;
+	test_next = NULL;
+	fail = 0;
+	new = NULL;
+	start = NULL;
+
+	//Function name
+	printf("ft_lstadd\n");
+	
+	//Function use
+	one = ft_lstnew(one_content, one_size);
+	new = ft_lstnew(two_content, two_size);
+	start = one;
+	ft_lstadd(&(start), new);
+
+
+	
+	//Print results
+	printf("\tcontent:\n\t[%s] - Expected\n\t[%s] - Result\n",
+			test_content, one->content);
+	printf("\t[%s] - Expected\n\t[%s] - Result\n\t----------\n",
+			test2_content, start->content);
+	printf("\tcontent_size\n\t[%zu] - Expected\n\t[%zu] - Result\n",
+			test_size, one->content_size);
+	printf("\t[%zu] - Expected\n\t[%zu] - Result\n\t----------\n",
+			test2_size, start->content_size);
+	printf("\tnext\n\t[%p] - Expected\n\t[%p] - Result\n",
+			test_next, one->next);
+	printf("\t[%p] - Expected\n\t[%p] - Result\n\t----------\n",
+			one, start->next);
+
+	//Comparison
+	if (ft_strcmp(test_content, one->content) != 0)
+		fail = 1;
+	if (test_size != one->content_size)
+		fail = 1;
+	if (test_next != one->next)
+		fail = 1;
+	if (ft_strcmp(test2_content, new->content) != 0)
+		fail = 1;
+	if (test2_size != new->content_size)
+		fail = 1;
+	if (start->next != one)
+		fail = 1;
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+char	*ft_slave_slave_lstiter(char *dst, const char *src)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 1;
+
+	while (dst[j] != 0)
+	{
+		dst[j] = src[i];
+		i++;
+		j++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}
+
+void	slave_lstiter(t_list *elem)
+{
+	ft_slave_slave_lstiter(elem->content, "!");
+}
+
+void	test_lstiter(void)
+{
+	//Declaraitons
+	char		one_content[50];
+	char		two_content[50];
+	char		three_content[50];
+	char		four_content[50];
+	size_t		one_size;
+	size_t		two_size;
+	size_t		three_size;
+	size_t		four_size;
+	t_list		*one;
+	t_list		*two;
+	t_list		*three;
+	t_list		*four;
+	t_list		*test_next;
+	int			fail;
+	void		(*fptr)(t_list *elem);
+
+	//Assignations
+	ft_strcpy(one_content, "1ONE");
+	ft_strcpy(two_content, "2TWO");
+	ft_strcpy(three_content, "3THREE");
+	ft_strcpy(four_content, "4FOUR");
+	one_size = ft_strlen(one_content) + 1;
+	two_size = ft_strlen(two_content) + 1;
+	three_size = ft_strlen(three_content) + 1;
+	four_size = ft_strlen(four_content) + 1;
+	test_next = NULL;
+	fail = 0;
+	one = ft_lstnew(one_content, one_size);
+	one->next = ft_lstnew(two_content, two_size);
+	(one->next)->next = ft_lstnew(three_content, three_size);
+	((one->next)->next)->next = ft_lstnew(four_content, four_size);
+	two = one->next;
+	three = (one->next)->next;
+	four = ((one->next)->next)->next;
+	fptr = slave_lstiter;
+
+	//Function name
+	printf("ft_lstiter\n");
+
+	
+	//Function useage
+	ft_lstiter(one, fptr);
+
+	printf("\t[1!] - Expected\n\t");
+	printf("[%s] - Result\n", one->content);
+	printf("\t[2!] - Expected\n\t");
+	printf("[%s] - Result\n", two->content);
+	printf("\t[3!] - Expected\n\t");
+	printf("[%s] - Result\n", three->content);
+	printf("\t[4!] - Expected\n\t");
+	printf("[%s] - Result\n", four->content);
+
+	if (ft_strcmp("1!", one->content) != 0)
+		fail = 1;
+	if (ft_strcmp("2!", two->content) != 0)
+		fail = 1;
+	if (ft_strcmp("3!", three->content) != 0)
+		fail = 1;
+	if (ft_strcmp("4!", four->content) != 0)
+		fail = 1;
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
+void	test_lstmap(void)
+{
+	//Declaraitons
+	char		one_content[50];
+	char		two_content[50];
+	char		three_content[50];
+	char		four_content[50];
+	size_t		one_size;
+	size_t		two_size;
+	size_t		three_size;
+	size_t		four_size;
+	t_list		*one;
+	t_list		*two;
+	t_list		*three;
+	t_list		*four;
+	t_list		*test_next;
+	int			fail;
+	void		(*fptr)(t_list *elem);
+
+	//Assignations
+	ft_strcpy(one_content, "1ONE");
+	ft_strcpy(two_content, "2TWO");
+	ft_strcpy(three_content, "3THREE");
+	ft_strcpy(four_content, "4FOUR");
+	one_size = ft_strlen(one_content) + 1;
+	two_size = ft_strlen(two_content) + 1;
+	three_size = ft_strlen(three_content) + 1;
+	four_size = ft_strlen(four_content) + 1;
+	test_next = NULL;
+	fail = 0;
+	one = ft_lstnew(one_content, one_size);
+	one->next = ft_lstnew(two_content, two_size);
+	(one->next)->next = ft_lstnew(three_content, three_size);
+	((one->next)->next)->next = ft_lstnew(four_content, four_size);
+	two = one->next;
+	three = (one->next)->next;
+	four = ((one->next)->next)->next;
+	fptr = slave_lstiter;
+
+	//Function name
+	printf("ft_lstiter\n");
+
+	
+	//Function useage
+	ft_lstiter(one, fptr);
+
+	printf("\t[1!] - Expected\n\t");
+	printf("[%s] - Result\n", one->content);
+	printf("\t[2!] - Expected\n\t");
+	printf("[%s] - Result\n", two->content);
+	printf("\t[3!] - Expected\n\t");
+	printf("[%s] - Result\n", three->content);
+	printf("\t[4!] - Expected\n\t");
+	printf("[%s] - Result\n", four->content);
+
+	if (ft_strcmp("1!", one->content) != 0)
+		fail = 1;
+	if (ft_strcmp("2!", two->content) != 0)
+		fail = 1;
+	if (ft_strcmp("3!", three->content) != 0)
+		fail = 1;
+	if (ft_strcmp("4!", four->content) != 0)
+		fail = 1;
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
 int		main(void)
 {
 	//test_putchar();
@@ -2382,6 +2609,9 @@ int		main(void)
 	//test_lstmap();
 	//test_lstdelone();
 	//test_lstdel();
+	//test_lstadd();
+	//test_lstiter();
+	//test_lstmap();
 	
 	test_memset();
 	test_bzero();
@@ -2438,5 +2668,8 @@ int		main(void)
 	test_lstnew();
 	test_lstdelone();
 	test_lstdel();
+	test_lstadd();
+	test_lstiter();
+	test_lstmap();
 	return (0);
 }
