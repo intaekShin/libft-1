@@ -66,7 +66,7 @@ void	test_strcpy(void)
 	char sysnew[] = "Frogs";
 
 	//Print test input
-	printf("ft_strncmp\n");
+	printf("ft_strncpy\n");
 	printf("\tDest:[%s] Src:[%s]\n\t----------\n", fttest, ftnew);
 
 	//Both my test & system test
@@ -1082,10 +1082,10 @@ void	test_tolower(void)
 	printf("ft_tolower\n");
 
 	//Output
-	printf("\tH -> %c - ft_tolower\n", a1);
-	printf("\ti -> %c - ft_tolower\n", a2);
-	printf("\tH -> %c - tolower\n", b1);
-	printf("\ti -> %c - tolower\n", b2);
+	printf("\ta -> %c - ft_tolower\n", a1);
+	printf("\tG -> %c - ft_tolower\n", a2);
+	printf("\ta -> %c - tolower\n", b1);
+	printf("\tG -> %c - tolower\n", b2);
 
 	//Test
 	((a1 != b1) || (a2 != b2)) ? (fail = 1) : (fail = 0);
@@ -1568,7 +1568,7 @@ void	test_strnequ(void)
 	int sysc;
 
 	//Program name
-	printf("ft_strequ\n");
+	printf("ft_strnequ\n");
 
 	//Declarations for both functions
 	char a1[] = "Ecole 42";
@@ -2074,15 +2074,15 @@ void	test_strlen(void)
 	c = ft_strlen("     Orange is the new Acers     !   ");
 	
 	printf("ft_strlen\n");
-	printf("\t[%zu]\t\"1\"", a);
-	printf("\t[%zu]\t\"Ann is a frog\"", b);
-	printf("\t[%zu]\t\"     Orange is the new Acers     !   \"", c);
+	printf("\t[%zu]\t\"1\"\n", a);
+	printf("\t[%zu]\t\"Ann is a frog\"\n", b);
+	printf("\t[%zu]\t\"     Orange is the new Acers     !   \"\n", c);
 
 	if (a != 1)
 		fail = 1;
 	if (b != 13)
 		fail = 1;
-	if (a != 37)
+	if (c != 37)
 		fail = 1;
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
@@ -2477,6 +2477,24 @@ void	test_lstiter(void)
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
+char	*ft_slave_slave_lstmap(char *dst, const char *src)
+{
+	dst[1] = src[0];
+	return (dst);
+}
+
+
+t_list	*slave_lstmap(t_list *elem)
+{
+	ft_slave_slave_lstiter(elem->content, "!");
+	return (elem);
+}
+
+void	slave_lstmap2(t_list *elem)
+{
+	ft_slave_slave_lstmap(elem->content, "?");
+}
+
 void	test_lstmap(void)
 {
 	//Declaraitons
@@ -2492,9 +2510,15 @@ void	test_lstmap(void)
 	t_list		*two;
 	t_list		*three;
 	t_list		*four;
+	t_list		*one2;
+	t_list		*two2;
+	t_list		*three2;
+	t_list		*four2;
 	t_list		*test_next;
 	int			fail;
-	void		(*fptr)(t_list *elem);
+	t_list		*(*fptr)(t_list *elem);
+	void		(*fptr2)(t_list *elem);
+	t_list		*new;
 
 	//Assignations
 	ft_strcpy(one_content, "1ONE");
@@ -2514,31 +2538,54 @@ void	test_lstmap(void)
 	two = one->next;
 	three = (one->next)->next;
 	four = ((one->next)->next)->next;
-	fptr = slave_lstiter;
+	fptr = slave_lstmap;
+	fptr2 = slave_lstmap2;
 
 	//Function name
-	printf("ft_lstiter\n");
-
+	printf("ft_lstmap\n");
 	
 	//Function useage
-	ft_lstiter(one, fptr);
+	new = ft_lstmap(one, fptr);	
+	ft_lstiter(one, fptr2);
 
-	printf("\t[1!] - Expected\n\t");
+	one2 = new;
+	two2 = new->next;
+	three2 = (new->next)->next;
+	four2 = ((new->next)->next)->next;
+
+	printf("\t[1?] - Expected\n\t");
 	printf("[%s] - Result\n", one->content);
-	printf("\t[2!] - Expected\n\t");
+	printf("\t[2?] - Expected\n\t");
 	printf("[%s] - Result\n", two->content);
-	printf("\t[3!] - Expected\n\t");
+	printf("\t[3?] - Expected\n\t");
 	printf("[%s] - Result\n", three->content);
-	printf("\t[4!] - Expected\n\t");
+	printf("\t[4?] - Expected\n\t");
 	printf("[%s] - Result\n", four->content);
+	printf("\t[1!] - Expected\n\t");
+	printf("[%s] - Result\n", one2->content);
+	printf("\t[2!] - Expected\n\t");
+	printf("[%s] - Result\n", two2->content);
+	printf("\t[3!] - Expected\n\t");
+	printf("[%s] - Result\n", three2->content);
+	printf("\t[4!] - Expected\n\t");
+	printf("[%s] - Result\n", four2->content);
 
-	if (ft_strcmp("1!", one->content) != 0)
+
+	if (ft_strcmp("1?", one->content) != 0)
 		fail = 1;
-	if (ft_strcmp("2!", two->content) != 0)
+	if (ft_strcmp("2?", two->content) != 0)
 		fail = 1;
-	if (ft_strcmp("3!", three->content) != 0)
+	if (ft_strcmp("3?", three->content) != 0)
 		fail = 1;
-	if (ft_strcmp("4!", four->content) != 0)
+	if (ft_strcmp("4?", four->content) != 0)
+		fail = 1;
+	if (ft_strcmp("1!", one2->content) != 0)
+		fail = 1;
+	if (ft_strcmp("2!", two2->content) != 0)
+		fail = 1;
+	if (ft_strcmp("3!", three2->content) != 0)
+		fail = 1;
+	if (ft_strcmp("4!", four2->content) != 0)
 		fail = 1;
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
