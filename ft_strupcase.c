@@ -1,9 +1,8 @@
 char	*ft_strupcase(char *str)
 {
 	char *i;
-	
-	i = str;
 
+	i = str;
 	while (*i)
 	{
 		if (*i >= 'a' && *i <= 'z')

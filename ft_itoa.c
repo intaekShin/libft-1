@@ -7,7 +7,6 @@ static int ft_get_len(int n)
 	len = 1;
 	if (n < 0)
 		n *= -1;
-
 	while ((n /= 10) > 0)
 		len++;
 	return (len);

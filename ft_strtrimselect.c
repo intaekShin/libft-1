@@ -10,7 +10,6 @@ char	*ft_strtrimselect(char const *s, char c)
 	i = 0;
 	j = ft_strlen(s) - 1;
 	k = 0;
-
 	while (s[i] == c)
 		i++;
 	while (s[j] == c)

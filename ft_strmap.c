@@ -8,9 +8,7 @@ char	*ft_strmap(char *s, char (*f)(char))
 	str = ft_strnew(ft_strlen(s));
 	if (!str)
 		return (0);
-	
 	i = 0;
-
 	while (s[i])
 	{
 		str[i] = f(s[i]);

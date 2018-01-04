@@ -1,9 +1,8 @@
 char	*ft_strlowcase(char *str)
 {
 	char *i;
-	
-	i = str;
 
+	i = str;
 	while (*i)
 	{
 		if (*i >= 'A' && *i <= 'Z')

@@ -18,7 +18,6 @@ char	*ft_strndup(const char *s1, size_t n)
 	s2 = ft_strnew(size);
 	if (!s2)
 		return (NULL);
-
 	ft_strncpy(s2, s1, size);
 	if (trail_zero)
 		s2[size] = '\0';

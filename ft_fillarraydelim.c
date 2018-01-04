@@ -9,7 +9,6 @@ void	ft_fillarraydelim(char **array, const char *s, char c)
 	i = 0;
 	j = 0;
 	k = 0;
-
 	while (s[i] != '\0')
 	{
 		if (s[i] != c)

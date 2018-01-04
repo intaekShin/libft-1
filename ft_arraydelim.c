@@ -5,7 +5,7 @@ char	**ft_arraydelim(char const *s, char c)
 	int		i;
 	int		j;
 	char	**array;
-	
+
 	i = 0;
 	j = 0;
 	while (s[i] != '\0')

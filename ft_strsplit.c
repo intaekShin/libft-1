@@ -12,7 +12,6 @@ char	**ft_strsplit(char const *s, char c)
 	i = 0;
 	j = 0;
 	k = 0;
-
 	one = ft_strtrimselect(s, c);
 	two = ft_removeselect(one, c);
 	three = ft_arraydelim(two, c);

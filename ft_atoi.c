@@ -5,7 +5,7 @@ int		ft_atoi(const char *str)
 	int i;
 	int min;
 	int result;
-	
+
 	i = 0;
 	min = 1;
 	result = 0;
@@ -18,6 +18,5 @@ int		ft_atoi(const char *str)
 		i++;	
 	while (str[i] >= '0' && str[i] <= '9')
 		result = (result * 10) + (str[i++] - '0');
-
 	return(result *= min);
 }

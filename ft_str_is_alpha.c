@@ -3,9 +3,8 @@
 int ft_str_is_alpha(char *str)
 {
 	int fail;
-	
+
 	fail = 0;
-	
 	while (*str)
 	{
 		if (ft_isalnum(*str) < 2)

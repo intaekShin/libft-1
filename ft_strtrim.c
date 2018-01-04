@@ -10,7 +10,6 @@ char	*ft_strtrim(char const *s)
 	i = 0;
 	j = ft_strlen(s) - 1;
 	k = 0;
-
 	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
 		i++;
 	while (s[j] == ' ' || s[j] == '\t' || s[j] == '\n')

@@ -6,7 +6,6 @@ char	*ft_strchr(const char *s, int c)
 
 	needle = (char) c;
 	i = 0;
-
 	while (i < ft_strlen(s))
 	{
 		if (s[i] == needle)

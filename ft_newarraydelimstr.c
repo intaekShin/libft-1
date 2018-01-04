@@ -6,8 +6,7 @@ void	ft_newarraydelimstr(char **array, char const *s, char c)
 	int		k;
 
 	j = 0;
-	k = 0;
-	
+	k = 0;	
 	while (*s)
 	{
 		if (*s != c)

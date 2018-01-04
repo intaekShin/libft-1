@@ -9,9 +9,7 @@ char	*ft_strcapitalize(char *str)
 	i = 0;
 	j = -1;
 	s = str;
-
 	ft_strlowcase(str);
-
 	while (s[i] != '\0')
 	{
 		if (j == -1 || ft_isalnum(s[j]) == 0)
