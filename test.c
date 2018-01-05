@@ -2590,6 +2590,75 @@ void	test_lstmap(void)
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
+void	test_lstreturn(void)
+{
+	//Declaraitons
+	char		one_content[50];
+	char		two_content[50];
+	char		three_content[50];
+	char		four_content[50];
+	size_t		one_size;
+	size_t		two_size;
+	size_t		three_size;
+	size_t		four_size;
+	t_list		*one;
+	t_list		*two;
+	t_list		*three;
+	t_list		*four;
+	t_list		*test_next;
+	t_list		*tmp;
+	int			fail;
+	void		(*fptr)(void *, size_t);
+
+	//Assignations
+	ft_strcpy(one_content, "AAA");
+	ft_strcpy(two_content, "BBB");
+	ft_strcpy(three_content, "CCC");
+	ft_strcpy(four_content, "DDD");
+	one_size = ft_strlen(one_content) + 1;
+	two_size = ft_strlen(two_content) + 1;
+	three_size = ft_strlen(three_content) + 1;
+	four_size = ft_strlen(four_content) + 1;
+	test_next = NULL;
+	fail = 0;
+	one = ft_lstnew(one_content, one_size);
+	one->next = ft_lstnew(two_content, two_size);
+	(one->next)->next = ft_lstnew(three_content, three_size);
+	((one->next)->next)->next = ft_lstnew(four_content, four_size);
+	two = one->next;
+	three = (one->next)->next;
+	four = ((one->next)->next)->next;
+	fptr = ft_bzero;
+
+	//Function name
+	printf("ft_lstreturn\n");
+
+	//Example usage
+	tmp = ft_lstreturn(one, 3);
+	ft_lstdelone(&(tmp), fptr);
+
+	//Output
+	printf("\t[AAA] - Expected\n\t");
+	printf("[%s] - Result\n", ft_lstreturn(one, 0)->content);
+	printf("\t[BBB] - Expected\n\t");
+	printf("[%s] - Result\n", ft_lstreturn(one, 1)->content);
+	printf("\t[CCC] - Expected\n\t");
+	printf("[%s] - Result\n", ft_lstreturn(one, 2)->content);
+	printf("\t[%p] - Expected\n\t", test_next);
+	printf("[%p] - Result\n", tmp);
+
+	//Test
+	if (ft_strcmp("AAA", ft_lstreturn(one, 0)->content) != 0)
+		fail = 1;
+	if (ft_strcmp("BBB", ft_lstreturn(one, 1)->content) != 0)
+		fail = 1;
+	if (ft_strcmp("CCC", ft_lstreturn(one, 2)->content) != 0)
+		fail = 1;
+	if (tmp != test_next)
+		fail = 1;
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
 int		main(void)
 {
 	//test_putchar();
@@ -2659,6 +2728,7 @@ int		main(void)
 	//test_lstadd();
 	//test_lstiter();
 	//test_lstmap();
+	//test_lstreturn();
 	
 	test_memset();
 	test_bzero();

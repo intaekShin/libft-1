@@ -75,7 +75,8 @@ CFILE = test.c \
 	ft_lstdel.c \
 	ft_lstadd.c \
 	ft_lstiter.c \
-	ft_lstmap.c
+	ft_lstmap.c \
+	ft_lstreturn.c
 
 OFILE = $(CFILE:%.c=%.o)
 
