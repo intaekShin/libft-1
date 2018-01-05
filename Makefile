@@ -65,11 +65,8 @@ CFILE = test.c \
 	ft_strjoin.c \
 	ft_strtrim.c \
 	ft_strsplit.c \
-	ft_arraydelim.c \
-	ft_fillarraydelim.c \
 	ft_removeselect.c \
 	ft_strtrimselect.c \
-	ft_newarraydelimstr.c \
 	ft_lstnew.c \
 	ft_lstdelone.c \
 	ft_lstdel.c \

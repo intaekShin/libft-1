@@ -67,10 +67,7 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			*ft_strtrimselect(char const *s, char c);
 char			*ft_removeselect(const char *s, char c);
-char			**ft_arraydelim(char const *s, char c);
-void			ft_fillarraydelim(char **array, const char *s, char c);
 char			**ft_strsplit(char const *s, char c);
-void			ft_newarraydelimstr(char **array, char const *s, char c);
 
 typedef struct	s_list
 {
