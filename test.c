@@ -2659,6 +2659,50 @@ void	test_lstreturn(void)
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
+void	test_lststrsplit(void)
+{
+	int		fail;
+
+	fail = 0;
+
+	//Program Name
+	printf("ft_lststrsplit\n");
+
+	//Declarations
+	char	a1[] = "**Does**not**make*****any**sense****at***all*********";
+	char	a2[] = "sense";
+	t_list	**a3;
+	char	b1[] = "....Ann...is...a....monkey......";
+	char	b2[] = "monkey";
+	t_list	**b3;
+	char	c1[] = "Normalne";
+	char	c2[] = "Normalne";
+	t_list	**c3;
+
+	//Tests 1
+	printf("\t[%s] - before\n", a1);
+	a3 = ft_lststrsplit(a1, '*');
+	printf("\t[%s] - after\n\t----------\n", ft_lstreturn(*a3, 4)->content);
+	if (strcmp(ft_lstreturn((*a3), 4)->content, a2) != 0)
+		fail = 1;
+
+	//Test 2
+	printf("\t[%s] - before\n", b1);
+	b3 = ft_lststrsplit(b1, '.');
+	printf("\t[%s] - after\n\t----------\n", ft_lstreturn(*b3, 3)->content);
+	if (strcmp(ft_lstreturn((*b3), 3)->content, b2) != 0)
+		fail = 1;
+
+	//Test 3
+	printf("\t[%s] - before\n", c1);
+	c3 = ft_lststrsplit(c1, '1');
+	printf("\t[%s] - after\n\t----------\n", ft_lstreturn(*c3, 0)->content);
+	if (strcmp(ft_lstreturn((*c3), 0)->content, c2) != 0)
+		fail = 1;
+
+	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+}
+
 int		main(void)
 {
 	//test_putchar();
@@ -2729,6 +2773,7 @@ int		main(void)
 	//test_lstiter();
 	//test_lstmap();
 	//test_lstreturn();
+	//test_lststrsplit();
 	
 	test_memset();
 	test_bzero();
@@ -2788,5 +2833,6 @@ int		main(void)
 	test_lstadd();
 	test_lstiter();
 	test_lstmap();
+	test_lststrsplit();
 	return (0);
 }

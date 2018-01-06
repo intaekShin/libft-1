@@ -73,7 +73,8 @@ CFILE = test.c \
 	ft_lstadd.c \
 	ft_lstiter.c \
 	ft_lstmap.c \
-	ft_lstreturn.c
+	ft_lstreturn.c \
+	ft_lststrsplit.c
 
 OFILE = $(CFILE:%.c=%.o)
 
