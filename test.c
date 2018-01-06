@@ -2833,6 +2833,5 @@ int		main(void)
 	test_lstadd();
 	test_lstiter();
 	test_lstmap();
-	test_lststrsplit();
 	return (0);
 }
