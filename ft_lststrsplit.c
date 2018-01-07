@@ -26,13 +26,15 @@ static t_list	**ft_lstdelim(char *s, char c)
 			tmp = ft_strndup(s + (i - j), j);	
 			if (first == 0)
 			{
-				lst = ft_lstnew(tmp, j + 1);
+				if(!(lst = ft_lstnew(tmp, j + 1)))
+					return (NULL);
 				start = lst;
 				first = 1;
 			}
 			else
 			{
-				lst->next = ft_lstnew(tmp, j + 1);
+				if(!(lst->next = ft_lstnew(tmp, j + 1)))
+					return (NULL);
 				lst = lst->next;
 			}
 			j = 0;
