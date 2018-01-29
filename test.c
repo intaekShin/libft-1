@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:38 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/27 15:38:40 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/01/29 14:10:57 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@
 
 void	test_putchar(void)
 {	
-	ft_putstr("ft_putchar\n\t//SUCCESS\n\n");
+	char *str;
+
+	str = ft_strdup("//SUCCESS\n\n");
+	ft_putstr("ft_putchar\n\t");
+	while (*str)
+		ft_putchar(*str++);
 }
 
 void	test_putstr(void)
@@ -1884,7 +1889,12 @@ void	test_strdel(void)
 
 void	test_putchar_fd(void)
 {	
-	ft_putstr_fd("ft_putchar_fd\n\t//SUCCESS\n\n", 1);
+	char *str;
+
+	str = ft_strdup("//SUCCESS\n\n");
+	ft_putstr("ft_putchar_fd\n\t");
+	while (*str)
+		ft_putchar_fd(*str++, 1);
 }
 
 void	test_putstr_fd(void)
