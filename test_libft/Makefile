@@ -6,7 +6,7 @@
 #    By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/27 15:32:02 by dhojt             #+#    #+#              #
-#    Updated: 2018/01/29 17:41:18 by dhojt            ###   ########.fr        #
+#    Updated: 2018/01/29 17:58:22 by dhojt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ OFILE = $(notdir $(CFILE:%.c=%.o))
 OBJ_DIR = ./obj/
 OBJ = $(addprefix $(OBJ_DIR), $(OFILE))
 
+TEST = test
+
 all: $(OBJ_DIR) $(NAME)
 	@echo MAKE COMPLETE
 
@@ -32,6 +34,7 @@ $(NAME): $(OBJ)
 	@echo Create: libft.a
 	@ar rc $(NAME) $(addprefix $(OBJ_DIR), $(OFILE))
 	ranlib $(NAME)
+	gcc -o $(TEST) ../libft.a $(NAME)
 
 $(OBJ): $(CFILE)
 	@$(MAKE) $(OFILE)
@@ -46,6 +49,8 @@ clean:
 
 fclean: clean
 	@/bin/rm -f $(NAME)
+	@/bin/rm -f $(TEST)
+	@echo Cleaned $(TEST)
 	@echo Cleaned $(NAME)
 
 re: fclean all
