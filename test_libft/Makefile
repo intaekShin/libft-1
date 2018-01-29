@@ -6,7 +6,7 @@
 #    By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/27 15:32:02 by dhojt             #+#    #+#              #
-#    Updated: 2018/01/29 17:58:22 by dhojt            ###   ########.fr        #
+#    Updated: 2018/01/29 23:14:33 by dhojt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,9 @@ OBJ = $(addprefix $(OBJ_DIR), $(OFILE))
 
 TEST = test
 
+re: fclean all
+
 all: $(OBJ_DIR) $(NAME)
-	@echo MAKE COMPLETE
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
@@ -34,7 +35,9 @@ $(NAME): $(OBJ)
 	@echo Create: libft.a
 	@ar rc $(NAME) $(addprefix $(OBJ_DIR), $(OFILE))
 	ranlib $(NAME)
-	gcc -o $(TEST) ../libft.a $(NAME)
+	@gcc -o $(TEST) ../libft.a $(NAME)
+	@clear
+	@./test help
 
 $(OBJ): $(CFILE)
 	@$(MAKE) $(OFILE)
@@ -52,7 +55,5 @@ fclean: clean
 	@/bin/rm -f $(TEST)
 	@echo Cleaned $(TEST)
 	@echo Cleaned $(NAME)
-
-re: fclean all
 
 .PHONY: clean flcean re
