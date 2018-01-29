@@ -6,7 +6,7 @@
 #    By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/27 15:32:02 by dhojt             #+#    #+#              #
-#    Updated: 2018/01/28 10:26:32 by dhojt            ###   ########.fr        #
+#    Updated: 2018/01/29 13:54:02 by dhojt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 COMP = gcc -Wall -Werror -Wextra -c -o
 
-CFIND = $(shell find . -type f | grep -E "\.c$$")
+CFIND = $(shell find . -maxdepth 1 -type f | grep -E "\.c$$")
 CFILE = $(notdir $(CFIND))
 OFILE = $(CFILE:%.c=%.o)
 
