@@ -6,11 +6,11 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:38 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/29 14:10:57 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/01/29 15:43:58 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libmy.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -20,8 +20,8 @@ void	test_putchar(void)
 {	
 	char *str;
 
-	str = ft_strdup("//SUCCESS\n\n");
-	ft_putstr("ft_putchar\n\t");
+	str = my_strdup("//SUCCESS\n\n");
+	my_putstr("ft_putchar\n\t");
 	while (*str)
 		ft_putchar(*str++);
 }
@@ -33,15 +33,15 @@ void	test_putstr(void)
 
 void	test_putnbr(void)
 {
-	ft_putstr("ft_putnbr\n\t[-2147483648] - Expected\n\t[");
+	my_putstr("ft_putnbr\n\t[-2147483648] - Expected\n\t[");
 	ft_putnbr(-2147483648);
-	ft_putstr("] - Result\n\t[2147483647] - Expected\n\t[");
+	my_putstr("] - Result\n\t[2147483647] - Expected\n\t[");
 	ft_putnbr(2147483647);
-	ft_putstr("] - Result\n\t[0] - Expected\n\t[");
+	my_putstr("] - Result\n\t[0] - Expected\n\t[");
 	ft_putnbr(0);
-	ft_putstr("] - Result\n\t[42] - Expected\n\t[");
+	my_putstr("] - Result\n\t[42] - Expected\n\t[");
 	ft_putnbr(42);
-	ft_putstr("] - Result\n\t//Check results match expected\n\n");
+	my_putstr("] - Result\n\t//Check results match expected\n\n");
 }
 
 void	test_atoi(void)
@@ -52,7 +52,7 @@ void	test_atoi(void)
 	fail = 0;
 	i = 0;
 
-	ft_putstr("ft_atoi\n\t");
+	my_putstr("ft_atoi\n\t");
 	while (i < 4)
 	{
 		printf("\"%s\" - String\n\t[%d] - atoi (System)\n\t[%d] - ft_atoi\n\t--"
@@ -83,7 +83,7 @@ void	test_strcpy(void)
 	char sysnew[] = "Frogs";
 
 	//Print test input
-	printf("ft_strncpy\n");
+	printf("ft_strcpy\n");
 	printf("\tDest:[%s] Src:[%s]\n\t----------\n", fttest, ftnew);
 
 	//Both my test & system test
@@ -264,11 +264,11 @@ void	test_strncmp(void)
 
 	//print results
 	printf("\t**All passed with 3 for size_t**\n\t----------\n");
-	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_strcmp\n\t[%d] - strncmp (System)\n\t"
+	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_strncmp\n\t[%d] - strncmp (System)\n\t"
 			"----------\n", a1, a2, fta, sysa);
-	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_strcmp\n\t[%d] - strncmp (System)\n\t"
+	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_strncmp\n\t[%d] - strncmp (System)\n\t"
 			"----------\n", b1, b2, ftb, sysb);
-	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_strcmp\n\t[%d] - strncmp (System)\n\t"
+	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_strncmp\n\t[%d] - strncmp (System)\n\t"
 			"----------\n", c1, c2, ftc, sysc);
 	if (fta == sysa && ftb == sysb && ftc == sysc)
 		printf("\t//SUCCESS\n\n");
@@ -602,10 +602,10 @@ void	test_strcat(void)
 	char b1[50];
 	char b2[50];
 
-	ft_strcpy(a1, "Je suis un etudiant d");
-	ft_strcpy(a2, "e quarante deux");
-	ft_strcpy(b1, "Je suis un etudiant d");
-	ft_strcpy(b2, "e quarante deux");
+	my_strcpy(a1, "Je suis un etudiant d");
+	my_strcpy(a2, "e quarante deux");
+	my_strcpy(b1, "Je suis un etudiant d");
+	my_strcpy(b2, "e quarante deux");
 
 	//Test
 	printf("\tString 1:[%s]\n\tString 2:[%s]\n\t----------\n", a1, a2);
@@ -636,10 +636,10 @@ void	test_strncat(void)
 	char b1[50];
 	char b2[50];
 
-	ft_strcpy(a1, "Je suis un etudiant d");
-	ft_strcpy(a2, "e quarante deux");
-	ft_strcpy(b1, "Je suis un etudiant d");
-	ft_strcpy(b2, "e quarante deux");
+	my_strcpy(a1, "Je suis un etudiant d");
+	my_strcpy(a2, "e quarante deux");
+	my_strcpy(b1, "Je suis un etudiant d");
+	my_strcpy(b2, "e quarante deux");
 
 	//Test
 	printf("\tString 1:[%s]\n\tString 2:[%s]\n\t----------\n", a1, a2);
@@ -670,10 +670,10 @@ void	test_strlcat(void)
 	char b1[50];
 	char b2[50];
 
-	ft_strcpy(a1, "Je suis un etudiant d");
-	ft_strcpy(a2, "e quarante deux");
-	ft_strcpy(b1, "Je suis un etudiant d");
-	ft_strcpy(b2, "e quarante deux");
+	my_strcpy(a1, "Je suis un etudiant d");
+	my_strcpy(a2, "e quarante deux");
+	my_strcpy(b1, "Je suis un etudiant d");
+	my_strcpy(b2, "e quarante deux");
 
 	//Test
 	printf("\tString 1:[%s]\n\tString 2:[%s]\n\t----------\n", a1, a2);
@@ -782,16 +782,16 @@ void	test_strdup(void)
 	char b1[50];
 	char *b2;
 
-	ft_strcpy(a1, "Ann is a cat");
-	ft_strcpy(b1, "Ann is a cat");
+	my_strcpy(a1, "Ann is a cat");
+	my_strcpy(b1, "Ann is a cat");
 
 	//strdup happens here.
 	a2 = ft_strdup(a1);
 	b2 = strdup(b1);
 
 	//Modify original to ensure that the new stings are duplicates.
-	ft_strcpy(a1, "red");
-	ft_strcpy(b1, "blue");
+	my_strcpy(a1, "red");
+	my_strcpy(b1, "blue");
 
 	//Test
 	printf("\tOriginal String:[%s]\n\t----------\n", a1);
@@ -913,7 +913,7 @@ void	test_isdigit(void)
 	sysis = '1';
 	sysnot = 'a';
 
-	//ft_isalpha v isalpha
+	//my_isalpha v isalpha
 	ftisresult = ft_isdigit(ftis);
 	ftnotresult = ft_isdigit(ftnot);
 	sysisresult = isdigit(sysis);
@@ -953,7 +953,7 @@ void	test_isalnum(void)
 	sysis = 'a';
 	sysnot = '~';
 
-	//ft_isalpha v isalpha
+	//my_isalpha v isalpha
 	ftisresult = ft_isalnum(ftis);
 	ftnotresult = ft_isalnum(ftnot);
 	sysisresult = isalnum(sysis);
@@ -987,9 +987,9 @@ void	test_isascii(void)
 	ftis = 'a';
 	sysis = 'a';
 
-	//ft_isalpha v isalpha
-	ftisresult = ft_isalnum(ftis);
-	sysisresult = isalnum(sysis);
+	//my_isascii v isascii
+	ftisresult = ft_isascii(ftis);
+	sysisresult = isascii(sysis);
 
 	if (ftisresult == 0  ||  sysisresult == 0)
 		fail = 1;
@@ -1022,11 +1022,11 @@ void	test_isprint(void)
 	sysis = 'a';
 	sysnot = '\n';
 
-	//ft_isalpha v isalpha
-	ftisresult = ft_isalnum(ftis);
-	ftnotresult = ft_isalnum(ftnot);
-	sysisresult = isalnum(sysis);
-	sysnotresult = isalnum(sysnot);
+	//my_isalpha v isalpha
+	ftisresult = ft_isprint(ftis);
+	ftnotresult = ft_isprint(ftnot);
+	sysisresult = isprint(sysis);
+	sysnotresult = isprint(sysnot);
 
 	if (ftisresult == 0 || sysisresult == 0)
 		fail = 1;
@@ -1119,7 +1119,7 @@ void	test_memset(void)
 	i = 0;
 
 	//Function Name
-	printf("ft_memset");
+	printf("ft_memset\n");
 
 	//Declarations for my function
 	char fttest[50] = "It's Raining, it's pouring";
@@ -1178,7 +1178,7 @@ void	test_memcpy(void)
 	printf("\tstr:[%s] - ft_memcpy\n", fttest);
 	printf("\tstr:[%s] - memcpy (System)\n", systest);
 
-	if (ft_strcmp(fttest, systest) != 0)
+	if (my_strcmp(fttest, systest) != 0)
 		fail = 1;
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
@@ -1212,7 +1212,7 @@ void	test_memccpy(void)
 	printf("\tstr:[%s] - ft_memccpy\n", fttest);
 	printf("\tstr:[%s] - memccpy (System)\n", systest);
 
-	if (ft_strcmp(fttest, systest) != 0)
+	if (my_strcmp(fttest, systest) != 0)
 		fail = 1;
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
@@ -1244,7 +1244,7 @@ void	test_memmove(void)
 	printf("\tstr:[%s] - ft_memmove\n", fttest);
 	printf("\tstr:[%s] - memmove (System)\n", systest);
 
-	if (ft_strcmp(fttest, systest) != 0)
+	if (my_strcmp(fttest, systest) != 0)
 		fail = 1;
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
@@ -1278,7 +1278,7 @@ void	test_strchr(void)
 	printf("\tstr:[%s] [%s] - ft_strchr\n", fttest, ftnum);
 	printf("\tstr:[%s] [%s]- strchr (System)\n", systest, sysnum);
 
-	if (ft_strcmp(ftnum, sysnum) != 0)
+	if (my_strcmp(ftnum, sysnum) != 0)
 		fail = 1;
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
@@ -1312,7 +1312,7 @@ void	test_strrchr(void)
 	printf("\tstr:[%s] [%s] - ft_strrchr\n", fttest, ftnum);
 	printf("\tstr:[%s] [%s]- strrchr (System)\n", systest, sysnum);
 
-	if (ft_strcmp(ftnum, sysnum) != 0)
+	if (my_strcmp(ftnum, sysnum) != 0)
 		fail = 1;
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
@@ -1385,11 +1385,11 @@ void	test_memcmp(void)
 
 	//print results
 	printf("\t**All passed with 3 for size_t**\n\t----------\n");
-	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_memcmp\n\t[%d] - memcmp (System)\n\t"
+	printf("\ts1:[%s] s2:[%s]\n\t[%d] - my_memcmp\n\t[%d] - memcmp (System)\n\t"
 			"----------\n", a1, a2, fta, sysa);
-	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_memcmp\n\t[%d] - memcmp (System)\n\t"
+	printf("\ts1:[%s] s2:[%s]\n\t[%d] - my_memcmp\n\t[%d] - memcmp (System)\n\t"
 			"----------\n", b1, b2, ftb, sysb);
-	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_memcmp\n\t[%d] - memcmp (System)\n\t"
+	printf("\ts1:[%s] s2:[%s]\n\t[%d] - my_memcmp\n\t[%d] - memcmp (System)\n\t"
 			"----------\n", c1, c2, ftc, sysc);
 	if (fta == sysa && ftb == sysb && ftc == sysc)
 		printf("\t//SUCCESS\n\n");
@@ -1423,14 +1423,14 @@ void	test_itoa(void)
 	b = 0;
 	c = -12675822;
 
-	ft_strcpy(aa, "42");
-	ft_strcpy(bb, "0");
-	ft_strcpy(cc, "-12675822");
+	my_strcpy(aa, "42");
+	my_strcpy(bb, "0");
+	my_strcpy(cc, "-12675822");
 
 	
-	ft_strcpy(aaa, ft_itoa(a));
-	ft_strcpy(bbb, ft_itoa(b));
-	ft_strcpy(ccc, ft_itoa(c));
+	my_strcpy(aaa, ft_itoa(a));
+	my_strcpy(bbb, ft_itoa(b));
+	my_strcpy(ccc, ft_itoa(c));
 
 	printf("\tExpected [%s] \t\tOutput[%s]\n", aa, aaa);
 	printf("\tExpected [%s] \t\tOutput[%s]\n", bb, bbb);
@@ -1454,14 +1454,14 @@ void	test_strnew(void)
 	int c;
 	FILE *file;
 	file = fopen("ft_strnew.c", "r");
-	ft_putchar('\t');
+	my_putchar('\t');
 	if (file)
 	{
 		while ((c = getc(file)) != EOF)
 		{
-			ft_putchar(c);
+			my_putchar(c);
 			if (c == '\n')
-				ft_putchar('\t');
+				my_putchar('\t');
 		}
 		fclose(file);
 	}
@@ -1476,14 +1476,14 @@ void	test_memalloc(void)
 	int c;
 	FILE *file;
 	file = fopen("ft_memalloc.c", "r");
-	ft_putchar('\t');
+	my_putchar('\t');
 	if (file)
 	{
 		while ((c = getc(file)) != EOF)
 		{
-			ft_putchar(c);
+			my_putchar(c);
 			if (c == '\n')
-				ft_putchar('\t');
+				my_putchar('\t');
 		}
 		fclose(file);
 	}
@@ -1623,7 +1623,7 @@ void	test_strnequ(void)
 void	slave_striter(char *c) //SLAVE
 {
 	//TO UPPER
-	if (ft_isalnum(c[0]) == 2)
+	if (my_isalnum(c[0]) == 2)
 		c[0] += 32;
 }
 
@@ -1675,10 +1675,10 @@ void	test_striter(void)
 void	slave_striteri(unsigned int n, char *c) //SLAVE
 {
 	//TO LOWER
-	if (n != 0 && ft_isalnum(c[0]) == 2)
+	if (n != 0 && my_isalnum(c[0]) == 2)
 		c[0] += 32;
 	//TO UPPER
-	if (n == 0 && ft_isalnum(c[0]) == 3)
+	if (n == 0 && my_isalnum(c[0]) == 3)
 		c[0] -= 32;
 
 }
@@ -1731,7 +1731,7 @@ void	test_striteri(void)
 char	slave_strmap(char c) //SLAVE
 {
 	//TO UPPER
-	if (ft_isalnum(c) == 2)
+	if (my_isalnum(c) == 2)
 		c += 32;
 	return(c);
 }
@@ -1787,10 +1787,10 @@ void	test_strmap(void)
 char	slave_strmapi(unsigned int n, char c) //SLAVE
 {
 	//TO LOWER
-	if (n != 0 && ft_isalnum(c) == 2)
+	if (n != 0 && my_isalnum(c) == 2)
 		c += 32;
 	//TO UPPER
-	if (n == 0 && ft_isalnum(c) == 3)
+	if (n == 0 && my_isalnum(c) == 3)
 		c -= 32;
 	return (c);
 }
@@ -1850,14 +1850,14 @@ void	test_memdel(void)
 	int c;
 	FILE *file;
 	file = fopen("ft_memdel.c", "r");
-	ft_putchar('\t');
+	my_putchar('\t');
 	if (file)
 	{
 		while ((c = getc(file)) != EOF)
 		{
-			ft_putchar(c);
+			my_putchar(c);
 	if (c == '\n')
-				ft_putchar('\t');
+				my_putchar('\t');
 		}
 		fclose(file);
 	}
@@ -1872,14 +1872,14 @@ void	test_strdel(void)
 	int c;
 	FILE *file;
 	file = fopen("ft_strdel.c", "r");
-	ft_putchar('\t');
+	my_putchar('\t');
 	if (file)
 	{
 		while ((c = getc(file)) != EOF)
 		{
-			ft_putchar(c);
+			my_putchar(c);
 			if (c == '\n')
-				ft_putchar('\t');
+				my_putchar('\t');
 		}
 		fclose(file);
 	}
@@ -1891,8 +1891,8 @@ void	test_putchar_fd(void)
 {	
 	char *str;
 
-	str = ft_strdup("//SUCCESS\n\n");
-	ft_putstr("ft_putchar_fd\n\t");
+	str = my_strdup("//SUCCESS\n\n");
+	my_putstr("ft_putchar_fd\n\t");
 	while (*str)
 		ft_putchar_fd(*str++, 1);
 }
@@ -1905,26 +1905,26 @@ void	test_putstr_fd(void)
 void	test_putendl(void)
 {
 	ft_putendl("ft_putendl\n\tTest statement");
-	ft_putstr("\t//SUCCESS(If this is on a new line)\n\n");
+	my_putstr("\t//SUCCESS(If this is on a new line)\n\n");
 }
 
 void	test_putendl_fd(void)
 {
 	ft_putendl_fd("ft_putendl_fd\n\tTest statement", 1);
-	ft_putstr("\t//SUCCESS(If this is on a new line)\n\n");
+	my_putstr("\t//SUCCESS(If this is on a new line)\n\n");
 }
 
 void	test_putnbr_fd(void)
 {
-	ft_putstr("ft_putnbr_fd\n\t[-2147483648] - Expected\n\t[");
+	my_putstr("ft_putnbr_fd\n\t[-2147483648] - Expected\n\t[");
 	ft_putnbr_fd(-2147483648, 1);
-	ft_putstr("] - Result\n\t[2147483647] - Expected\n\t[");
+	my_putstr("] - Result\n\t[2147483647] - Expected\n\t[");
 	ft_putnbr_fd(2147483647, 1);
-	ft_putstr("] - Result\n\t[0] - Expected\n\t[");
+	my_putstr("] - Result\n\t[0] - Expected\n\t[");
 	ft_putnbr_fd(0, 1);
-	ft_putstr("] - Result\n\t[42] - Expected\n\t[");
+	my_putstr("] - Result\n\t[42] - Expected\n\t[");
 	ft_putnbr_fd(42, 1);
-	ft_putstr("] - Result\n\t//Check results match expected\n\n");
+	my_putstr("] - Result\n\t//Check results match expected\n\n");
 }
 
 void	test_strsub(void)
@@ -1941,8 +1941,8 @@ void	test_strsub(void)
 	char *a;
 	char b1[50];
 
-	ft_strcpy(a1, "Fast cars are cool cars");
-	ft_strcpy(b1, "cars are cool");
+	my_strcpy(a1, "Fast cars are cool cars");
+	my_strcpy(b1, "cars are cool");
 
 	//Test
 	printf("\tString 1:[%s]\n\t----------\n", a1);
@@ -1973,10 +1973,10 @@ void	test_strjoin(void)
 	char b1[50];
 	char b2[50];
 
-	ft_strcpy(a1, "Je suis un etudiant d");
-	ft_strcpy(a2, "e quarante deux");
-	ft_strcpy(b1, "Je suis un etudiant d");
-	ft_strcpy(b2, "e quarante deux");
+	my_strcpy(a1, "Je suis un etudiant d");
+	my_strcpy(a2, "e quarante deux");
+	my_strcpy(b1, "Je suis un etudiant d");
+	my_strcpy(b2, "e quarante deux");
 
 	//Test
 	printf("\tString 1:[%s]\n\tString 2:[%s]\n\t----------\n", a1, a2);
@@ -2121,10 +2121,10 @@ void	test_lstnew(void)
 	int			fail;
 
 	//Assignations
-	ft_strcpy(one_content, "I wrote this in Vietnam");
-	ft_strcpy(test_content, "I wrote this in Vietnam");
-	one_size = ft_strlen(one_content) + 1;
-	test_size = ft_strlen(test_content) + 1;
+	my_strcpy(one_content, "I wrote this in Vietnam");
+	my_strcpy(test_content, "I wrote this in Vietnam");
+	one_size = my_strlen(one_content) + 1;
+	test_size = my_strlen(test_content) + 1;
 	test_next = NULL;
 	fail = 0;
 
@@ -2143,7 +2143,7 @@ void	test_lstnew(void)
 			test_next, one->next);
 
 	//Comparison
-	if (ft_strcmp(test_content, one->content) != 0)
+	if (my_strcmp(test_content, one->content) != 0)
 		fail = 1;
 	if (test_size != one->content_size)
 		fail = 1;
@@ -2166,16 +2166,16 @@ void	test_lstdelone(void)
 	void		(*fptr)(void *, size_t);
 
 	//Assignations
-	ft_strcpy(one_content, "One");
-	ft_strcpy(two_content, "Two");
-	one_size = ft_strlen(one_content) + 1;
-	two_size = ft_strlen(two_content) + 1;
+	my_strcpy(one_content, "One");
+	my_strcpy(two_content, "Two");
+	one_size = my_strlen(one_content) + 1;
+	two_size = my_strlen(two_content) + 1;
 	test_next = NULL;
 	fail = 0;
-	one = ft_lstnew(one_content, one_size);
-	one->next = ft_lstnew(two_content, two_size);
+	one = my_lstnew(one_content, one_size);
+	one->next = my_lstnew(two_content, two_size);
 	two = one->next;
-	fptr = ft_bzero;
+	fptr = my_bzero;
 
 	//Function name
 	printf("ft_lstdelone\n");
@@ -2199,7 +2199,7 @@ void	test_lstdelone(void)
 		fail = 1;
 	}
 
-	if (ft_strcmp(two->content, two_content) != 0)
+	if (my_strcmp(two->content, two_content) != 0)
 		printf("\tdel function pointer applied - success\n");
 	else
 	{
@@ -2211,14 +2211,14 @@ void	test_lstdelone(void)
 	int c;
 	FILE *file;
 	file = fopen("ft_lstdelone.c", "r");
-	ft_putchar('\t');
+	my_putchar('\t');
 	if (file)
 	{
 		while ((c = getc(file)) != EOF)
 		{
-			ft_putchar(c);
+			my_putchar(c);
 			if (c == '\n')
-				ft_putchar('\t');
+				my_putchar('\t');
 		}
 		fclose(file);
 	}
@@ -2247,24 +2247,24 @@ void	test_lstdel(void)
 	void		(*fptr)(void *, size_t);
 
 	//Assignations
-	ft_strcpy(one_content, "One");
-	ft_strcpy(two_content, "Two");
-	ft_strcpy(three_content, "Three");
-	ft_strcpy(four_content, "Four");
-	one_size = ft_strlen(one_content) + 1;
-	two_size = ft_strlen(two_content) + 1;
-	three_size = ft_strlen(three_content) + 1;
-	four_size = ft_strlen(four_content) + 1;
+	my_strcpy(one_content, "One");
+	my_strcpy(two_content, "Two");
+	my_strcpy(three_content, "Three");
+	my_strcpy(four_content, "Four");
+	one_size = my_strlen(one_content) + 1;
+	two_size = my_strlen(two_content) + 1;
+	three_size = my_strlen(three_content) + 1;
+	four_size = my_strlen(four_content) + 1;
 	test_next = NULL;
 	fail = 0;
-	one = ft_lstnew(one_content, one_size);
-	one->next = ft_lstnew(two_content, two_size);
-	(one->next)->next = ft_lstnew(three_content, three_size);
-	((one->next)->next)->next = ft_lstnew(four_content, four_size);
+	one = my_lstnew(one_content, one_size);
+	one->next = my_lstnew(two_content, two_size);
+	(one->next)->next = my_lstnew(three_content, three_size);
+	((one->next)->next)->next = my_lstnew(four_content, four_size);
 	two = one->next;
 	three = (one->next)->next;
 	four = ((one->next)->next)->next;
-	fptr = ft_bzero;
+	fptr = my_bzero;
 
 	//Function name
 	printf("ft_lstdel\n");
@@ -2306,11 +2306,11 @@ void	test_lstdel(void)
 	else
 		printf("\tNULL pointer - not successful as never alocated to begin with");
 
-	if (ft_strcmp(two->content, two_content) != 0)
+	if (my_strcmp(two->content, two_content) != 0)
 		printf("\tdel function pointer applied - success\n");
-	else if (ft_strcmp(three->content, three_content) != 0)
+	else if (my_strcmp(three->content, three_content) != 0)
 		printf("\tdel function pointer applied - success\n");
-	else if (ft_strcmp(four->content, four_content) != 0)
+	else if (my_strcmp(four->content, four_content) != 0)
 		printf("\tdel function pointer applied - success\n");
 	else
 	{
@@ -2322,14 +2322,14 @@ void	test_lstdel(void)
 	int c;
 	FILE *file;
 	file = fopen("ft_lstdel.c", "r");
-	ft_putchar('\t');
+	my_putchar('\t');
 	if (file)
 	{
 		while ((c = getc(file)) != EOF)
 		{
-			ft_putchar(c);
+			my_putchar(c);
 			if (c == '\n')
-				ft_putchar('\t');
+				my_putchar('\t');
 		}
 		fclose(file);
 	}
@@ -2356,14 +2356,14 @@ void	test_lstadd(void)
 	t_list		*start;
 
 	//Assignations
-	ft_strcpy(one_content, "I wrote this in Vietnam");
-	ft_strcpy(two_content, "I wrote this in Bed");
-	ft_strcpy(test_content, "I wrote this in Vietnam");
-	ft_strcpy(test2_content, "I wrote this in Bed");
-	one_size = ft_strlen(one_content) + 1;
-	two_size = ft_strlen(two_content) + 1;
-	test_size = ft_strlen(test_content) + 1;
-	test2_size = ft_strlen(test2_content) + 1;
+	my_strcpy(one_content, "I wrote this in Vietnam");
+	my_strcpy(two_content, "I wrote this in Bed");
+	my_strcpy(test_content, "I wrote this in Vietnam");
+	my_strcpy(test2_content, "I wrote this in Bed");
+	one_size = my_strlen(one_content) + 1;
+	two_size = my_strlen(two_content) + 1;
+	test_size = my_strlen(test_content) + 1;
+	test2_size = my_strlen(test2_content) + 1;
 	test_next = NULL;
 	fail = 0;
 	new = NULL;
@@ -2373,8 +2373,8 @@ void	test_lstadd(void)
 	printf("ft_lstadd\n");
 	
 	//Function use
-	one = ft_lstnew(one_content, one_size);
-	new = ft_lstnew(two_content, two_size);
+	one = my_lstnew(one_content, one_size);
+	new = my_lstnew(two_content, two_size);
 	start = one;
 	ft_lstadd(&(start), new);
 
@@ -2395,13 +2395,13 @@ void	test_lstadd(void)
 			one, start->next);
 
 	//Comparison
-	if (ft_strcmp(test_content, one->content) != 0)
+	if (my_strcmp(test_content, one->content) != 0)
 		fail = 1;
 	if (test_size != one->content_size)
 		fail = 1;
 	if (test_next != one->next)
 		fail = 1;
-	if (ft_strcmp(test2_content, new->content) != 0)
+	if (my_strcmp(test2_content, new->content) != 0)
 		fail = 1;
 	if (test2_size != new->content_size)
 		fail = 1;
@@ -2410,7 +2410,7 @@ void	test_lstadd(void)
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
-char	*ft_slave_slave_lstiter(char *dst, const char *src)
+char	*my_slave_slave_lstiter(char *dst, const char *src)
 {
 	int i;
 	int j;
@@ -2430,7 +2430,7 @@ char	*ft_slave_slave_lstiter(char *dst, const char *src)
 
 void	slave_lstiter(t_list *elem)
 {
-	ft_slave_slave_lstiter(elem->content, "!");
+	my_slave_slave_lstiter(elem->content, "!");
 }
 
 void	test_lstiter(void)
@@ -2453,20 +2453,20 @@ void	test_lstiter(void)
 	void		(*fptr)(t_list *elem);
 
 	//Assignations
-	ft_strcpy(one_content, "1ONE");
-	ft_strcpy(two_content, "2TWO");
-	ft_strcpy(three_content, "3THREE");
-	ft_strcpy(four_content, "4FOUR");
-	one_size = ft_strlen(one_content) + 1;
-	two_size = ft_strlen(two_content) + 1;
-	three_size = ft_strlen(three_content) + 1;
-	four_size = ft_strlen(four_content) + 1;
+	my_strcpy(one_content, "1ONE");
+	my_strcpy(two_content, "2TWO");
+	my_strcpy(three_content, "3THREE");
+	my_strcpy(four_content, "4FOUR");
+	one_size = my_strlen(one_content) + 1;
+	two_size = my_strlen(two_content) + 1;
+	three_size = my_strlen(three_content) + 1;
+	four_size = my_strlen(four_content) + 1;
 	test_next = NULL;
 	fail = 0;
-	one = ft_lstnew(one_content, one_size);
-	one->next = ft_lstnew(two_content, two_size);
-	(one->next)->next = ft_lstnew(three_content, three_size);
-	((one->next)->next)->next = ft_lstnew(four_content, four_size);
+	one = my_lstnew(one_content, one_size);
+	one->next = my_lstnew(two_content, two_size);
+	(one->next)->next = my_lstnew(three_content, three_size);
+	((one->next)->next)->next = my_lstnew(four_content, four_size);
 	two = one->next;
 	three = (one->next)->next;
 	four = ((one->next)->next)->next;
@@ -2488,18 +2488,18 @@ void	test_lstiter(void)
 	printf("\t[4!] - Expected\n\t");
 	printf("[%s] - Result\n", four->content);
 
-	if (ft_strcmp("1!", one->content) != 0)
+	if (my_strcmp("1!", one->content) != 0)
 		fail = 1;
-	if (ft_strcmp("2!", two->content) != 0)
+	if (my_strcmp("2!", two->content) != 0)
 		fail = 1;
-	if (ft_strcmp("3!", three->content) != 0)
+	if (my_strcmp("3!", three->content) != 0)
 		fail = 1;
-	if (ft_strcmp("4!", four->content) != 0)
+	if (my_strcmp("4!", four->content) != 0)
 		fail = 1;
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
-char	*ft_slave_slave_lstmap(char *dst, const char *src)
+char	*my_slave_slave_lstmap(char *dst, const char *src)
 {
 	dst[1] = src[0];
 	return (dst);
@@ -2508,13 +2508,13 @@ char	*ft_slave_slave_lstmap(char *dst, const char *src)
 
 t_list	*slave_lstmap(t_list *elem)
 {
-	ft_slave_slave_lstiter(elem->content, "!");
+	my_slave_slave_lstiter(elem->content, "!");
 	return (elem);
 }
 
 void	slave_lstmap2(t_list *elem)
 {
-	ft_slave_slave_lstmap(elem->content, "?");
+	my_slave_slave_lstmap(elem->content, "?");
 }
 
 void	test_lstmap(void)
@@ -2543,20 +2543,20 @@ void	test_lstmap(void)
 	t_list		*new;
 
 	//Assignations
-	ft_strcpy(one_content, "1ONE");
-	ft_strcpy(two_content, "2TWO");
-	ft_strcpy(three_content, "3THREE");
-	ft_strcpy(four_content, "4FOUR");
-	one_size = ft_strlen(one_content) + 1;
-	two_size = ft_strlen(two_content) + 1;
-	three_size = ft_strlen(three_content) + 1;
-	four_size = ft_strlen(four_content) + 1;
+	my_strcpy(one_content, "1ONE");
+	my_strcpy(two_content, "2TWO");
+	my_strcpy(three_content, "3THREE");
+	my_strcpy(four_content, "4FOUR");
+	one_size = my_strlen(one_content) + 1;
+	two_size = my_strlen(two_content) + 1;
+	three_size = my_strlen(three_content) + 1;
+	four_size = my_strlen(four_content) + 1;
 	test_next = NULL;
 	fail = 0;
-	one = ft_lstnew(one_content, one_size);
-	one->next = ft_lstnew(two_content, two_size);
-	(one->next)->next = ft_lstnew(three_content, three_size);
-	((one->next)->next)->next = ft_lstnew(four_content, four_size);
+	one = my_lstnew(one_content, one_size);
+	one->next = my_lstnew(two_content, two_size);
+	(one->next)->next = my_lstnew(three_content, three_size);
+	((one->next)->next)->next = my_lstnew(four_content, four_size);
 	two = one->next;
 	three = (one->next)->next;
 	four = ((one->next)->next)->next;
@@ -2568,7 +2568,7 @@ void	test_lstmap(void)
 	
 	//Function useage
 	new = ft_lstmap(one, fptr);	
-	ft_lstiter(one, fptr2);
+	my_lstiter(one, fptr2);
 
 	one2 = new;
 	two2 = new->next;
@@ -2593,21 +2593,21 @@ void	test_lstmap(void)
 	printf("[%s] - Result\n", four2->content);
 
 
-	if (ft_strcmp("1?", one->content) != 0)
+	if (my_strcmp("1?", one->content) != 0)
 		fail = 1;
-	if (ft_strcmp("2?", two->content) != 0)
+	if (my_strcmp("2?", two->content) != 0)
 		fail = 1;
-	if (ft_strcmp("3?", three->content) != 0)
+	if (my_strcmp("3?", three->content) != 0)
 		fail = 1;
-	if (ft_strcmp("4?", four->content) != 0)
+	if (my_strcmp("4?", four->content) != 0)
 		fail = 1;
-	if (ft_strcmp("1!", one2->content) != 0)
+	if (my_strcmp("1!", one2->content) != 0)
 		fail = 1;
-	if (ft_strcmp("2!", two2->content) != 0)
+	if (my_strcmp("2!", two2->content) != 0)
 		fail = 1;
-	if (ft_strcmp("3!", three2->content) != 0)
+	if (my_strcmp("3!", three2->content) != 0)
 		fail = 1;
-	if (ft_strcmp("4!", four2->content) != 0)
+	if (my_strcmp("4!", four2->content) != 0)
 		fail = 1;
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
@@ -2633,48 +2633,48 @@ void	test_lstreturn(void)
 	void		(*fptr)(void *, size_t);
 
 	//Assignations
-	ft_strcpy(one_content, "AAA");
-	ft_strcpy(two_content, "BBB");
-	ft_strcpy(three_content, "CCC");
-	ft_strcpy(four_content, "DDD");
-	one_size = ft_strlen(one_content) + 1;
-	two_size = ft_strlen(two_content) + 1;
-	three_size = ft_strlen(three_content) + 1;
-	four_size = ft_strlen(four_content) + 1;
+	my_strcpy(one_content, "AAA");
+	my_strcpy(two_content, "BBB");
+	my_strcpy(three_content, "CCC");
+	my_strcpy(four_content, "DDD");
+	one_size = my_strlen(one_content) + 1;
+	two_size = my_strlen(two_content) + 1;
+	three_size = my_strlen(three_content) + 1;
+	four_size = my_strlen(four_content) + 1;
 	test_next = NULL;
 	fail = 0;
-	one = ft_lstnew(one_content, one_size);
-	one->next = ft_lstnew(two_content, two_size);
-	(one->next)->next = ft_lstnew(three_content, three_size);
-	((one->next)->next)->next = ft_lstnew(four_content, four_size);
+	one = my_lstnew(one_content, one_size);
+	one->next = my_lstnew(two_content, two_size);
+	(one->next)->next = my_lstnew(three_content, three_size);
+	((one->next)->next)->next = my_lstnew(four_content, four_size);
 	two = one->next;
 	three = (one->next)->next;
 	four = ((one->next)->next)->next;
-	fptr = ft_bzero;
+	fptr = my_bzero;
 
 	//Function name
 	printf("ft_lstreturn\n");
 
 	//Example usage
-	tmp = ft_lstreturn(one, 3);
-	ft_lstdelone(&(tmp), fptr);
+	tmp = my_lstreturn(one, 3);
+	my_lstdelone(&(tmp), fptr);
 
 	//Output
 	printf("\t[AAA] - Expected\n\t");
-	printf("[%s] - Result\n", ft_lstreturn(one, 0)->content);
+	printf("[%s] - Result\n", my_lstreturn(one, 0)->content);
 	printf("\t[BBB] - Expected\n\t");
-	printf("[%s] - Result\n", ft_lstreturn(one, 1)->content);
+	printf("[%s] - Result\n", my_lstreturn(one, 1)->content);
 	printf("\t[CCC] - Expected\n\t");
-	printf("[%s] - Result\n", ft_lstreturn(one, 2)->content);
+	printf("[%s] - Result\n", my_lstreturn(one, 2)->content);
 	printf("\t[%p] - Expected\n\t", test_next);
 	printf("[%p] - Result\n", tmp);
 
 	//Test
-	if (ft_strcmp("AAA", ft_lstreturn(one, 0)->content) != 0)
+	if (my_strcmp("AAA", my_lstreturn(one, 0)->content) != 0)
 		fail = 1;
-	if (ft_strcmp("BBB", ft_lstreturn(one, 1)->content) != 0)
+	if (my_strcmp("BBB", my_lstreturn(one, 1)->content) != 0)
 		fail = 1;
-	if (ft_strcmp("CCC", ft_lstreturn(one, 2)->content) != 0)
+	if (my_strcmp("CCC", my_lstreturn(one, 2)->content) != 0)
 		fail = 1;
 	if (tmp != test_next)
 		fail = 1;
@@ -2703,23 +2703,23 @@ void	test_lststrsplit(void)
 
 	//Tests 1
 	printf("\t[%s] - before\n", a1);
-	a3 = ft_lststrsplit(a1, '*');
-	printf("\t[%s] - after\n\t----------\n", ft_lstreturn(*a3, 4)->content);
-	if (strcmp(ft_lstreturn((*a3), 4)->content, a2) != 0)
+	a3 = my_lststrsplit(a1, '*');
+	printf("\t[%s] - after\n\t----------\n", my_lstreturn(*a3, 4)->content);
+	if (strcmp(my_lstreturn((*a3), 4)->content, a2) != 0)
 		fail = 1;
 
 	//Test 2
 	printf("\t[%s] - before\n", b1);
-	b3 = ft_lststrsplit(b1, '.');
-	printf("\t[%s] - after\n\t----------\n", ft_lstreturn(*b3, 3)->content);
-	if (strcmp(ft_lstreturn((*b3), 3)->content, b2) != 0)
+	b3 = my_lststrsplit(b1, '.');
+	printf("\t[%s] - after\n\t----------\n", my_lstreturn(*b3, 3)->content);
+	if (strcmp(my_lstreturn((*b3), 3)->content, b2) != 0)
 		fail = 1;
 
 	//Test 3
 	printf("\t[%s] - before\n", c1);
-	c3 = ft_lststrsplit(c1, '1');
-	printf("\t[%s] - after\n\t----------\n", ft_lstreturn(*c3, 0)->content);
-	if (strcmp(ft_lstreturn((*c3), 0)->content, c2) != 0)
+	c3 = my_lststrsplit(c1, '1');
+	printf("\t[%s] - after\n\t----------\n", my_lstreturn(*c3, 0)->content);
+	if (strcmp(my_lstreturn((*c3), 0)->content, c2) != 0)
 		fail = 1;
 
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
