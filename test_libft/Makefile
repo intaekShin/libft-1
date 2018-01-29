@@ -6,7 +6,7 @@
 #    By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/27 15:32:02 by dhojt             #+#    #+#              #
-#    Updated: 2018/01/29 14:24:13 by dhojt            ###   ########.fr        #
+#    Updated: 2018/01/29 17:41:18 by dhojt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME = libmy.a
 
 COMP = gcc -Wall -Werror -Wextra -c -o
 
-CFIND = $(shell find . -maxdepth 1 -type f | grep -E "\.c$$")
-CFILE = $(notdir $(CFIND))
-OFILE = $(CFILE:%.c=%.o)
+CFIND = $(shell find ./srcs/ -maxdepth 1 -type f | grep -E "\.c$$")
+CFILE = $(CFIND)
+OFILE = $(notdir $(CFILE:%.c=%.o))
 
 OBJ_DIR = ./obj/
 OBJ = $(addprefix $(OBJ_DIR), $(OFILE))
@@ -38,7 +38,7 @@ $(OBJ): $(CFILE)
 
 $(OFILE):
 	@echo Create: $(@:obj/%=%)
-	@$(COMP) $(OBJ_DIR)$@ $(@:%.o=%.c)
+	@$(COMP) $(OBJ_DIR)$@ ./srcs/$(@:%.o=%.c)
 
 clean:
 	@/bin/rm -rf $(OBJ_DIR)
