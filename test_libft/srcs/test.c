@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:38 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/29 15:43:58 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/01/29 23:40:49 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,19 @@ void	test_putchar(void)
 {	
 	char *str;
 
-	str = my_strdup("//SUCCESS\n\n");
-	my_putstr("ft_putchar\n\t");
+	str = my_strdup("\ttest print\n");
+	printf("ft_putchar\n");
 	while (*str)
 		ft_putchar(*str++);
+
+	printf("\t//SUCCESS(if \"test print\" appears above)\n\n");
 }
 
 void	test_putstr(void)
 {
-	ft_putstr("ft_putstr\n\t//SUCCESS\n\n");
+	printf("ft_putstr\n");
+	ft_putstr("\ttest print\n");
+	printf("\t//SUCCESS(if \"test print\" appears above)\n\n");
 }
 
 void	test_putnbr(void)
@@ -866,7 +870,7 @@ void	test_isalpha(void)
 
 	//Function Name
 	printf("ft_isalpha\n");
-	
+
 	//Assign values
 	ftis = 'a';
 	ftnot = '1';
@@ -906,7 +910,7 @@ void	test_isdigit(void)
 
 	//Function Name
 	printf("ft_isdigit\n");
-	
+
 	//Assign values
 	ftis = '1';
 	ftnot = 'a';
@@ -946,7 +950,7 @@ void	test_isalnum(void)
 
 	//Function Name
 	printf("ft_isalnum\n");
-	
+
 	//Assign values
 	ftis = 'a';
 	ftnot = '~';
@@ -982,7 +986,7 @@ void	test_isascii(void)
 
 	//Function Name
 	printf("ft_isascii\n");
-	
+
 	//Assign values
 	ftis = 'a';
 	sysis = 'a';
@@ -1015,7 +1019,7 @@ void	test_isprint(void)
 
 	//Function Name
 	printf("ft_isprint\n");
-	
+
 	//Assign values
 	ftis = 'a';
 	ftnot = '\n';
@@ -1427,7 +1431,7 @@ void	test_itoa(void)
 	my_strcpy(bb, "0");
 	my_strcpy(cc, "-12675822");
 
-	
+
 	my_strcpy(aaa, ft_itoa(a));
 	my_strcpy(bbb, ft_itoa(b));
 	my_strcpy(ccc, ft_itoa(c));
@@ -1450,7 +1454,7 @@ void	test_itoa(void)
 void	test_strnew(void)
 {
 	printf("ft_strnew\n\tReview the code below...\n\t----------\n");
-	
+
 	int c;
 	FILE *file;
 	file = fopen("ft_strnew.c", "r");
@@ -1472,7 +1476,7 @@ void	test_strnew(void)
 void	test_memalloc(void)
 {
 	printf("ft_memalloc\n\tReview the code below...\n\t----------\n");
-	
+
 	int c;
 	FILE *file;
 	file = fopen("ft_memalloc.c", "r");
@@ -1846,7 +1850,7 @@ void	test_strmapi(void)
 void	test_memdel(void)
 {
 	printf("ft_memdel\n\tReview the code below...\n\t----------\n");
-	
+
 	int c;
 	FILE *file;
 	file = fopen("ft_memdel.c", "r");
@@ -1856,7 +1860,7 @@ void	test_memdel(void)
 		while ((c = getc(file)) != EOF)
 		{
 			my_putchar(c);
-	if (c == '\n')
+			if (c == '\n')
 				my_putchar('\t');
 		}
 		fclose(file);
@@ -1868,7 +1872,7 @@ void	test_memdel(void)
 void	test_strdel(void)
 {
 	printf("ft_strdel\n\tReview the code below...\n\t----------\n");
-	
+
 	int c;
 	FILE *file;
 	file = fopen("ft_strdel.c", "r");
@@ -1889,29 +1893,37 @@ void	test_strdel(void)
 
 void	test_putchar_fd(void)
 {	
+	
 	char *str;
 
-	str = my_strdup("//SUCCESS\n\n");
-	my_putstr("ft_putchar_fd\n\t");
+	str = my_strdup("\ttest print\n");
+	printf("ft_putchar_fd\n");
 	while (*str)
 		ft_putchar_fd(*str++, 1);
+
+	printf("\t//SUCCESS(if \"test print\" appears above)\n\n");
 }
 
 void	test_putstr_fd(void)
 {
-	ft_putstr_fd("ft_putstr_fd\n\t//SUCCESS\n\n", 1);
+	printf("ft_putstr_fd\n");
+	ft_putstr_fd("\ttest print\n", 1);
+	printf("\t//SUCCESS(if \"test print\" appears above)\n\n");
 }
 
 void	test_putendl(void)
 {
-	ft_putendl("ft_putendl\n\tTest statement");
-	my_putstr("\t//SUCCESS(If this is on a new line)\n\n");
+	printf("ft_putendl\n");
+	ft_putendl("\tTest statement");
+	printf("\t//SUCCESS(if this is on a new line below \"Test statement\")\n\n");
 }
 
 void	test_putendl_fd(void)
 {
-	ft_putendl_fd("ft_putendl_fd\n\tTest statement", 1);
-	my_putstr("\t//SUCCESS(If this is on a new line)\n\n");
+	
+	printf("ft_putendl_fd\n");
+	ft_putendl_fd("\tTest statement", 1);
+	printf("\t//SUCCESS(if this is on a new line below \"Test statement\")\n\n");
 }
 
 void	test_putnbr_fd(void)
@@ -2094,7 +2106,7 @@ void	test_strlen(void)
 	a = ft_strlen("1");
 	b = ft_strlen("Ann is a frog");
 	c = ft_strlen("     Orange is the new Acers     !   ");
-	
+
 	printf("ft_strlen\n");
 	printf("\t[%zu]\t\"1\"\n", a);
 	printf("\t[%zu]\t\"Ann is a frog\"\n", b);
@@ -2130,10 +2142,10 @@ void	test_lstnew(void)
 
 	//Function name
 	printf("ft_lstnew\n");
-	
+
 	//Function use
 	one = ft_lstnew(one_content, one_size);
-	
+
 	//Print results
 	printf("\tcontent:\n\t[%s] - Expected\n\t[%s] - Result\n\t----------\n",
 			test_content, one->content);
@@ -2222,7 +2234,7 @@ void	test_lstdelone(void)
 		}
 		fclose(file);
 	}
-		
+
 	//Comparison
 	(fail) ? printf("//FAIL\n\n") : printf("//SUCCESS - if free occurs above\n\n");
 }
@@ -2333,7 +2345,7 @@ void	test_lstdel(void)
 		}
 		fclose(file);
 	}
-		
+
 	//Comparison
 	(fail) ? printf("//FAIL\n\n") : printf("//SUCCESS - if free occurs above\n\n");
 }
@@ -2371,7 +2383,7 @@ void	test_lstadd(void)
 
 	//Function name
 	printf("ft_lstadd\n");
-	
+
 	//Function use
 	one = my_lstnew(one_content, one_size);
 	new = my_lstnew(two_content, two_size);
@@ -2379,7 +2391,7 @@ void	test_lstadd(void)
 	ft_lstadd(&(start), new);
 
 
-	
+
 	//Print results
 	printf("\tcontent:\n\t[%s] - Expected\n\t[%s] - Result\n",
 			test_content, one->content);
@@ -2475,7 +2487,7 @@ void	test_lstiter(void)
 	//Function name
 	printf("ft_lstiter\n");
 
-	
+
 	//Function useage
 	ft_lstiter(one, fptr);
 
@@ -2565,7 +2577,7 @@ void	test_lstmap(void)
 
 	//Function name
 	printf("ft_lstmap\n");
-	
+
 	//Function useage
 	new = ft_lstmap(one, fptr);	
 	my_lstiter(one, fptr2);
@@ -2725,7 +2737,46 @@ void	test_lststrsplit(void)
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
 
-int		main(void)
+void	help(void)
+{
+	//42 logo
+	printf("\n\n");
+	printf("                                 :::      ::::::::  \n");
+	printf("                               :+:      :+:    :+:  \n");
+	printf("                             +:+ +:+         +:+    \n");
+	printf("By: dhojt <dhojt@studet    +#+  +:+       +#+       \n");
+	printf("                         +#+#+#+#+#+   +#+          \n");
+	printf("                              #+#    #+#            \n");
+	printf("                             ###   ########.fr      \n");
+
+	//libft title
+	printf("+------------------------------------------------+\n");
+	printf("|        l i b f t     t e s t    h e l p        |\n");
+	printf("+------------------------------------------------+\n");
+
+	printf("1. Info\n");
+	printf("\t>The idea here is not to help make libft.\n\n");
+	printf("\t>The idea is to see if your functions work\n\n");
+	printf("\t>Your ENTIRE libft must compile\n");
+	printf("--------------------------------------------------\n");
+
+	printf("2. Setup\n");
+	printf("\t>Git clone to a subdirectory in the\n");
+	printf("\t directory where you compile libft.a\n");
+	printf("\t E.g if libft.a compiles to exapmle_dir,\n");
+	printf("\t git clone to example_dir/test_dir\n\n");
+	printf("\t>Compile YOUR libft.a\n\n");
+	printf("\t>cd to the test subdirectory\n\n");
+	printf("\t>run make\n\n");
+	printf("\t YOU'RE READY TO TEST\n");
+	printf("--------------------------------------------------\n");
+
+	printf("3. Test\n");
+	printf("\t>Test your whole libft\n\t\t./test\n\n");
+	printf("\t>Test one function\n\t\t./test ft_atoi\n\n");
+}
+
+int		main(int argc, char **argv)
 {
 	//test_putchar();
 	//test_putstr();
@@ -2796,64 +2847,203 @@ int		main(void)
 	//test_lstmap();
 	//test_lstreturn();
 	//test_lststrsplit();
-	
-	test_memset();
-	test_bzero();
-	test_memcpy();
-	test_memccpy();
-	test_memmove();
-	test_memchr();
-	test_memcmp();
-	test_strlen();
-	test_strdup();
-	test_strcpy();
-	test_strncpy();
-	test_strcat();
-	test_strncat();
-	test_strlcat();
-	test_strchr();
-	test_strrchr();
-	test_strstr();
-	test_strnstr();
-	test_strcmp();
-	test_strncmp();
-	test_atoi();
-	test_isalpha();
-	test_isdigit();
-	test_isalnum();
-	test_isascii();
-	test_isprint();
-	test_toupper();
-	test_tolower();
-	test_memalloc();
-	test_memdel();
-	test_strnew();
-	test_strdel();
-	test_strclr();
-	test_striter();
-	test_striteri();
-	test_strmap();
-	test_strmapi();
-	test_strequ();
-	test_strnequ();
-	test_strsub();
-	test_strjoin();
-	test_strtrim();
-	test_strsplit();
-	test_itoa();
-	test_putchar();
-	test_putstr();
-	test_putendl();
-	test_putnbr();
-	test_putchar_fd();
-	test_putstr_fd();
-	test_putendl_fd();
-	test_putnbr_fd();
-	test_lstnew();
-	test_lstdelone();
-	test_lstdel();
-	test_lstadd();
-	test_lstiter();
-	test_lstmap();
-	return (0);
+
+
+	if (argc == 2) //ENSURE ONE FUNCTION ONLY
+	{
+		if (strncmp(argv[1], "ft_", 3) == 0)//ENSURE FUNCTION BEGINS WITH ft_
+		{
+			char *func;
+			char *func_test;
+
+			func = my_strjoin(&argv[1][3], "();");
+			func_test = my_strjoin("test_", func);
+
+			if (strcmp(func_test, "test_memset();") == 0)
+				test_memset();
+			else if (strcmp(func_test, "test_bzero();") == 0)
+				test_bzero();
+			else if (strcmp(func_test, "test_memcpy();") == 0)
+				test_memcpy();
+			else if (strcmp(func_test, "test_memccpy();") == 0)
+				test_memccpy();
+			else if (strcmp(func_test, "test_memmove();") == 0)
+				test_memmove();
+			else if (strcmp(func_test, "test_memchr();") == 0)
+				test_memchr();
+			else if (strcmp(func_test, "test_memcmp();") == 0)
+				test_memcmp();
+			else if (strcmp(func_test, "test_strlen();") == 0)
+				test_strlen();
+			else if (strcmp(func_test, "test_strdup();") == 0)
+				test_strdup();
+			else if (strcmp(func_test, "test_strcpy();") == 0)
+				test_strcpy();
+			else if (strcmp(func_test, "test_strncpy();") == 0)
+				test_strncpy();
+			else if (strcmp(func_test, "test_strcat();") == 0)
+				test_strcat();
+			else if (strcmp(func_test, "test_strncat();") == 0)
+				test_strncat();
+			else if (strcmp(func_test, "test_strlcat();") == 0)
+				test_strlcat();
+			else if (strcmp(func_test, "test_strchr();") == 0)
+				test_strchr();
+			else if (strcmp(func_test, "test_strrchr();") == 0)
+				test_strrchr();
+			else if (strcmp(func_test, "test_strstr();") == 0)
+				test_strstr();
+			else if (strcmp(func_test, "test_strnstr();") == 0)
+				test_strnstr();
+			else if (strcmp(func_test, "test_strcmp();") == 0)
+				test_strcmp();
+			else if (strcmp(func_test, "test_strncmp();") == 0)
+				test_strncmp();
+			else if (strcmp(func_test, "test_atoi();") == 0)
+				test_atoi();
+			else if (strcmp(func_test, "test_isalpha();") == 0)
+				test_isalpha();
+			else if (strcmp(func_test, "test_isdigit();") == 0)
+				test_isdigit();
+			else if (strcmp(func_test, "test_isalnum();") == 0)
+				test_isalnum();
+			else if (strcmp(func_test, "test_isascii();") == 0)
+				test_isascii();
+			else if (strcmp(func_test, "test_isprint();") == 0)
+				test_isprint();
+			else if (strcmp(func_test, "test_toupper();") == 0)
+				test_toupper();
+			else if (strcmp(func_test, "test_tolower();") == 0)
+				test_tolower();
+			else if (strcmp(func_test, "test_memalloc();") == 0)
+				test_memalloc();
+			else if (strcmp(func_test, "test_memdel();") == 0)
+				test_memdel();
+			else if (strcmp(func_test, "test_strnew();") == 0)
+				test_strnew();
+			else if (strcmp(func_test, "test_strdel();") == 0)
+				test_strdel();
+			else if (strcmp(func_test, "test_strclr();") == 0)
+				test_strclr();
+			else if (strcmp(func_test, "test_striter();") == 0)
+				test_striter();
+			else if (strcmp(func_test, "test_striteri();") == 0)
+				test_striteri();
+			else if (strcmp(func_test, "test_strmap();") == 0)
+				test_strmap();
+			else if (strcmp(func_test, "test_strmapi();") == 0)
+				test_strmapi();
+			else if (strcmp(func_test, "test_strequ();") == 0)
+				test_strequ();
+			else if (strcmp(func_test, "test_strnequ();") == 0)
+				test_strnequ();
+			else if (strcmp(func_test, "test_strsub();") == 0)
+				test_strsub();
+			else if (strcmp(func_test, "test_strjoin();") == 0)
+				test_strjoin();
+			else if (strcmp(func_test, "test_strtrim();") == 0)
+				test_strtrim();
+			else if (strcmp(func_test, "test_strsplit();") == 0)
+				test_strsplit();
+			else if (strcmp(func_test, "test_itoa();") == 0)
+				test_itoa();
+			else if (strcmp(func_test, "test_putchar();") == 0)
+				test_putchar();
+			else if (strcmp(func_test, "test_putstr();") == 0)
+				test_putstr();
+			else if (strcmp(func_test, "test_putendl();") == 0)
+				test_putendl();
+			else if (strcmp(func_test, "test_putnbr();") == 0)
+				test_putnbr();
+			else if (strcmp(func_test, "test_putchar_fd();") == 0)
+				test_putchar_fd();
+			else if (strcmp(func_test, "test_putstr_fd();") == 0)
+				test_putstr_fd();
+			else if (strcmp(func_test, "test_putendl_fd();") == 0)
+				test_putendl_fd();
+			else if (strcmp(func_test, "test_putnbr_fd();") == 0)
+				test_putnbr_fd();
+			else if (strcmp(func_test, "test_lstnew();") == 0)
+				test_lstnew();
+			else if (strcmp(func_test, "test_lstdelone();") == 0)
+				test_lstdelone();
+			else if (strcmp(func_test, "test_lstdel();") == 0)
+				test_lstdel();
+			else if (strcmp(func_test, "test_lstadd();") == 0)
+				test_lstadd();
+			else if (strcmp(func_test, "test_lstiter();") == 0)
+				test_lstiter();
+			else if (strcmp(func_test, "test_lstmap();") == 0)
+				test_lstmap();
+			else
+				printf("\nThat is not a libft function\n\nRun ./test help\n\n");
+		}
+		else if (strcmp(argv[1], "help") == 0)
+			help();
+		else printf("\nFunctions must begin with \"ft_\"\n\nRun ./test help\n\n");
+	}
+	else if (argc == 1) //NO FUNCTION IS SUPPLIED
+	{
+		test_memset();
+		test_bzero();
+		test_memcpy();
+		test_memccpy();
+		test_memmove();
+		test_memchr();
+		test_memcmp();
+		test_strlen();
+		test_strdup();
+		test_strcpy();
+		test_strncpy();
+		test_strcat();
+		test_strncat();
+		test_strlcat();
+		test_strchr();
+		test_strrchr();
+		test_strstr();
+		test_strnstr();
+		test_strcmp();
+		test_strncmp();
+		test_atoi();
+		test_isalpha();
+		test_isdigit();
+		test_isalnum();
+		test_isascii();
+		test_isprint();
+		test_toupper();
+		test_tolower();
+		test_memalloc();
+		test_memdel();
+		test_strnew();
+		test_strdel();
+		test_strclr();
+		test_striter();
+		test_striteri();
+		test_strmap();
+		test_strmapi();
+		test_strequ();
+		test_strnequ();
+		test_strsub();
+		test_strjoin();
+		test_strtrim();
+		test_strsplit();
+		test_itoa();
+		test_putchar();
+		test_putstr();
+		test_putendl();
+		test_putnbr();
+		test_putchar_fd();
+		test_putstr_fd();
+		test_putendl_fd();
+		test_putnbr_fd();
+		test_lstnew();
+		test_lstdelone();
+		test_lstdel();
+		test_lstadd();
+		test_lstiter();
+		test_lstmap();
+		return (0);
+	}
+	else
+		printf("\nYou supplied more than one argument\n\nRun ./test help\n\n");
 }
