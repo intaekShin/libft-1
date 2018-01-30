@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:38 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/30 22:31:29 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/01/30 23:02:44 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1210,23 +1210,27 @@ void	test_memccpy(void)
 	//Declarations for my function
 	char fttest[] = "Dogs are the best";
 	char ftfind[] = "Cats are awful";
+	char *ftres;
 	//Declarations for system function
 	char systest[] = "Dogs are the best";
 	char sysfind[] = "Cats are awful";
+	char *sysres;
 
 
 	//Print test input
 	printf("\tdst:[%s] src:[%s]\n\t----------\n", fttest, ftfind);
 
 	//Both my test & system test
-	ft_memccpy(fttest, ftfind, 'a', 4);
-	memccpy(systest, sysfind, 'a' , 4);
+	ftres = ft_memccpy(fttest, ftfind, 'a', 4);
+	sysres = memccpy(systest, sysfind, 'a' , 4);
 
 	//Result & return Success.
 	printf("\tstr:[%s] - ft_memccpy\n", fttest);
 	printf("\tstr:[%s] - memccpy (System)\n", systest);
 
 	if (my_strcmp(fttest, systest) != 0)
+		fail = 1;
+	if (my_strcmp(ftres, sysres))
 		fail = 1;
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
