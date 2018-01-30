@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:38 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/30 09:06:19 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/01/30 22:31:29 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,8 +209,8 @@ void	test_strcmp(void)
 	char a2[] = "Born 2 Code";
 	char b1[] = "Ann";
 	char b2[] = "Dav";
-	char c1[] = "Hello, world!";
-	char c2[] = "Hello, world!";
+	char c1[] = "test\0";
+	char c2[] = "test\200";
 
 	//my function call
 	fta = ft_strcmp(a1, a2);
@@ -253,18 +253,18 @@ void	test_strncmp(void)
 	char a2[] = "Born 2 Code";
 	char b1[] = "Ann";
 	char b2[] = "Dav";
-	char c1[] = "Hello, world!";
-	char c2[] = "Hello, moto!";
+	char c1[] = "test\200";
+	char c2[] = "test\0";
 
 	//my function call
 	fta = ft_strncmp(a1, a2, 3);
 	ftb = ft_strncmp(b1, b2, 3);
-	ftc = ft_strncmp(c1, c2, 3);
+	ftc = ft_strncmp(c1, c2, 6);
 
 	//sys function call
 	sysa = strncmp(a1, a2, 3);
 	sysb = strncmp(b1, b2, 3);
-	sysc = strncmp(c1, c2, 3);
+	sysc = strncmp(c1, c2, 6);
 
 	//print results
 	printf("\t**All passed with 3 for size_t**\n\t----------\n");
@@ -1384,18 +1384,18 @@ void	test_memcmp(void)
 	char a2[] = "Frog";
 	char b1[] = "Boss";
 	char b2[] = "Bottle";
-	char c1[] = "Hello, world!";
-	char c2[] = "Hello, moto!";
+	char c1[] = "test\200";
+	char c2[] = "test\0";
 
 	//my function call
 	fta = ft_memcmp(a1, a2, 3);
 	ftb = ft_memcmp(b1, b2, 3);
-	ftc = ft_memcmp(c1, c2, 3);
+	ftc = ft_memcmp(c1, c2, 6);
 
 	//sys function call
 	sysa = memcmp(a1, a2, 3);
 	sysb = memcmp(b1, b2, 3);
-	sysc = memcmp(c1, c2, 3);
+	sysc = memcmp(c1, c2, 6);
 
 	//print results
 	printf("\t**All passed with 3 for size_t**\n\t----------\n");
