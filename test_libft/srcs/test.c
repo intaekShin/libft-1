@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:38 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/30 23:02:44 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/01/30 23:54:44 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -704,17 +704,19 @@ void	test_strlcpy(void)
 	//Declarations for my function
 	char fttest[50] = "Lead Balloon";
 	char ftnew[50] = "Frogs";
+	size_t ftret;
 	//Declarations for system function
 	char systest[50] = "Lead Balloon";
 	char sysnew[50] = "Frogs";
+	size_t sysret;
 
 	//Print test input
 	printf("ft_strlcpy\n");
 	printf("\tDest:[%s] Src:[%s]\n\t----------\n", fttest, ftnew);
 
 	//Both my test & system test (n = 3)
-	ft_strlcpy(fttest, ftnew, 3);
-	strlcpy(systest, sysnew, 3);
+	ftret = ft_strlcpy(fttest, ftnew, 3);
+	sysret = strlcpy(systest, sysnew, 3);
 
 	//Result & return Success.
 	printf("\tDest:[%s] - ft_strlcpy\n", fttest);
@@ -726,6 +728,8 @@ void	test_strlcpy(void)
 			fail = 1;
 		i++;
 	}
+	if (ftret != sysret)
+		fail = 1;
 	if (fail)
 		printf("\t//FAIL\n\n");
 	else
