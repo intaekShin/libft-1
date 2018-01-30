@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:38 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/29 23:40:49 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/01/30 09:06:19 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1004,13 +1004,17 @@ void	test_isprint(void)
 {
 	//Declarations
 	char	ftis;
+	char	ftis2;
 	char	ftnot;
 	char	sysis;
+	char	sysis2;
 	char	sysnot;
 
 	int		ftisresult;
+	int		ftisresult2;
 	int		ftnotresult;
 	int		sysisresult;
+	int		sysisresult2;
 	int		sysnotresult;
 
 	int		fail;
@@ -1021,18 +1025,24 @@ void	test_isprint(void)
 	printf("ft_isprint\n");
 
 	//Assign values
-	ftis = 'a';
+	ftis = '~';
+	ftis2 = ' ';
 	ftnot = '\n';
-	sysis = 'a';
+	sysis = '~';
+	sysis2 = ' ';
 	sysnot = '\n';
 
 	//my_isalpha v isalpha
 	ftisresult = ft_isprint(ftis);
+	ftisresult2 = ft_isprint(ftis2);
 	ftnotresult = ft_isprint(ftnot);
 	sysisresult = isprint(sysis);
+	sysisresult2 = isprint(sysis2);
 	sysnotresult = isprint(sysnot);
 
-	if (ftisresult == 0 || sysisresult == 0)
+	if (ftisresult != sysisresult)
+		fail = 1;
+	if (ftisresult2 != sysisresult2)
 		fail = 1;
 	if (ftnotresult != sysnotresult)
 		fail = 1;
