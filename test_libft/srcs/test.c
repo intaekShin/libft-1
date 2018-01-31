@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:38 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/31 14:40:48 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/01/31 17:46:44 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2101,6 +2101,9 @@ void	test_strsplit(void)
 	char c1[] = "Normalne";
 	char c2[] = "Normalne";
 	char *c3;
+	char d1[] = "        ";
+	//char d2[] = "";
+	char *d3;
 
 	//Tests 1
 	printf("\t[%s] - before\n", a1);
@@ -2117,11 +2120,18 @@ void	test_strsplit(void)
 	c3 = ft_strsplit(c1, '1')[0];
 	printf("\t[%s] - after\n\t----------\n", c3);
 
+	//Test 4
+	printf("\t[%s] - before\n", d1);
+	d3 = ft_strsplit(d1, ' ')[0];
+	printf("\t[%s] - after\n\t----------\n", (d3 == NULL) ? "" : "FAIL EMPTY STRING");
+
 	if (strcmp(a3, a2) != 0)
 		fail = 1;
 	if (strcmp(b3, b2) != 0)
 		fail = 1;
 	if (strcmp(c3, c2) != 0)
+		fail = 1;
+	if (d3 !=  NULL != 0)
 		fail = 1;
 
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
