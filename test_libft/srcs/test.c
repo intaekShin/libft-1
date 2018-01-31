@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:38 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/30 23:54:44 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/01/31 13:39:18 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -669,10 +669,12 @@ void	test_strlcat(void)
 	printf("ft_strlcat\n");
 
 	//Declarations
-	char a1[50];
-	char a2[50];
-	char b1[50];
-	char b2[50];
+	char	a1[50];
+	char	a2[50];
+	size_t	a3;
+	char	b1[50];
+	char	b2[50];
+	size_t	b3;
 
 	my_strcpy(a1, "Je suis un etudiant d");
 	my_strcpy(a2, "e quarante deux");
@@ -681,9 +683,9 @@ void	test_strlcat(void)
 
 	//Test
 	printf("\tString 1:[%s]\n\tString 2:[%s]\n\t----------\n", a1, a2);
-	ft_strlcat(a1, a2, 26);
-	strlcat(b1, b2, 26);
-	printf("\t[%s] - ft_strlcat\n\t[%s] - strlcat\n", a1, b1);
+	a3 = ft_strlcat(a1, a2, 26);
+	b3 = strlcat(b1, b2, 26);
+	printf("\t[%zu][%s] - ft_strlcat\n\t[%zu][%s] - strlcat\n", a3, a1, b3, b1);
 
 
 	//Result
