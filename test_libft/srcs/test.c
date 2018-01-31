@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:38 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/31 13:39:18 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/01/31 14:40:48 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1278,7 +1278,8 @@ void	test_strchr(void)
 	int fail;
 	int i;
 	char *ftnum;
-	char * sysnum;
+	char *zeronum;
+	char *sysnum;
 
 	fail = 0;
 	i = 0;
@@ -1288,6 +1289,7 @@ void	test_strchr(void)
 
 	//Declarations for my function
 	char fttest[] = "This is a string";
+	char zero[] = " not";
 	//Declarations for system function
 	char systest[] = "This is a string";
 
@@ -1296,13 +1298,17 @@ void	test_strchr(void)
 
 	//Both my test & system test
 	ftnum = ft_strchr(fttest, 'i');
+	zeronum = ft_strchr(zero, '\0');
 	sysnum = strchr(systest, 'i');
 
 	//Result & return Success.
 	printf("\tstr:[%s] [%s] - ft_strchr\n", fttest, ftnum);
 	printf("\tstr:[%s] [%s]- strchr (System)\n", systest, sysnum);
+	printf("\tTrailing \\0 is%s evaluated.\n", (zeronum[0] != '\0') ? " NOT" : "");
 
 	if (my_strcmp(ftnum, sysnum) != 0)
+		fail = 1;
+	if (zeronum[0] != '\0')
 		fail = 1;
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
@@ -1312,7 +1318,8 @@ void	test_strrchr(void)
 	int fail;
 	int i;
 	char *ftnum;
-	char * sysnum;
+	char *zeronum;
+	char *sysnum;
 
 	fail = 0;
 	i = 0;
@@ -1322,6 +1329,7 @@ void	test_strrchr(void)
 
 	//Declarations for my function
 	char fttest[] = "This is a string";
+	char zero[] = " not";
 	//Declarations for system function
 	char systest[] = "This is a string";
 
@@ -1330,16 +1338,21 @@ void	test_strrchr(void)
 
 	//Both my test & system test
 	ftnum = ft_strrchr(fttest, 'i');
+	zeronum = ft_strrchr(zero, '\0');
 	sysnum = strrchr(systest, 'i');
 
 	//Result & return Success.
 	printf("\tstr:[%s] [%s] - ft_strrchr\n", fttest, ftnum);
 	printf("\tstr:[%s] [%s]- strrchr (System)\n", systest, sysnum);
+	printf("\tTrailing \\0 is%s evaluated.\n", (zeronum[0] != '\0') ? " NOT" : "");
 
 	if (my_strcmp(ftnum, sysnum) != 0)
 		fail = 1;
+	if (zeronum[0] != '\0')
+		fail = 1;
 	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
 }
+
 
 void	test_memchr(void)
 {
