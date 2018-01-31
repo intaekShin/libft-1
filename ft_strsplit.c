@@ -6,11 +6,25 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:20 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/27 15:38:22 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/01/31 17:39:45 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	ft_isblank(char const *s, char c)
+{
+	int blank;
+
+	blank = 1;
+	while (*s)
+	{
+		if (*s != c)
+			blank = 0;
+		s++;
+	}
+	return (blank);
+}
 
 static void	ft_newarraydelimstr(char **array, char const *s, char c)
 {
@@ -31,6 +45,7 @@ static void	ft_newarraydelimstr(char **array, char const *s, char c)
 		}
 		s++;
 	}
+	array[k] = NULL;
 }
 
 static char	**ft_arraydelim(char const *s, char c)
@@ -47,7 +62,7 @@ static char	**ft_arraydelim(char const *s, char c)
 			j++;
 		i++;
 	}
-	if(!(array = (char **) malloc((j + 1) * sizeof(char *))))
+	if(!(array = (char **) malloc((j + 2) * sizeof(char *))))
 		return (NULL);
 	ft_newarraydelimstr(array, s, c);
 	return (array);
@@ -80,13 +95,20 @@ static void	ft_fillarraydelim(char **array, const char *s, char c)
 
 char		**ft_strsplit(char const *s, char c)
 {
-	char	*one;
-	char	*two;
-	char	**three;
+	char	*str_trim;
+	char	*str_condensed;
+	char	**array;
 
-	one = ft_strtrimselect(s, c);
-	two = ft_removeselect(one, c);
-	three = ft_arraydelim(two, c);
-	ft_fillarraydelim(three, two, c);
-	return (three);
+	array = NULL;
+	if (ft_isblank(s, c) != 0)
+	{
+		array = (char **) malloc(1 * sizeof(char *));
+		array[0] = NULL;
+		return (array);
+	}
+	str_trim = ft_strtrimselect(s, c);
+	str_condensed = ft_removeselect(str_trim, c);
+	array = ft_arraydelim(str_condensed, c);
+	ft_fillarraydelim(array, str_condensed, c);
+	return (array);
 }

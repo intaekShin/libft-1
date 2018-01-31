@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:29 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/27 15:38:30 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/01/31 16:29:01 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,21 @@ char	*ft_strtrimselect(char const *s, char c)
 		i++;
 	while (s[j] == c)
 		j--;
-	//if (i == 0 && j == ft_strlen(s) - 1)
-		//return ((char *)s);
-	str = ft_strnew((j + 1) - i);
-	while (i <= j)
+	if (i > j)
 	{
-		str[k] = s [i];
-		i++;
-		k++;
+		if(!(str = ft_strnew(1)))
+			return (NULL);
+	}
+	else
+	{
+		if (!(str = ft_strnew((j + 1) - i)))
+			return (NULL);
+		while (i <= j)
+		{
+			str[k] = s [i];
+			i++;
+			k++;
+		}
 	}
 	return (str);
 }
