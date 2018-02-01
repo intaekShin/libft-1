@@ -6,7 +6,7 @@
 #    By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/27 15:32:02 by dhojt             #+#    #+#              #
-#    Updated: 2018/01/29 23:14:33 by dhojt            ###   ########.fr        #
+#    Updated: 2018/02/01 14:45:40 by dhojt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ $(OBJ_DIR):
 	@echo Create: Object directory
 
 $(NAME): $(OBJ)
+	@make -C .. re
 	@echo Create: libft.a
 	@ar rc $(NAME) $(addprefix $(OBJ_DIR), $(OFILE))
 	ranlib $(NAME)
@@ -47,6 +48,7 @@ $(OFILE):
 	@$(COMP) $(OBJ_DIR)$@ ./srcs/$(@:%.o=%.c)
 
 clean:
+	@make -C .. fclean
 	@/bin/rm -rf $(OBJ_DIR)
 	@echo Cleaned object files
 

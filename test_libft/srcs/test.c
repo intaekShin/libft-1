@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:38 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/31 17:46:44 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/02/01 17:55:36 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2784,20 +2784,20 @@ void	help(void)
 {
 	//42 logo
 	printf("\n\n");
-	printf("                                 :::      ::::::::  \n");
-	printf("                               :+:      :+:    :+:  \n");
-	printf("                             +:+ +:+         +:+    \n");
-	printf("By: dhojt <dhojt@studet    +#+  +:+       +#+       \n");
-	printf("                         +#+#+#+#+#+   +#+          \n");
-	printf("                              #+#    #+#            \n");
-	printf("                             ###   ########.fr      \n");
+	printf("%s                                 :::      ::::::::  \n", "\x1B[36m");
+	printf("%s                               :+:      :+:    :+:  \n", "\x1B[36m");
+	printf("%s                             +:+ +:+         +:+    \n", "\x1B[36m");
+	printf("%sBy: dhojt                  +#+  +:+       +#+       \n", "\x1B[36m");
+	printf("%s                         +#+#+#+#+#+   +#+          \n", "\x1B[36m");
+	printf("%s                              #+#    #+#            \n", "\x1B[36m");
+	printf("%s                             ###   ########.fr      \n", "\x1B[36m");
 
 	//libft title
-	printf("+------------------------------------------------+\n");
+	printf("%s+------------------------------------------------+\n", "\x1B[31m");
 	printf("|        l i b f t     t e s t    h e l p        |\n");
 	printf("+------------------------------------------------+\n");
 
-	printf("1. Info\n");
+	printf("%s1. Info\n", "\x1B[0m");
 	printf("\t>The idea here is not to help make libft.\n\n");
 	printf("\t>The idea is to see if your functions work\n\n");
 	printf("\t>Your ENTIRE libft must compile\n");
@@ -2808,10 +2808,8 @@ void	help(void)
 	printf("\t directory where you compile libft.a\n");
 	printf("\t E.g if libft.a compiles to exapmle_dir,\n");
 	printf("\t git clone to example_dir/test_dir\n\n");
-	printf("\t>Compile YOUR libft.a\n\n");
 	printf("\t>cd to the test subdirectory\n\n");
-	printf("\t>run make\n\n");
-	printf("\t YOU'RE READY TO TEST\n");
+	printf("\t>run make\n");
 	printf("--------------------------------------------------\n");
 
 	printf("3. Test\n");
