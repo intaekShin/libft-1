@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:27 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/28 09:36:14 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/02/01 19:31:49 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,22 @@ char	*my_strtrim(char const *s)
 	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
 		i++;
 	while (s[j] == ' ' || s[j] == '\t' || s[j] == '\n')
-		j--;
-	if (i == 0 && j == my_strlen(s) - 1)
-		return ((char *)s);
-	str = my_strnew((j + 1) - i);
-	while (i <= j)
+			j--;
+	if (i == my_strlen(s))
 	{
-		str[k] = s [i];
-		i++;
-		k++;
+		if(!(str = my_strnew(0)))
+			return (NULL);
+	}
+	else
+	{
+		if(!(str = my_strnew((j + 1) - i)))
+			return (NULL);
+		while (i <= j)
+		{
+			str[k] = s[i];
+			i++;
+			k++;
+		}
 	}
 	return (str);
 }

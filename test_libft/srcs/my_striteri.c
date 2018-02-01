@@ -6,11 +6,12 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:37:43 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/28 09:35:56 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/02/01 19:30:54 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libmy.h"
+
 void	my_striteri(char *s, void (*f) (unsigned int, char *))
 {
 	unsigned int i;

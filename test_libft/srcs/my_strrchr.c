@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:19 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/28 09:36:10 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/02/01 19:31:39 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ char	*my_strrchr(const char *s, int c)
 	size_t	i;
 
 	needle = (char) c;
-	i = my_strlen(s);
-	while (i + my_strlen(s) > 0)
+	i = my_strlen(s) + 1;
+	while (i > 0)
 	{
 		if (s[i - 1] == needle)
 			return ((char *)s + (i - 1));

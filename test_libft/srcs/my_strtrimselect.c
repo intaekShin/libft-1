@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:29 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/28 09:36:15 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/02/01 19:31:51 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,21 @@ char	*my_strtrimselect(char const *s, char c)
 		i++;
 	while (s[j] == c)
 		j--;
-	//if (i == 0 && j == my_strlen(s) - 1)
-		//return ((char *)s);
-	str = my_strnew((j + 1) - i);
-	while (i <= j)
+	if (i > j)
 	{
-		str[k] = s [i];
-		i++;
-		k++;
+		if(!(str = my_strnew(1)))
+			return (NULL);
+	}
+	else
+	{
+		if (!(str = my_strnew((j + 1) - i)))
+			return (NULL);
+		while (i <= j)
+		{
+			str[k] = s [i];
+			i++;
+			k++;
+		}
 	}
 	return (str);
 }

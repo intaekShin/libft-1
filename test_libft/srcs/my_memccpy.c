@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:36:23 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/28 09:35:21 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/02/01 19:29:19 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	*my_memccpy(void *restrict dst, const void *restrict src, int c, size_t n)
 {
-	char	*ptr_dst;
-	char	*ptr_src;
-	size_t	i;
+	unsigned char	*ptr_dst;
+	unsigned char	*ptr_src;
+	size_t			i;
 
-	ptr_dst = dst;
-	ptr_src = (char *)src;
+	ptr_dst = (unsigned char *)dst;
+	ptr_src = (unsigned char *)src;
 	i = 0;
 	while (i < n)
 	{
 		*(ptr_dst + i) = *(ptr_src + i);
-		if (*(ptr_src + i) == (char)c)
-			return (ptr_src + i + 1);
+		if (*(ptr_src + i) == (unsigned char)c)
+			return (ptr_dst + i + 1);
 		i++;
 	}
-	return (dst);
+	return (NULL);
 }
