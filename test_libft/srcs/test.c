@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:38 by dhojt             #+#    #+#             */
-/*   Updated: 2018/02/01 17:55:36 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/02/03 00:12:21 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+
+#define CNRM  "\x1B[0m"
+#define CRED  "\x1B[31m"
+#define CGRN  "\x1B[32m"
+#define SUCCESS		(fail) ? printf("\t%s//FAIL%s\n\n", CRED, CNRM) : printf("\t%s//SUCCESS%s\n\n", CGRN, CNRM);	
 
 void	test_putchar(void)
 {	
@@ -60,15 +65,12 @@ void	test_atoi(void)
 	while (i < 4)
 	{
 		printf("\"%s\" - String\n\t[%d] - atoi (System)\n\t[%d] - ft_atoi\n\t--"
-				"--------\n\t", test[i], atoi(test[i]), ft_atoi(test[i]));
+				"--------\n", test[i], atoi(test[i]), ft_atoi(test[i]));
 		if (!(atoi(test[i]) == ft_atoi(test[i])))
 			fail = 1;
 		i++;
 	}
-	if (fail)
-		printf("//FAIL\n\n");
-	else
-		printf("//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strcpy(void)
@@ -104,10 +106,7 @@ void	test_strcpy(void)
 			fail = 1;
 		i++;
 	}
-	if (fail)
-		printf("\t//FAIL\n\n");
-	else
-		printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strncpy(void)
@@ -143,10 +142,7 @@ void	test_strncpy(void)
 			fail = 1;
 		i++;
 	}
-	if (fail)
-		printf("\t//FAIL\n\n");
-	else
-		printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strstr(void)
@@ -185,14 +181,12 @@ void	test_strstr(void)
 			fail = 1;
 		i++;
 	}
-	if (fail)
-		printf("\t//FAIL\n\n");
-	else
-		printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strcmp(void)
 {
+	int fail;
 	int fta;
 	int ftb;
 	int ftc;
@@ -229,14 +223,16 @@ void	test_strcmp(void)
 			"----------\n", b1, b2, ftb, sysb);
 	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_strcmp\n\t[%d] - strcmp (System)\n\t"
 			"----------\n", c1, c2, ftc, sysc);
-	if (fta == sysa && ftb == sysb && ftc == sysc)
-		printf("\t//SUCCESS\n\n");
-	else
-		printf("\t//FAIL\n\n");
+	fail = 0;
+
+	if (!(fta == sysa && ftb == sysb && ftc == sysc))
+		fail = 1;
+	SUCCESS
 }
 
 void	test_strncmp(void)
 {
+	int fail;
 	int fta;
 	int ftb;
 	int ftc;
@@ -274,10 +270,13 @@ void	test_strncmp(void)
 			"----------\n", b1, b2, ftb, sysb);
 	printf("\ts1:[%s] s2:[%s]\n\t[%d] - ft_strncmp\n\t[%d] - strncmp (System)\n\t"
 			"----------\n", c1, c2, ftc, sysc);
-	if (fta == sysa && ftb == sysb && ftc == sysc)
-		printf("\t//SUCCESS\n\n");
-	else
-		printf("\t//FAIL\n\n");
+	
+
+	fail = 0;
+
+	if (!(fta == sysa && ftb == sysb && ftc == sysc))
+		fail = 1;
+	SUCCESS
 }
 
 void	test_strupcase(void)
@@ -319,7 +318,8 @@ void	test_strupcase(void)
 	if (strcmp(c1, c2) != 0)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");	
+	(fail) ? printf("\t%s//FAIL%s\n\n", CRED, CNRM)
+		: printf("\t%s//SUCCESS%s\n\n", CGRN, CNRM);	
 }
 
 void	test_strlowcase(void)
@@ -361,7 +361,7 @@ void	test_strlowcase(void)
 	if (strcmp(c1, c2) != 0)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strcapitalize(void)
@@ -403,7 +403,7 @@ void	test_strcapitalize(void)
 	if (strcmp(c1, c2) != 0)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_str_is_alpha(void)
@@ -440,7 +440,7 @@ void	test_str_is_alpha(void)
 	if (ft_str_is_alpha(c1) != c2)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_str_is_numeric(void)
@@ -477,7 +477,7 @@ void	test_str_is_numeric(void)
 	if (ft_str_is_numeric(c1) != c2)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_str_is_lowercase(void)
@@ -514,7 +514,7 @@ void	test_str_is_lowercase(void)
 	if (ft_str_is_lowercase(c1) != c2)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_str_is_uppercase(void)
@@ -551,7 +551,7 @@ void	test_str_is_uppercase(void)
 	if (ft_str_is_uppercase(c1) != c2)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_str_is_printable(void)
@@ -588,7 +588,7 @@ void	test_str_is_printable(void)
 	if (ft_str_is_printable(c1) != c2)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strcat(void)
@@ -622,7 +622,7 @@ void	test_strcat(void)
 	if (strcmp(a1, b1) != 0)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strncat(void)
@@ -655,8 +655,7 @@ void	test_strncat(void)
 	//Result
 	if (strcmp(a1, b1) != 0)
 		fail = 1;
-
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strlcat(void)
@@ -691,8 +690,7 @@ void	test_strlcat(void)
 	//Result
 	if (strcmp(a1, b1) != 0)
 		fail = 1;
-
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strlcpy(void)
@@ -732,10 +730,7 @@ void	test_strlcpy(void)
 	}
 	if (ftret != sysret)
 		fail = 1;
-	if (fail)
-		printf("\t//FAIL\n\n");
-	else
-		printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_bzero(void)
@@ -771,10 +766,7 @@ void	test_bzero(void)
 			fail = 1;
 		i++;
 	}
-	if (fail)
-		printf("\t//FAIL\n\n");
-	else
-		printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strdup(void)
@@ -812,7 +804,7 @@ void	test_strdup(void)
 	if (strcmp(a2, b2) != 0)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strnstr(void)
@@ -851,10 +843,7 @@ void	test_strnstr(void)
 		if (strcmp(ft, sys) == 0)
 			fail = 0;
 	}
-	if (fail)
-		printf("\t//FAIL\n\n");
-	else
-		printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_isalpha(void)
@@ -894,7 +883,7 @@ void	test_isalpha(void)
 	if (ftnotresult != sysnotresult)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_isdigit(void)
@@ -934,7 +923,7 @@ void	test_isdigit(void)
 	if (ftnotresult != sysnotresult)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_isalnum(void)
@@ -974,7 +963,7 @@ void	test_isalnum(void)
 	if (ftnotresult != sysnotresult)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_isascii(void)
@@ -1003,7 +992,7 @@ void	test_isascii(void)
 
 	if (ftisresult == 0  ||  sysisresult == 0)
 		fail = 1;
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_isprint(void)
@@ -1053,7 +1042,7 @@ void	test_isprint(void)
 	if (ftnotresult != sysnotresult)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_toupper(void)
@@ -1089,7 +1078,7 @@ void	test_toupper(void)
 
 	//Test
 	((a1 != b1) || (a2 != b2)) ? (fail = 1) : (fail = 0);
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 
 }
 
@@ -1126,7 +1115,7 @@ void	test_tolower(void)
 
 	//Test
 	((a1 != b1) || (a2 != b2)) ? (fail = 1) : (fail = 0);
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 
 }
 
@@ -1163,10 +1152,7 @@ void	test_memset(void)
 			fail = 1;
 		i++;
 	}
-	if (fail)
-		printf("\t//FAIL\n\n");
-	else
-		printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 void	test_memcpy(void)
 {
@@ -1200,7 +1186,7 @@ void	test_memcpy(void)
 
 	if (my_strcmp(fttest, systest) != 0)
 		fail = 1;
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 void	test_memccpy(void)
 {
@@ -1238,7 +1224,7 @@ void	test_memccpy(void)
 		fail = 1;
 	if (my_strcmp(ftres, sysres))
 		fail = 1;
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_memmove(void)
@@ -1270,7 +1256,7 @@ void	test_memmove(void)
 
 	if (my_strcmp(fttest, systest) != 0)
 		fail = 1;
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strchr(void)
@@ -1310,7 +1296,7 @@ void	test_strchr(void)
 		fail = 1;
 	if (zeronum[0] != '\0')
 		fail = 1;
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strrchr(void)
@@ -1350,7 +1336,7 @@ void	test_strrchr(void)
 		fail = 1;
 	if (zeronum[0] != '\0')
 		fail = 1;
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 
@@ -1386,11 +1372,13 @@ void	test_memchr(void)
 
 	if (strcmp(ft, sys) != 0)
 		fail = 1;
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_memcmp(void)
 {
+	int fail;
+
 	int fta;
 	int ftb;
 	int ftc;
@@ -1428,10 +1416,12 @@ void	test_memcmp(void)
 			"----------\n", b1, b2, ftb, sysb);
 	printf("\ts1:[%s] s2:[%s]\n\t[%d] - my_memcmp\n\t[%d] - memcmp (System)\n\t"
 			"----------\n", c1, c2, ftc, sysc);
-	if (fta == sysa && ftb == sysb && ftc == sysc)
-		printf("\t//SUCCESS\n\n");
-	else
-		printf("\t//FAIL\n\n");
+	
+	fail = 0;
+	
+	if (!(fta == sysa && ftb == sysb && ftc == sysc))
+		fail = 1;
+	SUCCESS;
 }
 
 void	test_itoa(void)
@@ -1481,7 +1471,7 @@ void	test_itoa(void)
 	if (strcmp(cc, ccc) != 0)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strnew(void)
@@ -1490,7 +1480,7 @@ void	test_strnew(void)
 
 	int c;
 	FILE *file;
-	file = fopen("ft_strnew.c", "r");
+	file = fopen("../ft_strnew.c", "r");
 	my_putchar('\t');
 	if (file)
 	{
@@ -1512,7 +1502,7 @@ void	test_memalloc(void)
 
 	int c;
 	FILE *file;
-	file = fopen("ft_memalloc.c", "r");
+	file = fopen("../ft_memalloc.c", "r");
 	my_putchar('\t');
 	if (file)
 	{
@@ -1560,14 +1550,13 @@ void	test_strclr(void)
 			fail = 1;
 		i++;
 	}
-	if (fail)
-		printf("\t//FAIL\n\n");
-	else
-		printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strequ(void)
 {
+	int fail;
+	
 	int fta;
 	int ftb;
 	int ftc;
@@ -1605,14 +1594,18 @@ void	test_strequ(void)
 	printf("\ts1:[%s] s2:[%s]\n\tResult:[%d] \n\tExpected:[%d]\n\t"
 			"----------\n", c1, c2, ftc, sysc);
 
-	if (fta == sysa && ftb == sysb && ftc == sysc)
-		printf("\t//SUCCESS\n\n");
-	else
-		printf("\t//FAIL\n\n");
+	
+	fail = 0;
+
+	if (!(fta == sysa && ftb == sysb && ftc == sysc))
+		fail = 1;
+	SUCCESS
 }
 
 void	test_strnequ(void)
 {
+	int fail;
+
 	int fta;
 	int ftb;
 	int ftc;
@@ -1651,10 +1644,11 @@ void	test_strnequ(void)
 	printf("\ts1:[%s] s2:[%s]\n\tResult:[%d] \n\tExpected:[%d]\n\t"
 			"----------\n", c1, c2, ftc, sysc);
 
-	if (fta == sysa && ftb == sysb && ftc == sysc)
-		printf("\t//SUCCESS\n\n");
-	else
-		printf("\t//FAIL\n\n");
+	fail = 0;
+
+	if (!(fta == sysa && ftb == sysb && ftc == sysc))
+		fail = 1;
+	SUCCESS
 }
 
 void	slave_striter(char *c) //SLAVE
@@ -1706,7 +1700,7 @@ void	test_striter(void)
 	if (strcmp(c1, c2) != 0)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	slave_striteri(unsigned int n, char *c) //SLAVE
@@ -1762,7 +1756,7 @@ void	test_striteri(void)
 	if (strcmp(c1, c2) != 0)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 char	slave_strmap(char c) //SLAVE
@@ -1818,7 +1812,7 @@ void	test_strmap(void)
 	if (strcmp(c3, c2) != 0)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 char	slave_strmapi(unsigned int n, char c) //SLAVE
@@ -1877,7 +1871,7 @@ void	test_strmapi(void)
 	if (strcmp(c3, c2) != 0)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_memdel(void)
@@ -1886,7 +1880,7 @@ void	test_memdel(void)
 
 	int c;
 	FILE *file;
-	file = fopen("ft_memdel.c", "r");
+	file = fopen("../ft_memdel.c", "r");
 	my_putchar('\t');
 	if (file)
 	{
@@ -1908,7 +1902,7 @@ void	test_strdel(void)
 
 	int c;
 	FILE *file;
-	file = fopen("ft_strdel.c", "r");
+	file = fopen("../ft_strdel.c", "r");
 	my_putchar('\t');
 	if (file)
 	{
@@ -1999,7 +1993,7 @@ void	test_strsub(void)
 	if (strcmp(a, b1) != 0)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strjoin(void)
@@ -2034,7 +2028,7 @@ void	test_strjoin(void)
 	if (strcmp(a, b1) != 0)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strtrim(void)
@@ -2079,7 +2073,7 @@ void	test_strtrim(void)
 	if (strcmp(c3, c2) != 0)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strsplit(void)
@@ -2134,7 +2128,7 @@ void	test_strsplit(void)
 	if (d3 !=  NULL != 0)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_strlen(void)
@@ -2161,7 +2155,7 @@ void	test_strlen(void)
 		fail = 1;
 	if (c != 37)
 		fail = 1;
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_lstnew(void)
@@ -2204,7 +2198,7 @@ void	test_lstnew(void)
 		fail = 1;
 	if (test_next != one->next)
 		fail = 1;
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_lstdelone(void)
@@ -2462,7 +2456,7 @@ void	test_lstadd(void)
 		fail = 1;
 	if (start->next != one)
 		fail = 1;
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 char	*my_slave_slave_lstiter(char *dst, const char *src)
@@ -2551,7 +2545,7 @@ void	test_lstiter(void)
 		fail = 1;
 	if (my_strcmp("4!", four->content) != 0)
 		fail = 1;
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 char	*my_slave_slave_lstmap(char *dst, const char *src)
@@ -2664,7 +2658,7 @@ void	test_lstmap(void)
 		fail = 1;
 	if (my_strcmp("4!", four2->content) != 0)
 		fail = 1;
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_lstreturn(void)
@@ -2733,7 +2727,7 @@ void	test_lstreturn(void)
 		fail = 1;
 	if (tmp != test_next)
 		fail = 1;
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	test_lststrsplit(void)
@@ -2777,7 +2771,7 @@ void	test_lststrsplit(void)
 	if (strcmp(my_lstreturn((*c3), 0)->content, c2) != 0)
 		fail = 1;
 
-	(fail) ? printf("\t//FAIL\n\n") : printf("\t//SUCCESS\n\n");
+	SUCCESS
 }
 
 void	help(void)
