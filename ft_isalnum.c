@@ -6,17 +6,15 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:34:55 by dhojt             #+#    #+#             */
-/*   Updated: 2018/04/01 16:41:45 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/02 00:27:11 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int		ft_isalnum(int c)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	if (c >= 'A' && c <= 'Z')
-		return (2);
-	if (c >= 'a' && c <= 'z')
-		return (3);
-	return (0);
+	if (!ft_isdigit(c) && !ft_isalpha(c))
+		return (0);
+	return (1);
 }

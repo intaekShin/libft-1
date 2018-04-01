@@ -6,15 +6,13 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:35:23 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/27 15:35:25 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/02 00:26:20 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int		ft_isdigit(int c)
 {
-	if (ft_isalnum(c) == 1)
+	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }
