@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:39:39 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/28 15:30:34 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/01 16:43:13 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-int				ft_isalnum(char c);
+int				ft_isalnum(int c);
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
 size_t			ft_strlen(const char *str);
