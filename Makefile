@@ -6,7 +6,7 @@
 #    By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/27 15:32:02 by dhojt             #+#    #+#              #
-#    Updated: 2018/01/29 13:54:02 by dhojt            ###   ########.fr        #
+#    Updated: 2018/04/01 16:10:30 by dhojt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ OBJ_DIR = ./obj/
 OBJ = $(addprefix $(OBJ_DIR), $(OFILE))
 
 all: $(OBJ_DIR) $(NAME)
-	@echo MAKE COMPLETE
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
