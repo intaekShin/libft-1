@@ -6,13 +6,13 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:33 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/27 15:38:35 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/01 17:05:53 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_tolower(int c)
+int		ft_tolower(int c)
 {
 	if (ft_isalnum(c) == 2)
 		return (c += 32);
