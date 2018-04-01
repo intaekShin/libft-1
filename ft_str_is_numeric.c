@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:37:03 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/27 15:37:04 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/02 00:41:57 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int ft_str_is_numeric(char *str)
 	fail = 0;
 	while (*str)
 	{
-		if (ft_isalnum(*str) != 1)
+		if (!ft_isdigit(*str))
 			fail = 1;
 		str++;
 	}

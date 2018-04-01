@@ -6,11 +6,9 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:37:01 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/27 15:37:02 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/02 00:45:29 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int ft_str_is_lowercase(char *str)
 {
@@ -19,7 +17,7 @@ int ft_str_is_lowercase(char *str)
 	fail = 0;
 	while (*str)
 	{
-		if (ft_isalnum(*str) != 3)
+		if (!(*str >= 'a' && *str <= 'z'))
 			fail = 1;
 		str++;
 	}

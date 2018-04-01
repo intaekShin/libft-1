@@ -6,15 +6,13 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:36 by dhojt             #+#    #+#             */
-/*   Updated: 2018/04/01 17:04:50 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/02 00:55:12 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int		ft_toupper(int c)
 {
-	if (ft_isalnum(c) == 3)
+	if (c >= 'a' && c <= 'z')
 		return (c -= 32);
 	return (c);
 }
