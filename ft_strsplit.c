@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:20 by dhojt             #+#    #+#             */
-/*   Updated: 2018/04/02 22:49:47 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/02 23:23:24 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,8 @@ char		**ft_strsplit(char const *s, char c)
 	}
 	str_trim = ft_strtrimselect(s, c);
 	str_condensed = ft_removeselect(str_trim, c);
-	array = ft_arraydelim(str_condensed, c);
+	if (!(array = ft_arraydelim(str_condensed, c)))
+		return (NULL);
 	ft_fillarraydelim(array, str_condensed, c);
 	return (array);
 }
