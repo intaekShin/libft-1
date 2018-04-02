@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:20 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/31 17:39:45 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/02 22:49:47 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,8 @@ char		**ft_strsplit(char const *s, char c)
 	array = NULL;
 	if (ft_isblank(s, c) != 0)
 	{
-		array = (char **) malloc(1 * sizeof(char *));
+		if (!(array = (char **) malloc(1 * sizeof(char *))))
+			return (NULL);
 		array[0] = NULL;
 		return (array);
 	}
