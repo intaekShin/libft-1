@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:17 by dhojt             #+#    #+#             */
-/*   Updated: 2018/04/01 19:52:59 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/02 22:25:44 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 	if (*needle == '\0')
 		return ((char *)haystack);
 	needle_len = ft_strlen(needle);
-
-	while(*haystack && len >= needle_len)
+	while(*haystack && len-- >= needle_len)
 	{
 		if (ft_strncmp(haystack, needle, needle_len) == 0)
 			return ((char *)haystack);
