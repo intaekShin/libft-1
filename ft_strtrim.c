@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:27 by dhojt             #+#    #+#             */
-/*   Updated: 2018/04/03 17:35:14 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 18:28:25 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ char		*ft_strtrim(char const *s)
 	size_t	k;
 	char	*str;
 
+	if (!s)
+		return (NULL);
 	i = ft_calc_leading(s);
 	j = ft_calc_trailing(s);
 	k = 0;
@@ -52,11 +54,7 @@ char		*ft_strtrim(char const *s)
 		if (!(str = ft_strnew((j + 1) - i)))
 			return (NULL);
 		while (i <= j)
-		{
-			str[k] = s[i];
-			i++;
-			k++;
-		}
+			str[k++] = s[i++];
 	}
 	return (str);
 }
