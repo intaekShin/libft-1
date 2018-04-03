@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:39:39 by dhojt             #+#    #+#             */
-/*   Updated: 2018/04/03 15:36:56 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 16:37:47 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 void			ft_bzero(void *s, size_t n);
 char			*ft_strdup(const char *s1);
 char			*ft_strndup(const char *s1, size_t n);
-char			*ft_strnstr(const char *haystack, const char *needle, size_t len);
+char			*ft_strnstr(const char *haystack,\
+	const char *needle, size_t len);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
 int				ft_isascii(int c);
