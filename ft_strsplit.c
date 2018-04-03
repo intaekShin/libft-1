@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:20 by dhojt             #+#    #+#             */
-/*   Updated: 2018/04/03 15:33:48 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 17:53:25 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ char		**ft_strsplit(char const *s, char c)
 	char	*str_condensed;
 	char	**array;
 
+	if (!(s && c))
+		return (NULL);
 	array = NULL;
 	if (ft_isblank(s, c) != 0)
 	{
@@ -107,8 +109,10 @@ char		**ft_strsplit(char const *s, char c)
 		array[0] = NULL;
 		return (array);
 	}
-	str_trim = ft_strtrimselect(s, c);
-	str_condensed = ft_removeselect(str_trim, c);
+	if (!(str_trim = ft_strtrimselect(s, c)))
+		return (NULL);
+	if (!(str_condensed = ft_removeselect(str_trim, c)))
+		return (NULL);
 	if (!(array = ft_arraydelim(str_condensed, c)))
 		return (NULL);
 	ft_fillarraydelim(array, str_condensed, c);
