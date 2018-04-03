@@ -6,13 +6,13 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:36:23 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/30 22:55:59 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 13:56:52 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
 	unsigned char	*ptr_dst;
 	unsigned char	*ptr_src;

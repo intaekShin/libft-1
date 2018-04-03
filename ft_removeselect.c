@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:36:56 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/27 15:36:59 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 13:43:30 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_removeselect(const char *s, char c)
 {
 	int		i;
-	int 	j;
+	int		j;
 	char	*str;
 
 	i = 0;
@@ -25,7 +25,6 @@ char	*ft_removeselect(const char *s, char c)
 	{
 		if (s[i] == c && s[i] == s[i - 1])
 			i++;
-		
 		if (!(s[i] == c && s[i] == s[i - 1]))
 		{
 			str[j] = s[i];

@@ -6,13 +6,13 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:37:04 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/27 15:37:06 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 13:45:44 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_str_is_printable(char *str)
+int		ft_str_is_printable(char *str)
 {
 	int fail;
 

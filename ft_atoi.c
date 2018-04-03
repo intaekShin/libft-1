@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:34:10 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/27 15:34:15 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 13:31:20 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int		ft_atoi(const char *str)
 	if (str[i] == '-')
 		min = -1;
 	if (str[i] == '-' || str[i] == '+')
-		i++;	
+		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 		result = (result * 10) + (str[i++] - '0');
-	return(result *= min);
+	return (result *= min);
 }

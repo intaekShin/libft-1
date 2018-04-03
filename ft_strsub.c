@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:25 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/27 15:38:26 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 14:04:18 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char *sub_str;
-	size_t i;
+	char	*sub_str;
+	size_t	i;
 
 	i = 0;
 	sub_str = ft_strnew(len);

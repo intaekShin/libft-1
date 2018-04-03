@@ -6,34 +6,50 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:27 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/30 16:03:47 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 17:35:14 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+static int	ft_calc_trailing(char const *s)
+{
+	int		j;
+
+	j = ft_strlen(s) - 1;
+	while (s[j] == ' ' || s[j] == '\t' || s[j] == '\n')
+		j--;
+	return (j);
+}
+
+static int	ft_calc_leading(char const *s)
+{
+	int		i;
+
+	i = 0;
+	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
+		i++;
+	return (i);
+}
+
+char		*ft_strtrim(char const *s)
 {
 	size_t	i;
 	size_t	j;
 	size_t	k;
 	char	*str;
 
-	i = 0;
-	j = ft_strlen(s) - 1;
+	i = ft_calc_leading(s);
+	j = ft_calc_trailing(s);
 	k = 0;
-	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
-		i++;
-	while (s[j] == ' ' || s[j] == '\t' || s[j] == '\n')
-			j--;
 	if (i == ft_strlen(s))
 	{
-		if(!(str = ft_strnew(0)))
+		if (!(str = ft_strnew(0)))
 			return (NULL);
 	}
 	else
 	{
-		if(!(str = ft_strnew((j + 1) - i)))
+		if (!(str = ft_strnew((j + 1) - i)))
 			return (NULL);
 		while (i <= j)
 		{

@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:20 by dhojt             #+#    #+#             */
-/*   Updated: 2018/04/02 23:23:24 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 15:33:48 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static char	**ft_arraydelim(char const *s, char c)
 			j++;
 		i++;
 	}
-	if(!(array = (char **) malloc((j + 2) * sizeof(char *))))
+	if (!(array = (char **)malloc((j + 2) * sizeof(char *))))
 		return (NULL);
 	ft_newarraydelimstr(array, s, c);
 	return (array);
@@ -102,7 +102,7 @@ char		**ft_strsplit(char const *s, char c)
 	array = NULL;
 	if (ft_isblank(s, c) != 0)
 	{
-		if (!(array = (char **) malloc(1 * sizeof(char *))))
+		if (!(array = (char **)malloc(1 * sizeof(char *))))
 			return (NULL);
 		array[0] = NULL;
 		return (array);

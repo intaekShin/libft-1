@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:37:45 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/27 15:37:46 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 13:48:44 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *join_str;
-	size_t i;
-	size_t j;
+	char	*join_str;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;

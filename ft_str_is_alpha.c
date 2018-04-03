@@ -6,13 +6,13 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:36:59 by dhojt             #+#    #+#             */
-/*   Updated: 2018/04/02 00:37:10 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 13:45:30 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_str_is_alpha(char *str)
+int		ft_str_is_alpha(char *str)
 {
 	int fail;
 

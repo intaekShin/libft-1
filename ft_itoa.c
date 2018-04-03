@@ -6,25 +6,30 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:35:39 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/27 15:35:43 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 16:41:51 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int ft_get_len(int n)
+static int		ft_get_len(int n)
 {
-	int len;
+	int		len;
+	int		minus;
 
+	minus = 0;
 	len = 1;
 	if (n < 0)
+	{
 		n *= -1;
+		minus = 1;
+	}
 	while ((n /= 10) > 0)
 		len++;
-	return (len);
+	return ((minus) ? len + 1 : len);
 }
 
-static int ft_get_tens(int n)
+static int		ft_get_tens(int n)
 {
 	int tens;
 
@@ -34,11 +39,11 @@ static int ft_get_tens(int n)
 	return (tens);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
-	int	tens;
-	int i;
-	char *ptr;
+	int		tens;
+	int		i;
+	char	*ptr;
 
 	i = 0;
 	if (!(ptr = ft_strnew(ft_get_len(n))))
@@ -47,16 +52,15 @@ char	*ft_itoa(int n)
 	{
 		ptr[i++] = '-';
 		if (n == -2147483648)
-		{
 			ptr[i++] = '2';
+		if (n == -2147483648)
 			n = -147483648;
-		}
 		n = -n;
 	}
 	tens = ft_get_tens(n);
-	while(tens)
+	while (tens)
 	{
-		ptr[i++] = ((char) (n / tens) + 48);
+		ptr[i++] = ((char)(n / tens) + 48);
 		n %= tens;
 		tens /= 10;
 	}

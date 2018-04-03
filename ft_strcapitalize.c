@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:37:08 by dhojt             #+#    #+#             */
-/*   Updated: 2018/04/02 00:52:03 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 13:48:22 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strcapitalize(char *str)
 {
-	int i;
-	int j;
-	char *s;
+	int		i;
+	int		j;
+	char	*s;
 
 	i = 0;
 	j = -1;

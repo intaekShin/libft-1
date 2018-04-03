@@ -6,29 +6,45 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:38:29 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/31 16:29:01 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 17:26:29 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrimselect(char const *s, char c)
+static int	ft_get_trailing(const char *s, char c)
+{
+	int		j;
+
+	j = ft_strlen(s) - 1;
+	while (s[j] == c)
+		j--;
+	return (j);
+}
+
+static int	ft_get_leading(const char *s, char c)
+{
+	int		i;
+
+	i = 0;
+	while (s[i] == c)
+		i++;
+	return (i);
+}
+
+char		*ft_strtrimselect(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
 	size_t	k;
 	char	*str;
 
-	i = 0;
-	j = ft_strlen(s) - 1;
+	i = ft_get_leading(s, c);
+	j = ft_get_trailing(s, c);
 	k = 0;
-	while (s[i] == c)
-		i++;
-	while (s[j] == c)
-		j--;
 	if (i > j)
 	{
-		if(!(str = ft_strnew(1)))
+		if (!(str = ft_strnew(1)))
 			return (NULL);
 	}
 	else
@@ -37,7 +53,7 @@ char	*ft_strtrimselect(char const *s, char c)
 			return (NULL);
 		while (i <= j)
 		{
-			str[k] = s [i];
+			str[k] = s[i];
 			i++;
 			k++;
 		}

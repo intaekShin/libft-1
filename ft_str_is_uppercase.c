@@ -6,11 +6,11 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:37:07 by dhojt             #+#    #+#             */
-/*   Updated: 2018/04/02 00:45:39 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/03 13:46:24 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_str_is_uppercase(char *str)
+int		ft_str_is_uppercase(char *str)
 {
 	int fail;
 
