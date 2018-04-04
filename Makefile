@@ -6,19 +6,21 @@
 #    By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/27 15:32:02 by dhojt             #+#    #+#              #
-#    Updated: 2018/04/01 16:10:30 by dhojt            ###   ########.fr        #
+#    Updated: 2018/04/04 19:52:27 by dhojt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-COMP = gcc -Wall -Werror -Wextra -c -o
+COMP = gcc -Wall -Werror -Wextra -I includes -c -o
 
-CFIND = $(shell find . -maxdepth 1 -type f | grep -E "\.c$$")
+OBJ_DIR = ./obj/
+SRC_DIR = ./srcs/
+
+CFIND = $(shell find $(SRC_DIR) -maxdepth 1 -type f | grep -E "\.c$$")
 CFILE = $(notdir $(CFIND))
 OFILE = $(CFILE:%.c=%.o)
 
-OBJ_DIR = ./obj/
 OBJ = $(addprefix $(OBJ_DIR), $(OFILE))
 
 all: $(OBJ_DIR) $(NAME)
@@ -32,12 +34,12 @@ $(NAME): $(OBJ)
 	@ar rc $(NAME) $(addprefix $(OBJ_DIR), $(OFILE))
 	ranlib $(NAME)
 
-$(OBJ): $(CFILE)
+$(OBJ): $(CFIND)
 	@$(MAKE) $(OFILE)
 
 $(OFILE):
 	@echo Create: $(@:obj/%=%)
-	@$(COMP) $(OBJ_DIR)$@ $(@:%.o=%.c)
+	@$(COMP) $(OBJ_DIR)$@ $(SRC_DIR)$(@:%.o=%.c)
 
 clean:
 	@/bin/rm -rf $(OBJ_DIR)
