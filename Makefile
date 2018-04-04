@@ -6,7 +6,7 @@
 #    By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/27 15:32:02 by dhojt             #+#    #+#              #
-#    Updated: 2018/04/04 19:52:27 by dhojt            ###   ########.fr        #
+#    Updated: 2018/04/04 19:55:32 by dhojt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ OFILE = $(CFILE:%.c=%.o)
 OBJ = $(addprefix $(OBJ_DIR), $(OFILE))
 
 all: $(OBJ_DIR) $(NAME)
+	@echo LIBFT COMPLETE
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
