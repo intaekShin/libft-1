@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbrumax_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dhojt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/27 15:37:12 by dhojt             #+#    #+#             */
-/*   Updated: 2018/04/15 19:19:35 by dhojt            ###   ########.fr       */
+/*   Created: 2018/04/20 00:14:08 by dhojt             #+#    #+#             */
+/*   Updated: 2018/04/20 00:23:21 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_putnbrumax_fd(uintmax_t n, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == (char)c)
-			return ((char *)s + i);
-		i++;
-	}
-	return (NULL);
+	if (n > 9)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10) + '0', fd);
 }
