@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:39:39 by dhojt             #+#    #+#             */
-/*   Updated: 2018/04/20 00:19:09 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/21 21:14:05 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ char			**ft_strsplit(char const *s, char c);
 char			*ft_strsplitfirst(char *str, char c);
 void			ft_putnbrmax_fd(intmax_t n, int fd);
 void			ft_putnbrumax_fd(uintmax_t n, int fd);
+char			*ft_generate_string(uintmax_t num, uintmax_t base);
 
 typedef struct	s_list
 {
