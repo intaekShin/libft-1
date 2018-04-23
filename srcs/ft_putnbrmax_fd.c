@@ -6,7 +6,7 @@
 /*   By: dhojt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/20 00:14:08 by dhojt             #+#    #+#             */
-/*   Updated: 2018/04/20 00:23:29 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/23 14:03:04 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_putnbrmax_fd(intmax_t n, int fd)
 {
-	if (n == -2147483648)
-		ft_putstr_fd("-2147483648", fd);
+	if (n == -9223372036854775807 - 1)
+		write (1, "-9223372036854775808", 20);
 	else
 	{
 		if (n < 0)
@@ -24,7 +24,7 @@ void	ft_putnbrmax_fd(intmax_t n, int fd)
 			n *= -1;
 		}
 		if (n > 9)
-			ft_putnbr_fd(n / 10, fd);
+			ft_putnbrmax_fd(n / 10, fd);
 		ft_putchar_fd((n % 10) + '0', fd);
 	}
 }
