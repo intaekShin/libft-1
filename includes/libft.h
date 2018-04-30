@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:39:39 by dhojt             #+#    #+#             */
-/*   Updated: 2018/04/21 22:54:11 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/04/27 18:33:13 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <ctype.h>
 
 int				ft_isalnum(int c);
 void			ft_putchar(char c);
