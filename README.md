@@ -15,3 +15,6 @@ I have since expanded my library to include additional useful functions includin
 ### Compilation
 To compile, run `make`
 This will compile two libraries; **libft.a** and **ft_printf.a**. Compile projects with the libraries to use the functions.
+```console
+gcc -Wall -Werror -Wextra main.c libft.a ft_printf.a
+```
