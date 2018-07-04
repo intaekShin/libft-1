@@ -10,7 +10,7 @@ At 42, students are not allowed to use library functions.
 My challenge was to create a personal C library.
 
 Allowed functions are `malloc` `free` & `write`. Everything else is forbidden for the mandatory submission.
-I have since expanded my library to include additional useful functions including get_next_line & ft_printf. I have also reorganised the source files.
+I have since expanded my library to include additional useful functions including **get_next_line** & **ft_printf**. I have also reorganised the source files.
 ***
 ### Using the project
 To compile, run `make`

@@ -6,7 +6,7 @@
 #    By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/27 15:32:02 by dhojt             #+#    #+#              #
-#    Updated: 2018/05/14 03:36:50 by dhojt            ###   ########.fr        #
+#    Updated: 2018/07/03 13:28:41 by dhojt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,7 +95,6 @@ SRC =			ft_atoi.c \
 				ft_tolower.c \
 				ft_toupper.c \
 				ft_atoi_max.c \
-				ft_error.c \
 				get_next_line.c \
 
 OBJ =			$(SRC:%.c=%.o)
