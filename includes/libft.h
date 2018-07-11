@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:39:39 by dhojt             #+#    #+#             */
-/*   Updated: 2018/05/06 07:14:37 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/07/08 00:20:08 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <ctype.h>
+# include "get_next_line.h"
+# include "ft_printf.h"
 
 int				ft_isalnum(int c);
 void			ft_putchar(char c);
