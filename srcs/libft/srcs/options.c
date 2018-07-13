@@ -6,14 +6,14 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 15:31:05 by dhojt             #+#    #+#             */
-/*   Updated: 2018/07/13 19:33:19 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/07/13 19:35:07 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //not normed
 #include "libft.h"
 
-static void				treat_options(char c, unsigned long *options)
+static void			treat_options(char c, unsigned long *options)
 {
 	long			one;
 
@@ -26,11 +26,11 @@ static void				treat_options(char c, unsigned long *options)
 		*options |= (one << (c + 4));
 }
 
-static unsigned long	options(char **argv)
+unsigned long		options(char **argv)
 {
-	unsigned long		options;
-	char				*str;
-	int					not_dash;
+	unsigned long	options;
+	char			*str;
+	int				not_dash;
 
 	options = 0;
 	not_dash = 0;
