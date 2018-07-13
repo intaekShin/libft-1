@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:39:39 by dhojt             #+#    #+#             */
-/*   Updated: 2018/07/13 16:50:22 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/07/13 19:38:32 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void			ft_putnbrmax_fd(intmax_t n, int fd);
 void			ft_putnbrumax_fd(uintmax_t n, int fd);
 char			*ft_itoa_base(uintmax_t num, uintmax_t base, char c);
 intmax_t		ft_atoi_max(const char *str);
-void			ft_error(void);
+unsigned long	options(char **argv);
 
 typedef struct	s_list
 {
