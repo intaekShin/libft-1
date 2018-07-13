@@ -6,7 +6,7 @@
 25/25
 ***
 ### Challenge
-At 42, students are not allowed to use library functions.
+At 42, students are not allowed to use library functions (no `strlen`, `strdup`, `bzero` etc.).
 My challenge was to create a personal C library.
 
 Allowed functions are `malloc` `free` & `write`. Everything else is forbidden for the mandatory submission.
