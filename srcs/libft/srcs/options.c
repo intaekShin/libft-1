@@ -6,17 +6,17 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 15:31:05 by dhojt             #+#    #+#             */
-/*   Updated: 2018/07/13 18:16:22 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/07/13 19:33:19 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //not normed
-#include "libft.h" //do I need this?
-#include <stdio.h> //remove
+#include "libft.h"
 
-void				treat_options(char c, unsigned long *options)
+static void				treat_options(char c, unsigned long *options)
 {
 	long			one;
+
 	one = 1;
 	if (c >= 'a' && c <= 'z')
 		*options |= (one << (c - 97));
@@ -26,12 +26,14 @@ void				treat_options(char c, unsigned long *options)
 		*options |= (one << (c + 4));
 }
 
-unsigned long				options(char **argv)
+static unsigned long	options(char **argv)
 {
-	unsigned long			options;
-	char			*str;
+	unsigned long		options;
+	char				*str;
+	int					not_dash;
 
 	options = 0;
+	not_dash = 0;
 	argv++;
 	while (*argv)
 	{
@@ -45,22 +47,9 @@ unsigned long				options(char **argv)
 				str++;
 			}
 		}
+		else if (*str != '-' && *str != '\0')
+			not_dash = 1;
 		argv++;
 	}
-	return (options);//
-}
-
-int					main(int argc, char **argv)
-{
-	unsigned long			result;
-	unsigned long			a;
-	if (argc && argv)
-	{
-		result = options(argv);
-		printf("Value %lu\n", result);
-	}
-	a = 0;
-	a |= (1 << 31);
-	printf("THIS %lu\n", a);
-	return (0);
+	return (options);
 }
