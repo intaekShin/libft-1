@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 15:31:05 by dhojt             #+#    #+#             */
-/*   Updated: 2018/07/13 16:40:58 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/07/13 16:51:08 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int					options(char **argv)
 	while (*argv)
 	{
 		str = *argv;
-		if (*str == '-' && ft_str_is_alpha(str + 1))
+		if (*str == '-' && ft_str_is_alphanumeric(str + 1))
 		{
 			str++;
 			while (*str)
