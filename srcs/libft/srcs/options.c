@@ -6,11 +6,10 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 15:31:05 by dhojt             #+#    #+#             */
-/*   Updated: 2018/07/14 23:24:16 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/08/31 16:37:44 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//not normed
 #include "libft.h"
 
 /*
@@ -37,15 +36,15 @@ unsigned long		options(char **argv)
 {
 	unsigned long	options;
 	char			*str;
-	int				not_dash;
 
 	options = 0;
-	not_dash = 0;
 	argv++;
 	while (*argv)
 	{
 		str = *argv;
-		if (*str == '-')
+		if (!ft_strcmp(*argv, "--"))
+			break ;
+		else if (*str == '-')
 		{
 			str++;
 			while (*str)
@@ -54,8 +53,6 @@ unsigned long		options(char **argv)
 				str++;
 			}
 		}
-		else if (*str != '-' && *str != '\0')
-			not_dash = 1;
 		argv++;
 	}
 	return (options);
