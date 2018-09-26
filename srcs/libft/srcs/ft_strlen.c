@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:37:49 by dhojt             #+#    #+#             */
-/*   Updated: 2018/01/27 15:37:50 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/09/27 12:40:10 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t		ft_strlen(const char *str)
 {
-	int i;
+	int len;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	len = 0;
+	while (str && str[len])
+		len++;
+	return (len);
 }
