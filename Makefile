@@ -122,11 +122,11 @@ INC = libft.h get_next_line.h ft_printf.h
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJS)
-	@ar rc $(NAME) $(OBJS)
-	@ranlib $(NAME)
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCS)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
