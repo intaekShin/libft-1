@@ -6,7 +6,7 @@
 /*   By: dhojt <dhojt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 15:39:39 by dhojt             #+#    #+#             */
-/*   Updated: 2018/07/13 19:38:32 by dhojt            ###   ########.fr       */
+/*   Updated: 2019/01/02 09:41:21 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <ctype.h>
+# include <stdbool.h>
 # include "get_next_line.h"
 # include "ft_printf.h"
 
@@ -45,8 +46,8 @@ size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 void			ft_bzero(void *s, size_t n);
 char			*ft_strdup(const char *s1);
 char			*ft_strndup(const char *s1, size_t n);
-char			*ft_strnstr(const char *haystack,\
-	const char *needle, size_t len);
+char			*ft_strnstr(const char *haystack,
+					const char *needle, size_t len);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
 int				ft_isascii(int c);
@@ -89,7 +90,9 @@ void			ft_putnbrmax_fd(intmax_t n, int fd);
 void			ft_putnbrumax_fd(uintmax_t n, int fd);
 char			*ft_itoa_base(uintmax_t num, uintmax_t base, char c);
 intmax_t		ft_atoi_max(const char *str);
-unsigned long	options(char **argv);
+bool			options(char ***argv, char *valid_options,
+					unsigned long *options);
+bool			option_check(unsigned long options, char c);
 
 typedef struct	s_list
 {
