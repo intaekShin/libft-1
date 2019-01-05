@@ -14,14 +14,7 @@
 
 int		ft_str_is_alphanumeric(char *str)
 {
-	int fail;
-
-	fail = 0;
-	while (*str)
-	{
-		if (!ft_isalpha(*str) && !ft_isdigit(*str))
-			fail = 1;
+	while (ft_isalpha(*str) || ft_isdigit(*str))
 		str++;
-	}
-	return ((fail) ? 0 : 1);
+	return (!*str);
 }
