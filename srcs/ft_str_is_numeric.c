@@ -14,14 +14,7 @@
 
 int		ft_str_is_numeric(char *str)
 {
-	int fail;
-
-	fail = 0;
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			fail = 1;
+	while (ft_isdigit(*str))
 		str++;
-	}
-	return ((fail) ? 0 : 1);
+	return (!*str);
 }
