@@ -12,14 +12,7 @@
 
 int		ft_str_is_uppercase(char *str)
 {
-	int fail;
-
-	fail = 0;
-	while (*str)
-	{
-		if (!(*str >= 'A' && *str <= 'Z'))
-			fail = 1;
+	while (*str >= 'A' && *str <= 'Z')
 		str++;
-	}
-	return ((fail) ? 0 : 1);
+	return (!*str);
 }
