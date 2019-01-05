@@ -14,23 +14,15 @@
 
 char	*ft_strcapitalize(char *str)
 {
-	int		i;
-	int		j;
 	char	*s;
 
-	i = 0;
-	j = -1;
 	s = str;
 	ft_strlowcase(str);
-	while (s[i] != '\0')
+	while (*s)
 	{
-		if (j == -1 || ft_isalnum(s[j]) == 0)
-		{
-			if (s[i] >= 'a' && s[i] <= 'z')
-				s[i] -= 32;
-		}
-		i++;
-		j++;
+		if ((s == str || !ft_isalnum(*(s - 1))) && (*s >= 'a' && *s <= 'z'))
+			*s -= 32;
+		s++;
 	}
 	return (str);
 }
