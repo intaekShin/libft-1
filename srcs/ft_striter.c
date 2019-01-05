@@ -14,12 +14,9 @@
 
 void	ft_striter(char *s, void (*f)(char *))
 {
-	unsigned int i;
-
-	i = 0;
 	if (s && f)
 	{
-		while (s[i])
-			f(&s[i++]);
+		while (*s)
+			f(&*(s++));
 	}
 }
