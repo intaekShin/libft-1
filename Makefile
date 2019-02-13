@@ -23,7 +23,6 @@ SRC =		ft_atoi.c \
 			ft_lstmap.c \
 			ft_lstnew.c \
 			ft_lstreturn.c \
-			ft_lststrsplit.c \
 			ft_memalloc.c \
 			ft_memccpy.c \
 			ft_memchr.c \
@@ -37,6 +36,7 @@ SRC =		ft_atoi.c \
 			ft_putendl.c \
 			ft_putendl_fd.c \
 			ft_putnbr.c \
+			ft_putnbr_base.c \
 			ft_putnbr_fd.c \
 			ft_putnbrmax_fd.c \
 			ft_putnbrumax_fd.c \

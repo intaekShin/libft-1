@@ -15,10 +15,8 @@
 int		line_copy(char **line, char *content, char c)
 {
 	int		i;
-	char	*tmp;
 
 	i = 0;
-	tmp = *line;
 	while (content[i] && content[i] != c)
 		i++;
 	if (!(*line = ft_strndup(content, i)))
@@ -83,7 +81,8 @@ int		get_next_line(const int fd, char **line)
 	tmp = live->content;
 	if (tmp[read_result] != '\0')
 	{
-		live->content = ft_strdup(&((live->content)[read_result + 1]));
+		live->content = ft_strdup(&(
+			((char*)(live->content))[read_result + 1]));
 		free(tmp);
 	}
 	else

@@ -16,10 +16,8 @@
 t_tab			*display_s(t_tab *tab)
 {
 	char		*s;
-	int			i;
 	int			len;
 
-	i = 0;
 	s = va_arg(tab->args, char *);
 	if (tab->precision > -1 && s)
 		s = ft_strndup(s, tab->precision);

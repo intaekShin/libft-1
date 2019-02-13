@@ -13,6 +13,8 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <unistd.h>
+# include <stdint.h>
+# include <wchar.h>
 # include <stdlib.h>
 # include <ctype.h>
 # include <stdbool.h>
@@ -79,6 +81,7 @@ void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl(char const *s);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+void			ft_putnbr_base(uintmax_t num, uintmax_t base, char c);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
@@ -108,5 +111,4 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list			*ft_lstreturn(t_list *lst, size_t n);
-t_list			**ft_lststrsplit(char const *s, char c);
 #endif
